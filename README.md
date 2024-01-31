@@ -6,7 +6,7 @@ This is my course assignment for the course JavaScript 2 at Noroff. The course s
 
 ## Live app
 
-This project is deployed on [Netlify](place link to netlify here).
+This project is deployed on [Netlify](https://js2-ca-dwnwnd.netlify.app/) from the branch called `js2`.
 
 ## Course goal
 
