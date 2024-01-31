@@ -13,7 +13,7 @@ This project is deployed on [Netlify](place link to netlify here).
 The goal of this course was to:
 
 - Become confident in using provided `API`and `API documentation`
-- Learn how to use `GET`, `POST, `PUT`and `DELETE` HTTP method
+- Learn how to use `GET`, `POST, `PUT` and `DELETE` HTTP method
 - Being able to create a functioning `user interface` that allows for viewing, posting, editign and deleting social media content
 - Become confident in using Github `Pull Requests`, `Branches` and `Commits`
 
