@@ -2,7 +2,7 @@
 
 ![ca-screenshot](place img here)
 
-This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform".
+This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform". + some more info about your webapp/site.
 
 ## Live app
 
@@ -27,24 +27,24 @@ The goal of this course was to:
 
 The following user stories were required for a passing submission:
 
-- User with @noroff.no or @stud.noroff.no email can register profile
-- Registered user can login
-- User can view a post content feed
-- User can filter the post content feed
-- User can search the post content feed
-- User can view a post content item by ID
-- User can create a post content item
-- User can update a post content item
-- User can delete a post content item
+- User with `@noroff.no` or `@stud.noroff.no` email can register profile
+- Registered user can `login`
+- User can `view` a post content feed
+- User can `filter` the post content feed
+- User can `search` the post content feed
+- User can `view` a post content item `by ID`
+- User can `create a post` content item
+- User can `update a post` content item
+- User can `delete a post` content item
 
 ### Additional features
 
 The following user stories were optional:
 
-- User can create a comment on a post
-- User can edit profile media
-- User can follow/unfollow a profile
-- User can react to a post content item
+- User can `create a comment` on a post
+- User can `edit profile media`
+- User can `follow/unfollow` a profile
+- User can `react to a post` content item
 
 ### Assignment Restrictions
 
