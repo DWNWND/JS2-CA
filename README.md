@@ -50,9 +50,9 @@ The following user stories were optional:
 
 The course assignment was restricted by:
 
-- Required functionality had to be implemented in original, pure JavaScript.
+- Required functionality had to be implemented in original, `pure JavaScript`.
 - A CSS Framework could be used to build the application UI.
-- A .gitignore file had to be provided including node_modules. This folder must be untracked.
+- A `.gitignore file` had to be provided `including node_modules`. This folder must be untracked.
 - Content posted on the API is public and associated with your identity. Be appropriate and respectful.
 
 ## Figma Prototype
