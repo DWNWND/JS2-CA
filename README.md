@@ -55,11 +55,11 @@ The course assignment was restricted by:
 - A .gitignore file had to be provided including node_modules. This folder must be untracked.
 - Content posted on the API is public and associated with your identity. Be appropriate and respectful.
 
-## My Figma Prototype
+## Figma Prototype
 
 [Figma](add link to Figma Prototype here)
 
-## My Trello Board
+## Trello Board
 
 [Trello board](add link to Trello board here)
 
