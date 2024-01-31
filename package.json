@@ -4,7 +4,10 @@
   "description": "My submission for the course assignment in the course JavaScript 2 at Noroff.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css",
+    "dev": "npm run watch & live-server"
   },
   "repository": {
     "type": "git",
@@ -26,5 +29,9 @@
   "homepage": "https://github.com/DWNWND/JS2-CA#readme",
   "dependencies": {
     "bootstrap": "^5.3.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.70.0"
   }
 }
