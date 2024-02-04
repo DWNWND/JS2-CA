@@ -1,4 +1,6 @@
+@import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/variables";
 
 .profile-img-nav {
   width: 35px;
@@ -10,4 +12,6 @@ main > .container {
   padding-top: 80px;
 }
 
-
+.post-max-width {
+  max-width: 49%;
+}
