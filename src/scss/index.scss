@@ -1,0 +1,18 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/variables";
+
+.profile-img-nav {
+  width: 35px;
+  height: 35px;
+  border: solid 1px #000;
+}
+
+main > .container {
+  padding-top: 80px;
+  padding-bottom: 110px;
+}
+
+.post-max-width {
+  max-width: 49%;
+}

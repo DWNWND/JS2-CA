@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <meta name="description" content="" />
+    <link rel="icon" href="" />
+    <script src="https://kit.fontawesome.com/279950e6bf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../dist/css/index.css" />
+    <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="nav-link d-none d-sm-block pt-2 pb-2 pe-2" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          </div>
+          <div class="d-sm-none d-flex align-items-center">
+            <a href="" class="nav-link pt-2 pb-2 ps-2"><i class="fa-solid fa-magnifying-glass"></i></a>
+          </div>
+          <div class="d-none d-sm-flex gap-2 justify-content-end align-items-center">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container d-flex flex-column gap-2">
+        <label for="new-post" class="d-none"></label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <a href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a
+          ></span>
+          <textarea class="form-control" aria-label="Share new post" id="new-post" placeholder="Share whats on your mind"></textarea>
+          <button class="btn btn-outline-secondary" type="submit" id="submit-new-post">Share</button>
+        </div>
+
+        <div class="accordion" id="sort-posts">
+          <div class="accordion-item">
+            <h4 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#sorting-options" aria-expanded="false" aria-controls="sorting-options">Sort posts by:</button>
+            </h4>
+            <div id="sorting-options" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sort-posts">
+              <div class="accordion-body">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sortbydate" />
+                  <label class="form-check-label" for="sortbydate">Date</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sortbyname" />
+                  <label class="form-check-label" for="sortbyname">Name</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sortbytypethreads" />
+                  <label class="form-check-label" for="sortbytypethreads">Threads</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sortbymostliked" />
+                  <label class="form-check-label" for="sortbymostliked">Most liked</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feed pt-2">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 gy-2">
+            <div class="col">
+              <div class="card post-photo">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                  <div class="user d-flex align-items-center gap-2">
+                    <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
+                    <h3 class="username m-0">Username</h3>
+                  </div>
+                  <p class="m-0">date</p>
+                </div>
+                <div class="card-body">
+                  <img src="../img/undraw_In_love_6sq2.png" class="card-img" alt="..." />
+                  <p class="card-text">Post caption</p>
+                </div>
+                <div class="card-footer text-muted">
+                  <div class="accordion" id="view-likes-and-comments">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="headingLikes">
+                        <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-post-id-1" aria-expanded="false" aria-controls="likes-post-id-1">
+                          <i class="fa-regular fa-heart"></i>
+                          <!-- <i class="fa-solid fa-heart"></i>  -->
+                          <span class="number-of-likes">x</span> likes
+                        </button>
+                      </h4>
+                      <div id="likes-post-id-1" class="accordion-collapse collapse" aria-labelledby="headingLikes" data-bs-parent="#view-likes-and-comments">
+                        <div class="accordion-body d-flex flex-column gap-2">
+                          <div class="like d-flex gap-2 align-items-center">
+                            <i class="fa-solid fa-heart"></i>
+                            <strong> <h5 class="username m-0">Username</h5></strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingComments">
+                        <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-post-id-1" aria-expanded="false" aria-controls="comments-post-id-1">
+                          <i class="fa-regular fa-comment"></i>
+                          <!-- <i class="fa-solid fa-comment"></i> -->
+                          <span class="number-of-comments">x</span> comments
+                        </button>
+                      </h2>
+                      <div id="comments-post-id-1" class="accordion-collapse collapse" aria-labelledby="headingComments" data-bs-parent="#view-likes-and-comments">
+                        <div class="accordion-body d-flex flex-column gap-2">
+                          <div class="comment">
+                            <strong><h5 class="username m-0">Username</h5></strong>
+                            <p>comment comment comment comment</p>
+                          </div>
+                          <div class="comment">
+                            <strong><h5 class="username m-0">Username</h5></strong>
+                            <p>comment comment comment comment</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card post-thread">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                  <div class="user d-flex align-items-center gap-2">
+                    <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
+                    <h3 class="username m-0">Username</h3>
+                  </div>
+                  <p class="m-0">date</p>
+                </div>
+                <div class="card-body position-relative">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <blockquote class="blockquote">
+                    <p>A well-known quote, contained in a blockquote element.</p>
+                  </blockquote>
+                  <i class="fa-solid fa-quote-right position-absolute bottom-10 end-5"></i>
+                </div>
+                <div class="card-footer text-muted">
+                  <div class="accordion" id="view-likes-and-comments">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="headingLikes">
+                        <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-post-id-2" aria-expanded="false" aria-controls="likes-post-id-2">
+                          <i class="fa-regular fa-heart"></i>
+                          <!-- <i class="fa-solid fa-heart"></i>  -->
+                          <span class="number-of-likes">x</span> likes
+                        </button>
+                      </h4>
+                      <div id="likes-post-id-2" class="accordion-collapse collapse" aria-labelledby="headingLikes" data-bs-parent="#view-likes-and-comments">
+                        <div class="accordion-body d-flex flex-column gap-2">
+                          <div class="like d-flex gap-2 align-items-center">
+                            <i class="fa-solid fa-heart"></i>
+                            <strong> <h5 class="username m-0">Username</h5></strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingComments">
+                        <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-post-id-2" aria-expanded="false" aria-controls="comments-post-id-2">
+                          <i class="fa-regular fa-comment"></i>
+                          <!-- <i class="fa-solid fa-comment"></i> -->
+                          <span class="number-of-comments">x</span> comments
+                        </button>
+                      </h2>
+                      <div id="comments-post-id-2" class="accordion-collapse collapse" aria-labelledby="headingComments" data-bs-parent="#view-likes-and-comments">
+                        <div class="accordion-body d-flex flex-column gap-2">
+                          <div class="comment">
+                            <strong><h5 class="username m-0">Username</h5></strong>
+                            <p>comment comment comment comment</p>
+                          </div>
+                          <div class="comment">
+                            <strong><h5 class="username m-0">Username</h5></strong>
+                            <p>comment comment comment comment</p>
+                          </div>
+                          <label for="new-comment" class="d-none"></label>
+                          <strong><h5 class="username m-0">Username</h5></strong>
+                          <div class="input-group">
+                            <textarea class="form-control" aria-label="Add comment" id="new-comment" placeholder="Type your comment here"></textarea>
+                            <button class="btn btn-outline-secondary" type="submit" id="submit-new-comment">Share</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom d-sm-none">
+      <nav class="navbar">
+        <div class="container-fluid d-flex align-items-center">
+          <a class="nav-link pt-2 pb-2 pe-2" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+          <a class="nav-link p-2" href="#"><i class="fa-solid fa-plus"></i></a>
+          <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
+        </div>
+      </nav>
+    </footer>
+  </body>
+</html>
