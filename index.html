@@ -34,49 +34,49 @@
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
-            <form action="/profile/index.html" class="container-sm mt-2">
+            <form id="login" class="container-sm mt-2">
               <div class="form-floating mb-3">
-                <input title="" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />
-                <label for="floatingInput" class="text-primary">Email address</label>
+                <input title="" type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required />
+                <label for="loginEmail" class="text-primary">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="8" required />
-                <label for="floatingPassword" class="text-primary">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" minlength="8" required />
+                <label for="loginPassword" class="text-primary">Password</label>
               </div>
               <div class="d-grid gap-2 mt-4">
-                <button type="submit" class="btn btn-primary btn-lg w-100">Log in</button>
+                <button for="login" type="submit" class="btn btn-primary btn-lg w-100">Log in</button>
               </div>
             </form>
           </div>
           <div class="tab-pane fade" id="new-user-tab-pane" role="tabpanel" aria-labelledby="new-user-tab" tabindex="0">
-            <form action="/profile/index.html" class="container-sm mt-2">
+            <form id="register" action="" class="container-sm mt-2">
               <div class="form-floating mb-3">
-                <input pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required />
+                <input type="email" class="form-control" id="registerEmail" placeholder="name@example.com" required />
                 <!-- Add the correct RegEx for the validation. A popular one is: ^[a-zA-Z0-9._-]+@[n.-]+\.[a-zA-Z]{2,4}$ -->
-                <label for="floatingEmail" class="text-primary">Email address</label>
+                <label for="registerEmail" class="text-primary">Email address</label>
               </div>
               <div id="emailHelpBlock" class="form-text mb-3">The email value must be a valid stud.noroff.no or noroff.no email address.</div>
 
               <div class="form-floating mb-3">
-                <input type="username" class="form-control" id="floatingUsername" placeholder="Username" required />
-                <label for="floatingUsername" class="text-primary">Username</label>
+                <input type="username" class="form-control" id="registerUsername" placeholder="Username" required />
+                <label for="registerUsername" class="text-primary">Username</label>
               </div>
               <div id="usernameHelpBlock" class="form-text mb-3">The username must not contain punctuation symbols apart from underscore (_).</div>
 
               <div class="form-floating">
-                <input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" class="form-control" id="floatingPassword" placeholder="Password" minlength="8" maxlength="20" required />
-                <label for="floatingPassword" class="text-primary">Password</label>
+                <input type="password" class="form-control" id="registerPassword" placeholder="Password" minlength="8" maxlength="20" required />
+                <label for="registerPassword" class="text-primary">Password</label>
               </div>
               <div id="passwordHelpBlock" class="form-text mb-3">Your password must be 8-20 characters long and contain letters, numbers and special characters.</div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingRepeatPassword" placeholder="Repeat Password" required />
+                <input type="password" class="form-control" id="registerRepeatPassword" placeholder="Repeat Password" />
                 <!-- add a test that checks if its the same as entered above -->
 
-                <label for="floatingRepeatPassword" class="text-primary">Repeat password</label>
+                <label for="registerRepeatPassword" class="text-primary">Repeat password</label>
               </div>
 
               <div class="d-grid gap-2 mt-4">
-                <button class="btn btn-outline-primary btn-lg w-100">Create new user</button>
+                <button for="register" class="btn btn-outline-primary btn-lg w-100">Create new user</button>
               </div>
             </form>
           </div>
@@ -85,4 +85,5 @@
     </main>
     <footer class="footer mt-auto py-3 bg-light fixed-bottom d-sm-none"></footer>
   </body>
+  <script defer type="module" src="js/index.js"></script>
 </html>
