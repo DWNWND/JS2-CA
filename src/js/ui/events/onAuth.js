@@ -6,6 +6,17 @@ import { getPosts } from "../../api/posts/get.js";
 export async function onLoginAuth(event) {
   event.preventDefault();
 
+  //This is how Oli did it on the CA solution on youtube (easy peasy lemon scweezy):
+  const form = event.target;
+  const formData = new FormData(form);
+  const profile = Object.fromEntries(formData.entries());
+  const action = form.action; //in this case this params are added the HMTL form element
+  const method = form.method; //in this case this params are added the HMTL form element
+  console.log(profile);
+
+  register(profile, action, method); //this would be another function
+
+  //This is how Oli did it (just a bit altered by me to understand it and separate login from registry) in the new API V2 loom video
   const email = event.target.loginEmail.value;
   const password = event.target.loginPassword.value;
 
