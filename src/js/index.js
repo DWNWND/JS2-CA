@@ -1,3 +1,8 @@
+import { homePage } from "./routes/home.js";
+
+// router();
+homePage();
+
 // LOGIN DETAILS
 //   name: "test1234",
 //   email: "test123dwnwnd@stud.noroff.no",
@@ -38,10 +43,7 @@
 // post.getPost(58)
 // post.removePost(58)
 
-import { homePage } from "./routes/home.js";
-
-homePage();
-
+//TEST SINGLE POST
 // async function testTemplate() {
 //   const posts = await postMethods.getPosts();
 //   const post = posts.data.pop();
@@ -50,4 +52,3 @@ homePage();
 //   const postContainer = document.querySelector(".post-example");
 //   templates.renderPostTemplate(post, postContainer);
 // }
-
