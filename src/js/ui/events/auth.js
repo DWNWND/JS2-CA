@@ -11,9 +11,9 @@ export async function loginAuth(event) {
   const password = event.target.loginPassword.value;
 
   await login(email, password);
-  const posts = await getPostsFromAPI();
+  // const posts = await getPostsFromAPI();
 
-  if (posts) {
+  if (login) {
     location.pathname = "/feed";
   }
   //is this just for testing? right:
