@@ -1,7 +1,7 @@
-import { homePage } from "./routes/home.js";
+import { loginPage, feedPage } from "./routes/index.js";
 
-// router();
-homePage();
+// loginPage();
+feedPage();
 
 // LOGIN DETAILS
 //   name: "test1234",
