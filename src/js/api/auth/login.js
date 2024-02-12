@@ -1,9 +1,9 @@
-import { authFetch } from "../fetch.js";
+import { fetchWithToken } from "../fetchWithToken.js";
 import { API_AUTH, API_BASE, API_LOGIN } from "../constants.js";
 import { save } from "../../storage/save.js";
 
 export async function login(email, password) {
-  const response = await authFetch(API_BASE + API_AUTH + API_LOGIN, {
+  const response = await fetchWithToken(API_BASE + API_AUTH + API_LOGIN, {
     method: "POST",
     body: JSON.stringify({ email, password }),
   });
