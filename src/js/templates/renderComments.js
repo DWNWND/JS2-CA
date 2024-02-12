@@ -1,4 +1,4 @@
-import { sendPostToAPI } from "../api/requests/index.js";
+// import { sendPostToAPI } from "../api/requests/index.js";
 
 async function commentsHTML(post, container) {
   const commentsArray = post.comments;
