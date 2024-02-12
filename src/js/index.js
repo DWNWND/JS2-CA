@@ -2,6 +2,7 @@ import { loginPage, feedPage } from "./routes/index.js";
 
 // loginPage();
 feedPage();
+loginPage();
 
 // LOGIN DETAILS
 //   name: "test1234",

@@ -13,16 +13,16 @@ export async function getPostsFromAPI() {
 
   const posts = await response.json();
   const allPosts = posts.data;
-  console.log("ALL POSTS: ", allPosts);
+  // console.log("ALL POSTS: ", allPosts);
 
   return allPosts;
 }
 
-export async function getPostFromAPI(id) {
+export async function getPostFromAPI(id, getParam) {
   if (!id) {
     throw new Error("getPost funciton is missing a postID");
   }
-  const getPostURL = `${API_BASE}${API_POSTS}/${id}?_author=true&_comments=true&_reactions=true`;
+  const getPostURL = `${API_BASE}${API_POSTS}/${id}?${getParam}`;
   const response = await fetchWithToken(getPostURL);
 
   const post = await response.json();
