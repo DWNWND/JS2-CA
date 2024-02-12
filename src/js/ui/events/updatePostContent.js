@@ -1,32 +1,41 @@
 import { getPostFromAPI, updatePostInAPI } from "../../api/requests/index.js";
 
 //GET SEARCHPARAMS/ID
-const url = new URL(location.href);
-const id = url.searchParams.get("id");
+// function getIDfromModal() {
+//   if (document.querySelector(".modal-content")) {
+//   const getModalID = document.querySelector(".modal-content")
+//   const id = getModalID.id
+//   return id
+//   }
+// }
 
-//POPULATE FORM
-export async function populateUpdateForm() {
-  const form = document.querySelector("#updatePost");
+// const url = new URL(location.href);
+// const id = url.searchParams.get("id");
 
-  if (form) {
-    const button = form.querySelector("button");
-    button.disabled = true;
+// POPULATE FORM
+// export async function populateUpdateForm() {
+//   const form = document.querySelector("#updatePost");
+//   const id = getIDfromModal()
 
-    const postPopulation = await getPostFromAPI(id);
+//   if (form) {
+//     const button = form.querySelector("button");
+//     button.disabled = true;
 
-    if (postPopulation.title) {
-      form.title.value = postPopulation.title;
-    }
-    if (postPopulation.body) {
-      form.body.value = postPopulation.body;
-    }
-    if (!postPopulation.body || !postPopulation.title) {
-      console.log("the post is lacking some content");
-    }
+//     const postPopulation = await getPostFromAPI(id);
 
-    button.disabled = false;
-  }
-}
+//     if (postPopulation.title) {
+//       form.title.value = postPopulation.title;
+//     }
+//     if (postPopulation.body) {
+//       form.body.value = postPopulation.body;
+//     }
+//     if (!postPopulation.body || !postPopulation.title) {
+//       console.log("the post is lacking some content");
+//     }
+
+//     button.disabled = false;
+//   }
+// }
 
 //UPDATE CONTENT
 export async function updatePostContent(event) {

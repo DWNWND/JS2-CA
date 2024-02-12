@@ -2,6 +2,7 @@ import { loginPage, feedPage } from "./routes/index.js";
 
 // loginPage();
 feedPage();
+
 // loginPage();
 
 // LOGIN DETAILS
@@ -13,7 +14,6 @@ feedPage();
 //   name: "testreg123"
 //   email: "testreg123@stud.noroff.no"
 //   password: "testreg123"
-
 
 // TEST UPDATE POST // THIS WORKED:
 // EXAMPLE POST ID 2 = 55

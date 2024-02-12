@@ -34,11 +34,9 @@ export function renderPostHeader(postData) {
 }
 
 
-  //get a delete btn on the posts that are yours - this does not work yet - it deletes everything posted hehe
-  // const author = load("profile");
-  // if (author.name == postData.author.name) {
-  //   const button = document.createElement("button");
-  //   button.innerText = "delete post";
-  //   cardHeader.append(button);
-  //   button.addEventListener("click", removePostFromAPI(postData.id)); //rememeber to test if this works
-  // }
+//tHIS IS WHERE I STOPPED:
+const modalBtn = document.querySelectorAll(".modalBtn");
+console.log(modalBtn);
+// const id = modalBtn.id;
+
+// modalBtn.addEventListener("click", makeModalByID(id));
