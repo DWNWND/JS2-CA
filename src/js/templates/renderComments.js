@@ -36,9 +36,9 @@ export function displayCommentsAccordion(postData) {
   const accordionBody = document.createElement("div");
   accordionBody.classList.add("accordion-body", "d-flex", "flex-column", "gap-2");
 
-  if (postData._count.reactions) {
+  if (postData._count.comments) {
     commentsHTML(postData, accordionBody);
-  } else if (!postData._count.reactions) {
+  } else if (!postData._count.comments) {
     accordionBody.innerText = "this post has no comments";
   }
 
