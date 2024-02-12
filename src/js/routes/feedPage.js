@@ -10,7 +10,7 @@ async function buildFeed() {
 
 export async function feedPage() {
   buildFeed();
-  // listener.postListener();
+  listener.postListener();
 }
 
 //RENDER POSTS

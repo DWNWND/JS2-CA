@@ -14,6 +14,4 @@ export async function newPostContent(event) {
     //send it to the api
     sendPostToAPI(post);
   }
-
-  //add an reload/update page-ting
 }

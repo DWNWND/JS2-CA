@@ -34,15 +34,18 @@
     </header>
     <main>
       <div class="container d-flex flex-column gap-2">
-        <label for="new-post" class="d-none"></label>
-        <div class="input-group">
-          <span class="input-group-text">
-            <a href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a
-          ></span>
-          <textarea class="form-control" aria-label="Share new post" id="new-post" placeholder="Share whats on your mind"></textarea>
-          <button class="btn btn-outline-secondary" type="submit" id="submit-new-post">Share</button>
-        </div>
 
+        <form id="newPost" class="">
+          <label for="title" class="d-none"></label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <!-- add this to js so you get the right profile details here -->
+              <a href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a
+            ></span>
+            <textarea class="form-control" aria-label="Share new post" id="title" name="title" placeholder="Share whats on your mind"></textarea>
+            <button class="btn btn-outline-secondary" type="submit" for="newPost" id="submit-new-post">Share</button>
+          </div>
+        </form>
         <div class="accordion" id="sort-posts">
           <div class="accordion-item">
             <h4 class="accordion-header" id="headingOne">

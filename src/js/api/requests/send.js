@@ -11,7 +11,10 @@ export async function sendPostToAPI(postData) {
     body: JSON.stringify(postData),
   });
   const post = await respons.json();
-  console.log("THE SENDING OF THIS POST TO THE API WAS SUCCESSFUL: ", post);
+  // console.log("THE SENDING OF THIS POST TO THE API WAS SUCCESSFUL: ", post);
 
-  return post;
+  if (post) {
+    location.reload();
+  }
+  // return post;
 }
