@@ -1,6 +1,6 @@
 import { displayCommentsAccordion, displayReactionsAccordion } from "./index.js";
 
-export function cardFooter(postData) {
+export function renderPostFooter(postData) {
   const accordionItemReactions = displayReactionsAccordion(postData);
   const accordionItemComments = displayCommentsAccordion(postData);
 
