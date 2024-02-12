@@ -2,7 +2,7 @@ import { loginPage, feedPage } from "./routes/index.js";
 
 // loginPage();
 feedPage();
-loginPage();
+// loginPage();
 
 // LOGIN DETAILS
 //   name: "test1234",
@@ -14,12 +14,6 @@ loginPage();
 //   email: "testreg123@stud.noroff.no"
 //   password: "testreg123"
 
-// TEST CREATE POST // THIS WORKED:
-//   import { createPost } from "./api/posts/create.js";
-//   createPost({
-//     title: "My example title 2",
-//     body: "My example body 2",
-//   });
 
 // TEST UPDATE POST // THIS WORKED:
 // EXAMPLE POST ID 2 = 55
@@ -43,13 +37,3 @@ loginPage();
 // post.getPosts()
 // post.getPost(58)
 // post.removePost(58)
-
-//TEST SINGLE POST
-// async function testTemplate() {
-//   const posts = await postMethods.getPosts();
-//   const post = posts.data.pop();
-//   // const post = posts.data[3];
-
-//   const postContainer = document.querySelector(".post-example");
-//   templates.renderPostTemplate(post, postContainer);
-// }
