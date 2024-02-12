@@ -2,7 +2,7 @@ import { getPostFromAPI } from "../../api/requests/index.js";
 import { modalHeader, renderModalBody, renderModalFooter } from "./index.js";
 
 export async function makeModalByID(id) {
-  const getParam = "_author=true";
+  const getParam = "_author=true&_comments=true&_reactions=true";
   const post = await getPostFromAPI(id, getParam);
 
   const header = await modalHeader(post);
