@@ -1,4 +1,3 @@
-
 export async function modalHeader(postData) {
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");
@@ -26,7 +25,6 @@ export async function modalHeader(postData) {
   closeBtn.type = "button";
   closeBtn.setAttribute("data-bs-dismiss", "modal");
   closeBtn.setAttribute("aria-label", "Close");
-  closeBtn.innerText = "close modal"
 
   const modalHeader = document.createElement("div");
   modalHeader.classList.add("modal-header");
