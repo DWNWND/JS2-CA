@@ -1,3 +1,5 @@
+import { sendPostToAPI } from "../api/requests/index.js";
+
 async function commentsHTML(post, container) {
   const commentsArray = post.comments;
 
@@ -7,7 +9,7 @@ async function commentsHTML(post, container) {
     comment.innerHTML = `
     <strong><h5 class="username m-0">${commentsArray[i].owner}</h5></strong>
     <p>${commentsArray[i].body}</p>`;
-    
+
     container.append(comment);
   }
 }
@@ -45,3 +47,30 @@ export function displayCommentsAccordion(postData) {
 
   return accordionItem;
 }
+
+//WAIT WITH THIS:
+
+// async function newComment(event) {
+//   event.preventDefault();
+
+//   const title = event.target.title.value;
+//   const body = event.target.body.value;
+
+//   await sendPostToAPI(title, body);
+
+//   if (sendPostToAPI) {
+//     console.log("sendt?")
+//     // location.reload()
+//   }
+//   //is this just for testing? right:
+//   // const posts = await getPostsFromAPI();
+//   // console.log(posts);
+// }
+
+//COMMENTS
+//   <label for="new-comment" class="d-none"></label>
+//     <strong><h5 class="username m-0">Username</h5></strong>
+//     <div class="input-group">
+//       <textarea class="form-control" aria-label="Add comment" id="new-comment" placeholder="Type your comment here"></textarea>
+//       <button class="btn btn-outline-secondary" type="submit" id="submit-new-comment">Share</button>
+//     </div>
