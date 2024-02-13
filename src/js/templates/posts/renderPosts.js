@@ -25,7 +25,15 @@ export function renderPostTemplate(postData, parent) {
 
 // MULTIPLE POSTS
 export function renderPostTemplates(postDataList, parent) {
-  parent.append(...postDataList.map(postTemplate));
+  for (let i = 0; i < postDataList.length; i++) {
+      parent.append(postTemplate(postDataList[i]));
+    if (i === 5) {
+      break;
+    }
+  }
+
+  // OTHER WAYS ::::
+  // parent.append(...postDataList.map(postTemplate));
 
   //same same but different
   // postDataList.forEach(function (post) {
