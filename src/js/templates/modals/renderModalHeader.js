@@ -16,10 +16,6 @@ export async function modalHeader(postData) {
   user.classList.add("user", "d-flex", "align-items-center", "gap-2");
   user.append(userLink, userName);
 
-  const date = document.createElement("p");
-  date.classList.add("m-0");
-  date.innerText = postData.updated;
-
   const closeBtn = document.createElement("button");
   closeBtn.classList.add("btn-close");
   closeBtn.type = "button";
@@ -29,7 +25,7 @@ export async function modalHeader(postData) {
   const modalHeader = document.createElement("div");
   modalHeader.classList.add("modal-header");
 
-  modalHeader.append(user, date, closeBtn);
+  modalHeader.append(user, closeBtn);
 
   return modalHeader;
 }

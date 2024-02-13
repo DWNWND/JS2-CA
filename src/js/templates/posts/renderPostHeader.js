@@ -18,17 +18,17 @@ export function renderPostHeader(postData) {
   user.classList.add("user", "d-flex", "align-items-center", "gap-2");
   user.append(userLink, userName);
 
-  const date = document.createElement("p");
-  date.classList.add("m-0");
-  date.innerText = postData.updated;
+  // const date = document.createElement("p");
+  // date.classList.add("m-0");
+  // date.innerText = postData.updated;
 
   const cardHeader = document.createElement("div");
   cardHeader.classList.add("card-header", "d-flex", "align-items-center", "justify-content-between");
   // cardHeader.id = postData.id;
 
-  const modalBtn = modalOpenBtn(postData.id)
+  const modalBtn = modalOpenBtn(postData.id);
 
-  cardHeader.append(user, date, modalBtn);
+  cardHeader.append(user, modalBtn);
 
   return cardHeader;
 }

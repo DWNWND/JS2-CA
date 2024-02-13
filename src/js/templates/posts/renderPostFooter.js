@@ -1,6 +1,10 @@
 import { displayReactionsAccordion, displayCommentsAccordion } from "../index.js";
 
 export function renderPostFooter(postData) {
+  const date = document.createElement("p");
+  date.classList.add("mt-2", "date");
+  date.innerText = `Last updated: ${postData.updated}`;
+
   const accordionItemReactions = displayReactionsAccordion(postData);
   const accordionItemComments = displayCommentsAccordion(postData);
 
@@ -11,7 +15,7 @@ export function renderPostFooter(postData) {
 
   const cardFooter = document.createElement("div");
   cardFooter.classList.add("card-footer", "text-muted");
-  cardFooter.append(accordion);
+  cardFooter.append(date, accordion);
 
   return cardFooter;
 }
