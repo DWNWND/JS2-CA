@@ -6,8 +6,8 @@ export async function makeModalByID(id) {
   const post = await getPostFromAPI(id, getParam);
 
   const header = await modalHeader(post);
-  const body = renderModalBody(post)
-  const footer = renderModalFooter(post)
+  const body = renderModalBody(post);
+  const footer = renderModalFooter(post);
 
   const modalContent = document.createElement("div");
   modalContent.classList.add("modal-content");
@@ -26,8 +26,5 @@ export async function makeModalByID(id) {
   modal.setAttribute("aria-hidden", "true");
   modal.append(modalDialog);
 
-  const modalContainer = document.querySelector(".modal-container");
-  modalContainer.append(modal);
+  return modal;
 }
-
-

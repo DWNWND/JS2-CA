@@ -32,11 +32,3 @@ export function renderPostHeader(postData) {
 
   return cardHeader;
 }
-
-
-//tHIS IS WHERE I STOPPED:
-const modalBtn = document.querySelectorAll(".modalBtn");
-console.log(modalBtn);
-// const id = modalBtn.id;
-
-// modalBtn.addEventListener("click", makeModalByID(id));
