@@ -11,7 +11,7 @@ function checkForModals() {
     const modal = document.querySelector(".modal");
     const closeBtn = document.querySelector(".btn-close");
     closeBtn.addEventListener("click", () => {
-      modal.remove();
+        modal.remove();
     });
   } else {
     console.log("this some bullshit");
