@@ -7,7 +7,7 @@ export function modalOpenBtn(id) {
 
   modalBtn.setAttribute("data-bs-target", `#modal-${id}`);
   // modalBtn.setAttribute("data-bs-toggle", "modal"); //removed to override bootstrap?
-  modalBtn.innerText = "open as modal";
+  modalBtn.innerText = "open";
 
   return modalBtn;
 }
