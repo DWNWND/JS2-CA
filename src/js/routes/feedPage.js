@@ -6,7 +6,6 @@ async function buildFeed() {
   const posts = await HTTPMethod.getPostsFromAPI();
   const feedContainer = document.querySelector(".feed-container");
   templates.renderPostTemplates(posts, feedContainer);
-  console.log(posts);
 }
 
 export async function feedPage() {
