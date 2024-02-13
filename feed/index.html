@@ -9,7 +9,12 @@
     <link rel="icon" href="" />
     <script src="https://kit.fontawesome.com/279950e6bf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../dist/css/index.css" />
+    <script defer type="module" src="/src/js/index.js"></script>
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script> -->
+    <!-- <script defer type="modal" async="" src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
   </head>
   <body>
     <div class="modal-container"></div>
@@ -74,8 +79,17 @@
           </div>
         </div>
 
-        <div class="feed pt-2">
-          <div class="feed-container row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 gy-2"></div>
+        <!-- <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 1044px;">
+   -->
+        <!-- '{"percentPosition": true }' -->
+
+        <!-- row gy-3 g-md-3 hcf-isotope-grid -->
+        <!-- row feed-container h-100 -->
+        <div class="feed pt-2 h-100">
+          <div class="feed-container row gy-3 g-md-3 hcf-isotope-grid"></div>
+          <!-- row-sm-cols-1 gy-2 d-flex flex-row -->
+          <!-- d-md-flex -->
+          <!-- row-cols-md-2 row-cols-xl-3 row-cols-xxl-4  -->
         </div>
       </div>
     </main>
@@ -89,5 +103,5 @@
       </nav>
     </footer>
   </body>
-  <script defer type="module" src="/src/js/index.js"></script>
+  <!-- <script src="masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script> -->
 </html>
