@@ -36,9 +36,10 @@ export function renderModalBody(postData) {
       quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
 
       const quoteMarkright = document.createElement("i");
-      quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-10", "end-5");
+      quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-25", "end-5");
 
       const quote = document.createElement("p");
+      quote.classList.add("text-center");
       quote.innerText = postData.title;
 
       const blockquote = document.createElement("blockquote");
