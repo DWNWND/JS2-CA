@@ -6,15 +6,12 @@ export function postTemplate(postData) {
   const footer = renderPostFooter(postData);
 
   const card = document.createElement("div");
-  card.classList.add("card", "post-thread", "post-photo"); //DOUBLE CHECK THESE CLASSES
+  card.classList.add("card", "post-thread", "post-photo", "mb-4"); //DOUBLE CHECK THESE CLASSES
   // card.id = postData.id;
-
   card.append(header, body, footer);
 
   const col = document.createElement("div");
-  col.classList.add("col-12", "col-md-6", "col-lg-3", "hcf-isotope-item");
-  // col-12 col-md-6 col-lg-3 hcf-isotope-item
-  // ("col-sm-6", "col-lg-4", "mb-4");
+  col.classList.add("col-lg-4", "col-md-6", "col-6");
   col.append(card);
 
   return col;
