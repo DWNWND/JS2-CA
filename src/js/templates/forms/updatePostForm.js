@@ -1,13 +1,5 @@
-import { getPostFromAPI, removePostFromAPI } from "../../api/requests/index.js";
+import { getPostFromAPI } from "../../api/requests/index.js";
 import { updatePostContent } from "../../ui/events/index.js";
-
-
-// const deleteBtn = document.createElement("button");
-// deleteBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100");
-// deleteBtn.innerText = "delete post";
-// deleteBtn.addEventListener("click", async (event) => {
-//   removePostFromAPI(postData.id);
-// });
 
 
 export function updateForm(id) {

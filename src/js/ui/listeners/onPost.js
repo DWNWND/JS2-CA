@@ -34,6 +34,7 @@ export async function openModal() {
     });
   }
 }
+//check the glitch when clicking the background to exit modal....
 
 //SAME SAME/DIFFERENT::::
 // export async function openModal() {

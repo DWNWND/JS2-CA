@@ -1,16 +1,32 @@
+import { removePostFromAPI } from "../../api/requests/delete.js";
 import { load } from "../../storage/load.js";
 import { populateUpdateForm, updateForm } from "../forms/index.js";
 
 const author = load("profile");
 
+function makeDeleteBtn() {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100");
+  deleteBtn.innerText = "delete post";
+  return deleteBtn;
+}
+
 export function renderModalBody(postData) {
   const modalBody = document.createElement("div");
   modalBody.classList.add("modal-body", "position-relative");
 
+  //add possibility to add photo too maybe...
   if (author.name === postData.author.name) {
     const form = updateForm(postData.id);
     modalBody.append(form);
     populateUpdateForm(form);
+    
+    const removePost = makeDeleteBtn();
+    modalBody.append(removePost);
+
+    removePost.addEventListener("click", async (event) => {
+      await removePostFromAPI(postData.id);
+    });
 
   } else if (author.name !== postData.author.name) {
     if (postData.media) {
