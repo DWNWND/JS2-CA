@@ -1,14 +1,6 @@
 import { load } from "../../storage/load.js";
 import { populateUpdateForm, updateForm } from "../forms/index.js";
 
-//get a delete btn on the posts that are yours - this does not work yet - it deletes everything posted hehe
-// const author = load("profile");
-// if (author.name == postData.author.name) {
-//   const button = document.createElement("button");
-//   button.innerText = "delete post";
-//   cardHeader.append(button);
-//   button.addEventListener("click", removePostFromAPI(postData.id)); //rememeber to test if this works
-// }
 const author = load("profile");
 
 export function renderModalBody(postData) {
@@ -16,9 +8,10 @@ export function renderModalBody(postData) {
   modalBody.classList.add("modal-body", "position-relative");
 
   if (author.name === postData.author.name) {
-    const form = updateForm();
+    const form = updateForm(postData.id);
     modalBody.append(form);
-    populateUpdateForm();
+    populateUpdateForm(form);
+
   } else if (author.name !== postData.author.name) {
     if (postData.media) {
       const img = document.createElement("img");
