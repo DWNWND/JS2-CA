@@ -1,13 +1,15 @@
 import { getPostFromAPI } from "../../api/requests/index.js";
 import { modalHeader, renderModalBody, renderModalFooter } from "./index.js";
 
+
 export async function makeModalByID(id) {
-  const getParam = "_author=true";
+  const getParam = "_author=true&_comments=true&_reactions=true";
   const post = await getPostFromAPI(id, getParam);
 
   const header = await modalHeader(post);
-  const body = renderModalBody(post)
-  const footer = renderModalFooter(post)
+  const body = renderModalBody(post);
+  const footer = renderModalFooter(post);
+
 
   const modalContent = document.createElement("div");
   modalContent.classList.add("modal-content");
@@ -26,8 +28,5 @@ export async function makeModalByID(id) {
   modal.setAttribute("aria-hidden", "true");
   modal.append(modalDialog);
 
-  const modalContainer = document.querySelector(".modal-container");
-  modalContainer.append(modal);
+  return modal;
 }
-
-

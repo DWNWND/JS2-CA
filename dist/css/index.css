@@ -7332,8 +7332,16 @@ textarea.form-control-lg {
   top: 10% !important;
 }
 
+.top-25 {
+  top: 25% !important;
+}
+
 .top-50 {
   top: 50% !important;
+}
+
+.top-70 {
+  top: 70% !important;
 }
 
 .top-100 {
@@ -7352,8 +7360,16 @@ textarea.form-control-lg {
   bottom: 10% !important;
 }
 
+.bottom-25 {
+  bottom: 25% !important;
+}
+
 .bottom-50 {
   bottom: 50% !important;
+}
+
+.bottom-70 {
+  bottom: 70% !important;
 }
 
 .bottom-100 {
@@ -7372,8 +7388,16 @@ textarea.form-control-lg {
   left: 10% !important;
 }
 
+.start-25 {
+  left: 25% !important;
+}
+
 .start-50 {
   left: 50% !important;
+}
+
+.start-70 {
+  left: 70% !important;
 }
 
 .start-100 {
@@ -7392,8 +7416,16 @@ textarea.form-control-lg {
   right: 10% !important;
 }
 
+.end-25 {
+  right: 25% !important;
+}
+
 .end-50 {
   right: 50% !important;
+}
+
+.end-70 {
+  right: 70% !important;
 }
 
 .end-100 {
@@ -11888,8 +11920,10 @@ textarea.form-control-lg {
   }
 }
 .profile-img-nav {
-  width: 35px;
-  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  max-width: 35px;
   border: solid 1px #000;
 }
 
@@ -11898,8 +11932,22 @@ main > .container {
   padding-bottom: 110px;
 }
 
-.post-max-width {
-  max-width: 49%;
+h3, .h3 {
+  font-size: 1.2rem;
+}
+
+p.date {
+  font-size: 0.8rem;
+}
+
+.card-body {
+  min-height: 500px;
+  max-height: 500px;
+}
+
+.card-img {
+  max-height: 250px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -9,6 +9,11 @@ async function buildFeed() {
 }
 
 export async function feedPage() {
-  buildFeed();
-  listener.postListener();
+  try {
+    await buildFeed();
+    await listener.openModal();
+    listener.postListener();
+  } catch (error) {
+    console.log(error);
+  }
 }

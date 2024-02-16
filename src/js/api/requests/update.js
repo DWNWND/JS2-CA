@@ -9,13 +9,17 @@ export async function updatePostInAPI(postData) {
     throw new Error("Update is missing a postID");
   }
   const updatePostURL = `${API_BASE}${API_POSTS}/${postData.id}`;
-  const respons = await fetchWithToken(updatePostURL, {
+  const response = await fetchWithToken(updatePostURL, {
     method,
     body: JSON.stringify(postData),
   });
-  const post = await respons.json();
 
-  console.log("THIS IS THE POST THAT WAS UPDATED: ", post);
-
-  return post;
+  if (response.ok) {
+    const post = await response.json();
+    location.reload();
+    console.log("THIS IS THE POST THAT WAS UPDATED: ", post);
+  } else {
+    throw new Error("Couln't update post", post);
+  }
+  // return post;
 }

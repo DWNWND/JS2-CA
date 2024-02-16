@@ -3,8 +3,10 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 .profile-img-nav {
-  width: 35px;
-  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  max-width: 35px;
   border: solid 1px #000;
 }
 
@@ -13,6 +15,22 @@ main > .container {
   padding-bottom: 110px;
 }
 
-.post-max-width {
-  max-width: 49%;
+// .post-max-width {
+//   max-width: 49%;
+// }
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p.date {
+  font-size: 0.8rem;
+}
+.card-body {
+  min-height: 500px;
+  max-height: 500px;
+}
+.card-img {
+  max-height: 250px;
+  object-fit: cover;
 }

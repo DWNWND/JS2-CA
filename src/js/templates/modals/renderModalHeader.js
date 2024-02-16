@@ -1,4 +1,3 @@
-
 export async function modalHeader(postData) {
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");
@@ -17,21 +16,16 @@ export async function modalHeader(postData) {
   user.classList.add("user", "d-flex", "align-items-center", "gap-2");
   user.append(userLink, userName);
 
-  const date = document.createElement("p");
-  date.classList.add("m-0");
-  date.innerText = postData.updated;
-
   const closeBtn = document.createElement("button");
   closeBtn.classList.add("btn-close");
   closeBtn.type = "button";
   closeBtn.setAttribute("data-bs-dismiss", "modal");
   closeBtn.setAttribute("aria-label", "Close");
-  closeBtn.innerText = "close modal"
 
   const modalHeader = document.createElement("div");
   modalHeader.classList.add("modal-header");
 
-  modalHeader.append(user, date, closeBtn);
+  modalHeader.append(user, closeBtn);
 
   return modalHeader;
 }

@@ -21,6 +21,7 @@ export function renderPostBody(postData) {
     quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-10", "end-5");
 
     const quote = document.createElement("p");
+    quote.classList.add("text-center");
     quote.innerText = postData.title;
 
     const blockquote = document.createElement("blockquote");

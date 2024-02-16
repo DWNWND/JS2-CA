@@ -6,11 +6,11 @@ const method = "post"; //or add it manually into the function..
 //FROM OLIS YT
 export async function sendPostToAPI(postData) {
   const sendPostURL = API_BASE + API_POSTS;
-  const respons = await fetchWithToken(sendPostURL, {
+  const response = await fetchWithToken(sendPostURL, {
     method,
     body: JSON.stringify(postData),
   });
-  const post = await respons.json();
+  const post = await response.json();
   // console.log("THE SENDING OF THIS POST TO THE API WAS SUCCESSFUL: ", post);
 
   if (post) {
