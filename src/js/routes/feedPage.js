@@ -2,17 +2,23 @@ import * as listener from "../ui/listeners/index.js";
 import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 
-async function buildFeed() {
-  const posts = await HTTPMethod.getPostsFromAPI();
+async function buildFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
-  templates.renderPostTemplates(posts, feedContainer);
+  feedContainer.innerHTML = "";
+  templates.renderPostTemplates(allPosts, feedContainer);
 }
 
 export async function feedPage() {
   try {
-    await buildFeed();
-    await listener.openModal();
-    listener.postListener();
+    const posts = await HTTPMethod.getPostsFromAPI();
+    if (posts) {
+      await buildFeed(posts);
+      listener.search(posts);
+      await listener.openModal();
+      listener.postListener();
+    } else if (!posts) {
+      throw new Error("something went wrong when calling API");
+    }
   } catch (error) {
     console.log(error);
   }

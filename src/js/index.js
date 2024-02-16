@@ -3,6 +3,7 @@ import { loginPage, feedPage } from "./routes/index.js";
 // loginPage();
 feedPage();
 
+
 // LOGIN DETAILS
 //   name: "test1234",
 //   email: "test123dwnwnd@stud.noroff.no",

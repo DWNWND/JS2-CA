@@ -1,8 +1,10 @@
+import { getPostsFromSearch } from "../events/index.js";
 
 
-// const searchInput = document.querySelector("#searchbar");
+export async function search(postsFromAPI) {
+  const searchInput = document.querySelector("#searchbar");
 
-// //Filter from searchbar: update search whenever typing in searchfield
-// searchInput.addEventListener("input", () => {
-//   displaySearchedProducts();
-// });
+  searchInput.addEventListener("input", async () => {
+    getPostsFromSearch(postsFromAPI)
+  });
+}

@@ -22,4 +22,9 @@
 //       return allItems;
 //     }
 //   });
+  // //clearing loading indicator
+  // productList.innerHTML = "";
+
+  // // looping through the results
+  // renderProducts(productsCategoriesed); //this is the render post 
 // }

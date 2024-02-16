@@ -2,4 +2,5 @@
 
 export * from "./onAuth.js";
 export * from "./onPost.js";
+export * from "./onSearch.js"
 
