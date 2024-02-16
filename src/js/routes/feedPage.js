@@ -6,6 +6,7 @@ async function buildFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
   feedContainer.innerHTML = "";
   templates.renderPostTemplates(allPosts, feedContainer);
+  await templates.openModal();
 }
 
 export async function feedPage() {
@@ -14,7 +15,6 @@ export async function feedPage() {
     if (posts) {
       await buildFeed(posts);
       listener.search(posts);
-      await listener.openModal();
       listener.postListener();
     } else if (!posts) {
       throw new Error("something went wrong when calling API");
