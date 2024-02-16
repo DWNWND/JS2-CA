@@ -6,7 +6,7 @@ async function buildFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
   feedContainer.innerHTML = "";
   templates.renderPostTemplates(allPosts, feedContainer);
-  await templates.openModal();
+  await listener.openModal();
 }
 
 export async function feedPage() {
