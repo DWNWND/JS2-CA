@@ -2,7 +2,7 @@ import * as listenFor from "../ui/listeners/index.js";
 import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 
-async function startFeed(allPosts) {
+export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
   feedContainer.innerHTML = "";
   templates.renderPostTemplates(allPosts, feedContainer);
@@ -12,8 +12,10 @@ async function startFeed(allPosts) {
 export async function feedPage() {
   try {
     const posts = await HTTPMethod.getPostsFromAPI();
+
     if (posts) {
       await startFeed(posts);
+      listenFor.filter(posts)
       listenFor.search(posts);
       listenFor.publishNewPost();
     } else if (!posts) {
