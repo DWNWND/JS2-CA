@@ -1,6 +1,5 @@
 import {updatePostInAPI } from "../../api/requests/index.js";
 
-
 export async function updatePostContent(event) {
   event.preventDefault();
 

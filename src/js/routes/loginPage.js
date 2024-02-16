@@ -1,5 +1,5 @@
-import * as listener from "../ui/listeners/index.js";
+import * as listenFor from "../ui/listeners/index.js";
 
 export async function loginPage() {
-  listener.authListener();
+  listenFor.authentication();
 }

@@ -1,5 +1,5 @@
 import { getPostsFromSearch } from "../events/index.js";
-import { openModal } from "./index.js";
+import { openPostAsModal } from "./index.js";
 
 
 export async function search(postsFromAPI) {
@@ -7,6 +7,6 @@ export async function search(postsFromAPI) {
 
   searchInput.addEventListener("input", async () => {
     getPostsFromSearch(postsFromAPI)
-    await openModal();
+    await openPostAsModal();
   });
 }
