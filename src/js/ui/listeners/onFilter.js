@@ -29,10 +29,26 @@ export function getPostsFromFiltering(postsFromAPI) {
   renderPostTemplates(postsFiltered, feedContainer);
 }
 
-function sorting(filter, postsFromAPI) {
+const feedContainer = document.querySelector(".feed-container");
+// feedContainer.innerHTML = "";
+// renderPostTemplates(postsFiltered, feedContainer);
+
+function sort(filter, postsFromAPI) {
+  var postFiltered;
+
   filter.addEventListener("change", async (event) => {
     if (event.target.checked) {
       getPostsFromFiltering(postsFromAPI);
+      await openPostAsModal();
+    }
+    if (event.target.checked && sortingByLikes.checked) {
+      let postsFiltered = postsFromAPI.filter((allPosts) => {
+        if (allPosts._count.reactions > 0) {
+          return allPosts;
+        }
+        feedContainer.innerHTML = "";
+        renderPostTemplates(postsFiltered, feedContainer);
+      });
       await openPostAsModal();
     }
     if (!event.target.checked && sortingByLikes.checked) {
@@ -53,7 +69,7 @@ function sorting(filter, postsFromAPI) {
 }
 
 export function filter(postsFromAPI) {
-  sorting(sortingByLikes, postsFromAPI);
-  sorting(sortingByThreads, postsFromAPI);
-  sorting(sortingByPhotos, postsFromAPI);
+  sort(sortingByLikes, postsFromAPI);
+  sort(sortingByThreads, postsFromAPI);
+  sort(sortingByPhotos, postsFromAPI);
 }

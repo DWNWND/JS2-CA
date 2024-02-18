@@ -9,13 +9,30 @@ export async function startFeed(allPosts) {
   await listenFor.openPostAsModal();
 }
 
+//clean up the modal-thing
+
 export async function feedPage() {
   try {
     const posts = await HTTPMethod.getPostsFromAPI();
 
+    let params = new URLSearchParams(document.location.search);
+    let postId = params.get("post-id");
+    let id = parseInt(postId);
+
+    posts.filter(async (allPosts) => {
+      if (allPosts.id === id) {
+        await listenFor.makeModal(id);
+        let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
+        myModal.toggle();
+        listenFor.removeModals();
+      } else {
+        return;
+      }
+    });
+
     if (posts) {
       await startFeed(posts);
-      listenFor.filter(posts)
+      listenFor.filter(posts);
       listenFor.search(posts);
       listenFor.publishNewPost();
     } else if (!posts) {

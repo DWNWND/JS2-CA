@@ -26,7 +26,6 @@ export function renderPostTemplate(postData, parent) {
 export function renderPostTemplates(postDataList, parent) {
   if (postDataList.length === 0 || !postDataList) {
     console.log("no posts in this search or filter");
-
   } else {
     //GENERATE A LOAD MORE BTN
     //     const loadMore = document.createElement("a");
@@ -35,13 +34,26 @@ export function renderPostTemplates(postDataList, parent) {
     //     listSection.appendChild(loadMore);
 
     for (let i = 0; i < postDataList.length; i++) {
-      parent.append(postTemplate(postDataList[i]));
+      parent.append(postTemplate(postDataList[i]))
 
       if (i === 8) {
         break;
       }
     }
   }
+
+  // export async function modalLinkParams(id) {
+  //   // const modalId = `#${id}`;
+
+  //   // if (window.location.href.indexOf(modalId) !== -1)
+
+  //   if (window.location.href = `/feed/index.html?post-id=${id}`) {
+  //     await makeModal(id);
+  //     let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
+  //     myModal.toggle();
+  //     // $(modalId).modal("show");
+  //   }
+  // }
 
   // OTHER WAYS ::::
   // parent.append(...postDataList.map(postTemplate));
