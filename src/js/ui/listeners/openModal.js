@@ -1,5 +1,6 @@
 import { makeModal } from "../../templates/modals/index.js";
 import { insertUrlParam } from "../urlParams/index.js";
+import { removeModals } from "./index.js";
 
 export async function openPostAsModal() {
   const modalBtn = document.querySelectorAll(".modalBtn");

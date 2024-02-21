@@ -1,6 +1,7 @@
 import * as listenFor from "../ui/listeners/index.js";
 import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
+import { makeModal } from "../templates/modals/index.js";
 
 export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
@@ -22,7 +23,7 @@ export async function feedPage() {
 
     posts.filter(async (allPosts) => {
       if (allPosts.id === id) {
-        await listenFor.makeModal(id);
+        await makeModal(id);
         let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
         myModal.toggle();
         listenFor.removeModals();
