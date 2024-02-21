@@ -1,5 +1,8 @@
 import { makeModalByID } from "../../templates/modals/index.js";
 
+
+//this needs some cleaning
+
 export function removeModals() {
   if (document.body.contains(document.querySelector(".modal"))) {
     const modal = document.querySelector(".modal");
@@ -12,15 +15,6 @@ export function removeModals() {
     console.log("i dont know");
   }
 }
-
-// export function openPostOnClick() {
-//   const allArticles = document.querySelectorAll("article");
-//   allArticles.forEach(function (article) {
-//     article.addEventListener("click", () => {
-//       window.location.href = `/html/post.html?key=${article.id}`;
-//     });
-//   });
-// }
 
 export async function makeModal(id) {
   const modalContainer = document.querySelector(".modal-container");

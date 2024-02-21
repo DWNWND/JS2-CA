@@ -8,6 +8,7 @@ export async function updatePostInAPI(postData) {
   if (!postData.id) {
     throw new Error("Update is missing a postID");
   }
+
   const updatePostURL = `${API_BASE}${API_POSTS}/${postData.id}`;
   const response = await fetchWithToken(updatePostURL, {
     method,
@@ -15,11 +16,11 @@ export async function updatePostInAPI(postData) {
   });
 
   if (response.ok) {
-    const post = await response.json();
+    //add a message telling user it was successful?
+    // const post = await response.json();
     location.reload();
-    console.log("THIS IS THE POST THAT WAS UPDATED: ", post);
   } else {
     throw new Error("Couln't update post", post);
   }
-  // return post;
+  return post;
 }

@@ -1,4 +1,4 @@
-import { load } from "../storage/load.js";
+import { load } from "../storage/index.js";
 import { API_KEY } from "./constants.js";
 
 export function headers(hasBody = false) {

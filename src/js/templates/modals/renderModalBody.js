@@ -1,5 +1,6 @@
-import { removePostFromAPI } from "../../api/requests/delete.js";
-import { load } from "../../storage/load.js";
+import { removePostFromAPI } from "../../api/requests/index.js";
+import { load } from "../../storage/index.js";
+import { removeUrlParameter } from "../../ui/listeners/index.js";
 import { populateUpdateForm, updateForm } from "../forms/index.js";
 
 const author = load("profile");
@@ -26,6 +27,7 @@ export function renderModalBody(postData) {
 
     removePost.addEventListener("click", async (event) => {
       await removePostFromAPI(postData.id);
+      removeUrlParameter("post-id");
     });
 
   } else if (author.name !== postData.author.name) {
