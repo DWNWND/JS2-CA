@@ -1,3 +1,4 @@
+import { removeUrlParameter } from "../../ui/urlParams/index.js";
 import { API_BASE, API_POSTS } from "../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
@@ -13,9 +14,9 @@ export async function removePostFromAPI(id) {
     const response = await fetchWithToken(removePostURL, {
       method,
     });
-    console.log(response);
+
     if (response.ok) {
-      console.log("DELETED")
+      removeUrlParameter("post-id");
       location.reload();
     }
   } catch {
