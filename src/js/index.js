@@ -1,8 +1,12 @@
 import { loginPage, feedPage } from "./routes/index.js";
 
-// loginPage();
-feedPage();
+if (window.location.pathname === "/") {
+  loginPage();
+}
 
+if (window.location.pathname === "/feed/") {
+  feedPage();
+}
 
 // LOGIN DETAILS
 //   name: "test1234",

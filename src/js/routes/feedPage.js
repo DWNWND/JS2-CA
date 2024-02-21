@@ -6,6 +6,7 @@ export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
   feedContainer.innerHTML = "";
   templates.renderPostTemplates(allPosts, feedContainer);
+  listenFor.logOut()
   await listenFor.openPostAsModal();
 }
 

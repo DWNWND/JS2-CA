@@ -32,6 +32,6 @@ export async function registerAuth(event) {
   await login(email, password);
 
   //is this just for testing? right:
-  const posts = await getPostsFromAPI();
-  console.log(posts);
+  // const posts = await getPostsFromAPI();
+  // console.log(posts);
 }
