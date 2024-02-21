@@ -7,7 +7,6 @@ export function getPostsFromSearch(postsFromAPI) {
 
   let postsSearched = postsFromAPI.filter((allPosts) => {
     if (query === "") {
-      console.log("no search params");
       return postsFromAPI;
     } else if (allPosts.title.toLowerCase().includes(query.toLowerCase())) {
       return allPosts;
