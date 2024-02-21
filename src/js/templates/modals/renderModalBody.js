@@ -23,13 +23,18 @@ export function renderModalBody(postData) {
     modalBody.append(form);
     populateUpdateForm(form);
 
-    const removePost = makeDeleteBtn();
-    modalBody.append(removePost);
+    if (form) {
+      const removePost = makeDeleteBtn();
+      const containerForBtn = document.createElement("div");
+      containerForBtn.classList.add("container", "mt-2");
+      containerForBtn.append(removePost);
+      modalBody.append(containerForBtn);
 
-    removePost.addEventListener("click", async (event) => {
-      await removePostFromAPI(postData.id);
-      removeUrlParameter("post-id");
-    });
+      removePost.addEventListener("click", async (event) => {
+        await removePostFromAPI(postData.id);
+        removeUrlParameter("post-id");
+      });
+    }
   } else if (author.name !== postData.author.name) {
     if (postData.media) {
       const img = document.createElement("img");
