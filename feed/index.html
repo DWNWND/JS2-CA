@@ -19,14 +19,14 @@
         <div class="container-fluid">
           <div class="d-flex align-items-center">
             <a class="navbar-brand" href="#">Navbar</a>
-            <a class="nav-link d-none d-sm-block pt-2 pb-2 pe-2" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a class="nav-link d-none d-sm-block pt-2 pb-2 pe-2 logout" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
           </div>
           <div class="d-sm-none d-flex align-items-center">
             <a href="" class="nav-link pt-2 pb-2 ps-2"><i class="fa-solid fa-magnifying-glass"></i></a>
           </div>
           <div class="d-none d-sm-flex gap-2 justify-content-end align-items-center">
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
@@ -55,12 +55,8 @@
             <div id="sorting-options" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sort-posts">
               <div class="accordion-body">
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="sortbydate" />
-                  <label class="form-check-label" for="sortbydate">Date</label>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="sortbyname" />
-                  <label class="form-check-label" for="sortbyname">Name</label>
+                  <input class="form-check-input" type="checkbox" id="sortbytypephoto" />
+                  <label class="form-check-label" for="sortbytypephoto">Photos</label>
                 </div>
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" id="sortbytypethreads" />
@@ -69,6 +65,10 @@
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" id="sortbymostliked" />
                   <label class="form-check-label" for="sortbymostliked">Most liked</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sortbymostcommented" />
+                  <label class="form-check-label" for="sortbymostcommented">Most comments</label>
                 </div>
               </div>
             </div>

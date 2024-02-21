@@ -1,5 +1,3 @@
-// import { makeModalByID } from "./index.js";
-
 export function modalOpenBtn(id) {
   const modalBtn = document.createElement("button");
   modalBtn.classList.add("btn", "btn-primary", "modalBtn");

@@ -9,7 +9,7 @@ export async function register(name, email, password) {
 
   if (response.ok) {
     return await response.json();
+  } else {
+    throw new Error("Could not register the account");
   }
-
-  throw new Error("Could not register the account");
 }

@@ -1,6 +1,7 @@
-import { removePostFromAPI } from "../../api/requests/delete.js";
-import { load } from "../../storage/load.js";
-import { populateUpdateForm, updateForm } from "../forms/index.js";
+import { removePostFromAPI } from "../../api/requests/index.js";
+import { load } from "../../storage/index.js";
+import { populateUpdateForm } from "../../ui/events/index.js";
+import { updateForm } from "../forms/index.js";
 
 const author = load("profile");
 
@@ -20,14 +21,18 @@ export function renderModalBody(postData) {
     const form = updateForm(postData.id);
     modalBody.append(form);
     populateUpdateForm(form);
-    
-    const removePost = makeDeleteBtn();
-    modalBody.append(removePost);
 
-    removePost.addEventListener("click", async (event) => {
-      await removePostFromAPI(postData.id);
-    });
+    if (form) {
+      const removePost = makeDeleteBtn();
+      const containerForBtn = document.createElement("div");
+      containerForBtn.classList.add("container", "mt-2");
+      containerForBtn.append(removePost);
+      modalBody.append(containerForBtn);
 
+      removePost.addEventListener("click", async (event) => {
+        await removePostFromAPI(postData.id);
+      });
+    }
   } else if (author.name !== postData.author.name) {
     if (postData.media) {
       const img = document.createElement("img");

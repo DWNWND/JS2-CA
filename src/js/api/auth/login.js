@@ -1,6 +1,6 @@
 import { fetchWithToken } from "../fetchWithToken.js";
 import { API_AUTH, API_BASE, API_LOGIN } from "../constants.js";
-import { save } from "../../storage/save.js";
+import { save } from "../../storage/index.js";
 
 export async function login(email, password) {
   const response = await fetchWithToken(API_BASE + API_AUTH + API_LOGIN, {
@@ -13,7 +13,7 @@ export async function login(email, password) {
     save("token", accessToken);
     save("profile", profile);
     return profile;
+  } else {
+    throw new Error("Could not login the account");
   }
-
-  throw new Error("Could not login the account");
 }
