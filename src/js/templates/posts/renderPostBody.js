@@ -14,11 +14,11 @@ export function renderPostBody(postData) {
 
     cardBody.append(img, caption);
   } else {
-    const quoteMarkLeft = document.createElement("i");
-    quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
+    // const quoteMarkLeft = document.createElement("i");
+    // quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
 
-    const quoteMarkright = document.createElement("i");
-    quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-10", "end-5");
+    // const quoteMarkright = document.createElement("i");
+    // quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-10", "end-5");
 
     const quote = document.createElement("p");
     quote.classList.add("text-center");
@@ -28,7 +28,7 @@ export function renderPostBody(postData) {
     blockquote.classList.add("blockquote");
     blockquote.append(quote);
 
-    cardBody.append(quoteMarkLeft, blockquote, quoteMarkright);
+    cardBody.append(blockquote);
   }
   return cardBody;
 }

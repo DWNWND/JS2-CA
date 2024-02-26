@@ -46,11 +46,11 @@ export function renderModalBody(postData) {
 
       modalBody.append(img, caption);
     } else {
-      const quoteMarkLeft = document.createElement("i");
-      quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
+      // const quoteMarkLeft = document.createElement("i");
+      // quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
 
-      const quoteMarkright = document.createElement("i");
-      quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-25", "end-5");
+      // const quoteMarkright = document.createElement("i");
+      // quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-25", "end-5");
 
       const quote = document.createElement("p");
       quote.classList.add("text-center");
@@ -60,7 +60,7 @@ export function renderModalBody(postData) {
       blockquote.classList.add("blockquote");
       blockquote.append(quote);
 
-      modalBody.append(quoteMarkLeft, blockquote, quoteMarkright);
+      modalBody.append(blockquote);
     }
   }
   return modalBody;

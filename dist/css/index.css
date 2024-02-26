@@ -11919,6 +11919,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+nav {
+  box-shadow: 4px 4px 4px rgba(73, 65, 52, 0.1294117647);
+  width: 100%;
+}
+
 .profile-img-nav {
   min-width: 35px;
   min-height: 35px;
@@ -11928,8 +11933,24 @@ textarea.form-control-lg {
 }
 
 main > .container {
-  padding-top: 80px;
+  padding-top: 130px;
   padding-bottom: 110px;
+}
+@media (min-width: 576px) {
+  main > .container {
+    padding-top: 80px;
+  }
+}
+
+.nav-width {
+  width: 100%;
+  padding-bottom: 0.7rem;
+}
+@media (min-width: 576px) {
+  .nav-width {
+    width: auto;
+    padding-bottom: 0;
+  }
 }
 
 h3, .h3 {
@@ -11941,10 +11962,8 @@ p.date {
 }
 
 .card-body {
-  min-height: 500px;
-  max-height: 500px;
+  height: auto;
 }
-
 .card-img {
   max-height: 250px;
   object-fit: cover;

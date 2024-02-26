@@ -11,7 +11,7 @@ export function postTemplate(postData) {
   card.append(header, body, footer);
 
   const col = document.createElement("div");
-  col.classList.add("col-lg-4", "col-md-6", "col-6");
+  col.classList.add("col-lg-4", "col-md-6", "col");
   col.append(card);
 
   return col;

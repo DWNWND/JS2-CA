@@ -2,6 +2,10 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../node_modules/bootstrap/scss/variables";
 
+nav {
+  box-shadow: 4px 4px 4px #49413421;
+  width: 100%;
+}
 .profile-img-nav {
   min-width: 35px;
   min-height: 35px;
@@ -11,8 +15,22 @@
 }
 
 main > .container {
-  padding-top: 80px;
+  padding-top: 130px;
   padding-bottom: 110px;
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 80px;
+  }
+}
+
+.nav-width {
+  width: 100%;
+  padding-bottom: 0.7rem;
+
+  @include media-breakpoint-up(sm) {
+    width: auto;
+    padding-bottom: 0;
+  }
 }
 
 // .post-max-width {
@@ -27,8 +45,12 @@ p.date {
   font-size: 0.8rem;
 }
 .card-body {
-  min-height: 500px;
-  max-height: 500px;
+  height: auto;
+
+  @include media-breakpoint-up(sm) {
+    // min-height: 500px;
+    // max-height: 500px;
+  }
 }
 .card-img {
   max-height: 250px;
