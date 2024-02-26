@@ -1,3 +1,5 @@
+// https://w3bits.com/css-grid-masonry/#google_vignette
+
 import { resizeAllMasonryItems } from "../events/index.js";
 
 /* Resize all the grid items on the load and resize events */

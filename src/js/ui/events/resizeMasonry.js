@@ -1,3 +1,5 @@
+// https://w3bits.com/css-grid-masonry/#google_vignette
+
 /**
  * Set appropriate spanning to any masonry item
  *
@@ -46,5 +48,29 @@ export function resizeAllMasonryItems() {
    */
   for (var i = 0; i < allItems.length; i++) {
     resizeMasonryItem(allItems[i]);
+  }
+}
+
+// https://imagesloaded.desandro.com/
+
+/**
+ * Resize the items when all the images inside the masonry grid
+ * finish loading. This will ensure that all the content inside our
+ * masonry items is visible.
+ *
+ * @uses ImagesLoaded
+ * @uses resizeMasonryItem
+ */
+export function waitForImages() {
+  var allItems = document.getElementsByClassName("media-masonry-brick");
+
+  for (var i = 0; i < allItems.length; i++) {
+    imagesLoaded(allItems[i], function (instance) {
+      // console.log(instance);
+
+      var item = instance.elements[0];
+      // console.log(item);
+      resizeMasonryItem(item);
+    });
   }
 }

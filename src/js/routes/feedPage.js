@@ -3,7 +3,7 @@ import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 import { makeModal } from "../templates/modals/index.js";
 import { load } from "../storage/index.js";
-import { resizeAllMasonryItems } from "../ui/events/index.js";
+import { resizeAllMasonryItems, waitForImages } from "../ui/events/index.js";
 
 export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
@@ -41,6 +41,9 @@ export async function feedPage() {
       resizeAllMasonryItems();
       listenFor.masonryOnChange();
       listenFor.openAccordion();
+
+      /* Do a resize once more when all the images finish loading */
+      waitForImages();
     } else if (!posts) {
       const token = load("token");
       if (!token) {

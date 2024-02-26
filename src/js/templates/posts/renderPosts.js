@@ -12,9 +12,13 @@ export function postTemplate(postData) {
 
   const col = document.createElement("div");
   // col.classList.add("col-lg-4", "col-md-6", "col");
-  col.classList.add("masonry-brick")
+  col.classList.add("masonry-brick");
   col.append(card);
 
+  if (postData.media) {
+    col.classList.add("media-masonry-brick");
+  }
+  
   return col;
 }
 
@@ -35,9 +39,9 @@ export function renderPostTemplates(postDataList, parent) {
     //     listSection.appendChild(loadMore);
 
     for (let i = 0; i < postDataList.length; i++) {
-      parent.append(postTemplate(postDataList[i]))
+      parent.append(postTemplate(postDataList[i]));
 
-      if (i === 8) {
+      if (i === 15) {
         break;
       }
     }

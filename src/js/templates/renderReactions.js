@@ -32,7 +32,7 @@ export function displayReactionsAccordion(postData) {
   accordionHeader.id = "headingLikes";
 
   const accordionCollapse = document.createElement("div");
-  accordionCollapse.classList.add("accordion-collapse", "collapse");
+  accordionCollapse.classList.add("accordion-collapse", "collapse", "detect-collapse");
   accordionCollapse.id = `likes-${postData.id}`;
   accordionCollapse.setAttribute("aria-labelledby", "headingLikes");
   accordionCollapse.setAttribute("data-bs-parent", "#view-likes-and-comments");
@@ -47,7 +47,6 @@ export function displayReactionsAccordion(postData) {
       <span class="number-of-likes">${postData._count.reactions}</span> likes
     </button>`;
     reactionsHTML(postData, accordionBody);
-
   } else if (!postData._count.reactions) {
     accordionHeader.innerHTML = `
     <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
