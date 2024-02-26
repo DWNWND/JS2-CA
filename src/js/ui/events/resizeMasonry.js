@@ -40,21 +40,6 @@ export function resizeAllMasonryItems() {
   // Get all item class objects in one list
   var allItems = document.getElementsByClassName("masonry-brick");
 
-  //////////////////////////TESTING
-  var list = document.getElementsByClassName("detect-collapse");
-  let array = [...list];
-  // console.log(list);
-
-  array.forEach((accordion) => {
-    accordion.addEventListener("hidden.bs.collapse", function () {
-      console.log("Hidden");
-    });
-    accordion.addEventListener("shown.bs.collapse", function () {
-      console.log("Shown");
-    });
-  });
-  ///////////////////////////TESTING
-
   /*
    * Loop through the above list and execute the spanning function to
    * each list-item (i.e. each masonry item)

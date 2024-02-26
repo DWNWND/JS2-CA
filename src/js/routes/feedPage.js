@@ -40,8 +40,7 @@ export async function feedPage() {
       listenFor.publishNewPost();
       resizeAllMasonryItems();
       listenFor.masonryOnChange();
-
-      
+      listenFor.openAccordion();
     } else if (!posts) {
       const token = load("token");
       if (!token) {

@@ -7,3 +7,21 @@ export function masonryOnChange() {
     window.addEventListener(event, resizeAllMasonryItems);
   });
 }
+
+function accordionResize(accordion) {
+  accordion.forEach((accordionelement) => {
+    accordionelement.addEventListener("hidden.bs.collapse", function () {
+      resizeAllMasonryItems();
+    });
+    accordionelement.addEventListener("shown.bs.collapse", function () {
+      resizeAllMasonryItems();
+    });
+  });
+}
+
+export function openAccordion() {
+  var accordions = document.getElementsByClassName("detect-collapse");
+  let accordionsArray = [...accordions];
+
+  accordionResize(accordionsArray);
+}
