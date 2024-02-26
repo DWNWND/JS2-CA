@@ -3,6 +3,7 @@ import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 import { makeModal } from "../templates/modals/index.js";
 import { load } from "../storage/index.js";
+import { resizeAllMasonryItems } from "../ui/events/index.js";
 
 export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
@@ -37,6 +38,10 @@ export async function feedPage() {
       listenFor.filter(posts);
       listenFor.search(posts);
       listenFor.publishNewPost();
+      resizeAllMasonryItems();
+      listenFor.masonryOnChange();
+
+      
     } else if (!posts) {
       const token = load("token");
       if (!token) {

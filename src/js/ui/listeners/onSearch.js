@@ -8,5 +8,7 @@ export async function search(postsFromAPI) {
   searchInput.addEventListener("input", async () => {
     getPostsFromSearch(postsFromAPI)
     await openPostAsModal();
+    resizeAllMasonryItems();
+    masonryOnChange()
   });
 }

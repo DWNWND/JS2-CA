@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../dist/css/index.css" />
     <script defer type="module" src="/src/js/index.js"></script>
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   </head>
   <body>
     <div class="modal-container"></div>
@@ -72,9 +73,27 @@
           </div>
         </div>
         <div class="feed pt-2 h-100">
-          <div class="feed-container row" data-masonry='{"percentPosition": true }'></div>
+          <!-- <div class="feed-container row" data-masonry='{"percentPosition": true }'></div> -->
+          <div class="feed-container masonry"></div>
         </div>
       </div>
+      <!-- 
+      <div class="test">
+        <div class="masonry">
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 90px">1</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 200px">2</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 80px">3</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 120px">4</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 290px">5</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 200px">6</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 250px">7</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 70px">8</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 70px">9</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 50px">10</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 120px">11</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 260px">12</div></div>
+        </div>
+      </div> -->
     </main>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async await></script>
   </body>

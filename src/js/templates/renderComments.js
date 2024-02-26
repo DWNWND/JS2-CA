@@ -21,7 +21,7 @@ export function displayCommentsAccordion(postData) {
   accordionHeader.id = "headingComments";
 
   const accordionCollapse = document.createElement("div");
-  accordionCollapse.classList.add("accordion-collapse", "collapse");
+  accordionCollapse.classList.add("accordion-collapse", "collapse", "detect-collapse");
   accordionCollapse.id = `comments-${postData.id}`;
   accordionCollapse.setAttribute("aria-labelledby", "headingComments");
   accordionCollapse.setAttribute("data-bs-parent", "#view-likes-and-comments");

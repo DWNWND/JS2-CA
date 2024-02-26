@@ -6,12 +6,13 @@ export function postTemplate(postData) {
   const footer = renderPostFooter(postData);
 
   const card = document.createElement("div");
-  card.classList.add("card", "post-thread", "post-photo", "mb-4"); //DOUBLE CHECK THESE CLASSES
+  card.classList.add("card", "post-thread", "post-photo", "mb-4", "masonry-content"); //DOUBLE CHECK THESE CLASSES
   // card.id = postData.id;
   card.append(header, body, footer);
 
   const col = document.createElement("div");
-  col.classList.add("col-lg-4", "col-md-6", "col");
+  // col.classList.add("col-lg-4", "col-md-6", "col");
+  col.classList.add("masonry-brick")
   col.append(card);
 
   return col;
