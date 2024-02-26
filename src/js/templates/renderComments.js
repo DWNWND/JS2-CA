@@ -19,11 +19,6 @@ export function displayCommentsAccordion(postData) {
   const accordionHeader = document.createElement("h4");
   accordionHeader.classList.add("accordion-header");
   accordionHeader.id = "headingComments";
-  accordionHeader.innerHTML = `
-     <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}" aria-expanded="false" aria-controls="comments-${postData.id}">
-      <i class="fa-regular fa-comment"></i>
-       <span class="number-of-comments">${postData._count.comments}</span> comments
-     </button>`;
 
   const accordionCollapse = document.createElement("div");
   accordionCollapse.classList.add("accordion-collapse", "collapse");
@@ -35,8 +30,18 @@ export function displayCommentsAccordion(postData) {
   accordionBody.classList.add("accordion-body", "d-flex", "flex-column", "gap-2");
 
   if (postData._count.comments) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}" aria-expanded="false" aria-controls="comments-${postData.id}">
+     <i class="comment full"></i>
+      <span class="number-of-comments">${postData._count.comments}</span> comments
+    </button>`;
     commentsHTML(postData, accordionBody);
   } else if (!postData._count.comments) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}" aria-expanded="false" aria-controls="comments-${postData.id}">
+     <i class="comment empty"></i>
+      <span class="number-of-comments">${postData._count.comments}</span> comments
+    </button>`;
     accordionBody.innerText = "this post has no comments";
   }
 

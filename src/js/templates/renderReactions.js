@@ -30,11 +30,6 @@ export function displayReactionsAccordion(postData) {
   const accordionHeader = document.createElement("h4");
   accordionHeader.classList.add("accordion-header");
   accordionHeader.id = "headingLikes";
-  accordionHeader.innerHTML = `
-     <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
-       <i class="fa-regular fa-heart"></i>
-       <span class="number-of-likes">${postData._count.reactions}</span> likes
-     </button>`;
 
   const accordionCollapse = document.createElement("div");
   accordionCollapse.classList.add("accordion-collapse", "collapse");
@@ -46,8 +41,19 @@ export function displayReactionsAccordion(postData) {
   accordionBody.classList.add("accordion-body", "d-flex", "flex-column", "gap-2");
 
   if (postData._count.reactions) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+      <i class="like full"></i>
+      <span class="number-of-likes">${postData._count.reactions}</span> likes
+    </button>`;
     reactionsHTML(postData, accordionBody);
+
   } else if (!postData._count.reactions) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+      <i class="like empty"></i>
+      <span class="number-of-likes">${postData._count.reactions}</span> likes
+    </button>`;
     accordionBody.innerText = "this post has no reactions";
   }
 

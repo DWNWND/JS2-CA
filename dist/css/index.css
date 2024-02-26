@@ -11969,4 +11969,34 @@ p.date {
   object-fit: cover;
 }
 
+i.comment {
+  height: 15px;
+  width: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+i.comment.full {
+  background-image: url("/img/comment_bubble_full.svg");
+}
+
+i.comment.empty {
+  background-image: url("/img/comment_bubble_empty.svg");
+}
+
+i.like {
+  height: 15px;
+  width: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+i.like.full {
+  background-image: url("/img/like_heart_full.svg");
+}
+
+i.like.empty {
+  background-image: url("/img/like_heart_empty.svg");
+}
+
 /*# sourceMappingURL=index.css.map */
