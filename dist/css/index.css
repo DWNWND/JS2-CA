@@ -11926,6 +11926,10 @@ textarea.form-control-lg {
   grid-auto-rows: 0;
 }
 
+.your-post {
+  background-color: bisque;
+}
+
 nav {
   box-shadow: 4px 4px 4px rgba(73, 65, 52, 0.1294117647);
   width: 100%;

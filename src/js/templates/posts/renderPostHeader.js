@@ -26,7 +26,7 @@ export function renderPostHeader(postData) {
   cardHeader.classList.add("card-header", "d-flex", "align-items-center", "justify-content-between");
   // cardHeader.id = postData.id;
 
-  const modalBtn = modalOpenBtn(postData.id);
+  const modalBtn = modalOpenBtn(postData.id, postData.author.name);
 
   cardHeader.append(user, modalBtn);
 

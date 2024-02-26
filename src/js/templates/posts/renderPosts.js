@@ -1,4 +1,7 @@
+import { load } from "../../storage/index.js";
 import { renderPostBody, renderPostFooter, renderPostHeader } from "./index.js";
+
+const author = load("profile");
 
 export function postTemplate(postData) {
   const header = renderPostHeader(postData);
@@ -10,6 +13,10 @@ export function postTemplate(postData) {
   // card.id = postData.id;
   card.append(header, body, footer);
 
+  if (author.name === postData.author.name) {
+    card.classList.add("your-post");
+  }
+
   const col = document.createElement("div");
   // col.classList.add("col-lg-4", "col-md-6", "col");
   col.classList.add("masonry-brick");
@@ -18,7 +25,7 @@ export function postTemplate(postData) {
   if (postData.media) {
     col.classList.add("media-masonry-brick");
   }
-  
+
   return col;
 }
 
