@@ -1,3 +1,8 @@
+/**
+ * Generates HTML for each comment and appends it to a container
+ * @param {object} post An array of objects or a single object conatining of social media post(s)
+ * @param {string} container The HTML parent element that appends the comments
+ */
 async function commentsHTML(post, container) {
   const commentsArray = post.comments;
 
@@ -12,6 +17,15 @@ async function commentsHTML(post, container) {
   }
 }
 
+/**
+ * Appends a posts comments to a bootstrap accordion element
+ *
+ * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @returns {string} A HTML element of the whole accordion containing the comments
+ *
+ * @uses commentsHTML To generate the HTML for each comment
+ *
+ */
 export function displayCommentsAccordion(postData) {
   const accordionItem = document.createElement("div");
   accordionItem.classList.add("accordion-item");

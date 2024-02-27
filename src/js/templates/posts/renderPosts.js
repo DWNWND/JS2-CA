@@ -50,7 +50,7 @@ export function postTemplate(postData) {
  * @param {object} post One social media post passed down to the postTemplate function
  * @param {string} parent The HTML parent element that appends the social media post
  *
- * @uses postTemplate Generates an HTML element containing the post
+ * @uses postTemplate To generate an HTML element containing the post
  *
  */
 export function renderPostTemplate(post, parent) {
@@ -65,7 +65,7 @@ export function renderPostTemplate(post, parent) {
  * @param {array} postsList An array of social media posts passed down to the postTemplate function
  * @param {string} parent The HTML parent element that appends the social media posts
  *
- * @uses postTemplate Generates an HTML element for each social media post
+ * @uses postTemplate To generate a HTML element for each social media post
  *
  */
 export function renderPostTemplates(postsList, parent) {

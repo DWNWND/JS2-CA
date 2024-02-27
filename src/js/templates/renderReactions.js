@@ -1,3 +1,8 @@
+/**
+ * Generates HTML for each reaction and appends it to a container
+ * @param {object} post An array of objects or a single object conatining of social media post(s)
+ * @param {string} container The HTML parent element that appends the reaction
+ */
 async function reactionsHTML(post, container) {
   const reactionsArray = post.reactions;
 
@@ -23,6 +28,15 @@ async function reactionsHTML(post, container) {
   }
 }
 
+/**
+ * Appends a posts rections to a bootstrap accordion element
+ *
+ * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @returns {string} A HTML element of the whole accordion containing the rections
+ *
+ * @uses reactionsHTML To generate the HTML for each rection
+ *
+ */
 export function displayReactionsAccordion(postData) {
   const accordionItem = document.createElement("div");
   accordionItem.classList.add("accordion-item");
