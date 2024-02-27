@@ -1,8 +1,8 @@
 import { load } from "../../storage/index.js";
 
-const author = load("profile");
-
 export function modalOpenBtn(id, loggedInUser) {
+  const author = load("profile");
+
   const modalBtn = document.createElement("button");
   modalBtn.classList.add("btn", "modalBtn");
   modalBtn.id = id;
@@ -10,13 +10,12 @@ export function modalOpenBtn(id, loggedInUser) {
   if (author.name === loggedInUser) {
     modalBtn.innerText = "edit";
     modalBtn.classList.add("btn-warning");
-  }
-  else if (author.name !== loggedInUser) {
+  } else if (author.name !== loggedInUser) {
     modalBtn.innerText = "open";
     modalBtn.classList.add("btn-primary");
   }
   modalBtn.setAttribute("data-bs-target", `#modal-${id}`);
-  // modalBtn.setAttribute("data-bs-toggle", "modal"); //removed to override bootstrap?
+  // modalBtn.setAttribute("data-bs-toggle", "modal"); //removed to override bootstrap
 
   return modalBtn;
 }

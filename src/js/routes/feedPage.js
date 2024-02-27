@@ -13,8 +13,7 @@ export async function startFeed(allPosts) {
   await listenFor.openPostAsModal();
 }
 
-//clean up the modal-thing
-
+//////// clean up this function if you want to
 export async function feedPage() {
   try {
     const posts = await HTTPMethod.getPostsFromAPI();

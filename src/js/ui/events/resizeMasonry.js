@@ -1,14 +1,13 @@
+// FUNCTIONS AND DOCUMENTATION FOR MASONRY FROM:
 // https://w3bits.com/css-grid-masonry/#google_vignette
 
 /**
  * Set appropriate spanning to any masonry item
  *
- * Get different properties we already set for the masonry, calculate
- * height or spanning for any cell of the masonry grid based on its
- * content-wrapper's height, the (row) gap of the grid, and the size
- * of the implicit row tracks.
+ * Get different properties we already set for the masonry, calculate height or spanning for any cell of the masonry grid based on its
+ * content-wrapper's height, the (row) gap of the grid, and the size of the implicit row tracks.
  *
- * @param masonrycell Object A brick/tile/cell inside the masonry
+ * @param {object} masonrycell A brick/tile/cell inside the masonry
  */
 export function resizeMasonryItem(masonrycell) {
   /* Get the grid object, its row-gap, and the size of its implicit rows */
@@ -32,31 +31,24 @@ export function resizeMasonryItem(masonrycell) {
 
 /**
  * Apply spanning to all the masonry items
- *
- * Loop through all the items and apply the spanning to them using
- * `resizeMasonryItem()` function.
- *
+ * Loop through all the items and apply the spanning to them using `resizeMasonryItem()` function.
  * @uses resizeMasonryItem
  */
 export function resizeAllMasonryItems() {
   // Get all item class objects in one list
   var allItems = document.getElementsByClassName("masonry-brick");
 
-  /*
-   * Loop through the above list and execute the spanning function to
-   * each list-item (i.e. each masonry item)
-   */
+  /* Loop through the above list and execute the spanning function to each list-item (i.e. each masonry item)*/
   for (var i = 0; i < allItems.length; i++) {
     resizeMasonryItem(allItems[i]);
   }
 }
 
-// https://imagesloaded.desandro.com/
-
 /**
- * Resize the items when all the images inside the masonry grid
- * finish loading. This will ensure that all the content inside our
- * masonry items is visible.
+ * Resize the items when all the images inside the masonry grid finish loading.
+ * This will ensure that all the content inside our masonry items is visible.
+ *
+ * USES: https://imagesloaded.desandro.com/ (CDN added to HTML)
  *
  * @uses ImagesLoaded
  * @uses resizeMasonryItem
@@ -66,10 +58,7 @@ export function waitForImages() {
 
   for (var i = 0; i < allItems.length; i++) {
     imagesLoaded(allItems[i], function (instance) {
-      // console.log(instance);
-
       var item = instance.elements[0];
-      // console.log(item);
       resizeMasonryItem(item);
     });
   }
