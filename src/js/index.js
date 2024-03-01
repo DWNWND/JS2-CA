@@ -1,5 +1,4 @@
 import { loginPage, feedPage } from "./routes/index.js";
-import { resizeMasonryItem } from "./ui/events/index.js";
 
 if (window.location.pathname === "/") {
   loginPage();
