@@ -1,5 +1,5 @@
 import { renderPostTemplates } from "../../templates/posts/index.js";
-import { feedContainer } from "../../constants.js";
+import { feedContainer, loadMoreBtn } from "../../constants.js";
 
 const searchInput = document.querySelector("#searchbar");
 
@@ -17,6 +17,7 @@ export async function getPostsFromSearch(allPostsFromAPI, postsPerPage) {
 
   if (query === "") {
     postsSearched = postsPerPage;
+    loadMoreBtn.style.display = "block";
   }
 
   feedContainer.innerHTML = "";
