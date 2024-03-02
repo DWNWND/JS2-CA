@@ -69,9 +69,17 @@ export function renderPostTemplate(post, parent) {
  *
  */
 export function renderPostTemplates(postsList, parent) {
+  const loader = document.querySelector(".spinner-grow");
+
   if (postsList.length === 0 || !postsList) {
-    console.log("no posts in this search or filter");
+    const message = document.querySelector(".massage");
+    loader.style.display = "none";
+    message.innerText = "there's no posts matching this search or filter";
   } else {
+    const message = document.querySelector(".massage");
+    loader.style.display = "none";
+    message.innerText = "";
+
     for (let i = 0; i < postsList.length; i++) {
       parent.append(postTemplate(postsList[i]));
       if (i === 15) {
