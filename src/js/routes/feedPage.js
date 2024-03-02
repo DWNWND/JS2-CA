@@ -43,22 +43,13 @@ export async function feedPage() {
       //generate feed
       await startFeed(posts, feedContainer);
       clickToLoadMore(loadMoreBtn);
-      listenFor.filter(posts);
-      listenFor.search(posts);
+
+      listenFor.filter();
+      listenFor.search();
       listenFor.publishNewPost();
-      masonry();
       listenFor.openAccordion();
+
       loadMoreBtn.style.display = "block";
-      
-    } else if (!posts) {
-      const token = load("token");
-      if (!token) {
-        localStorage.clear();
-        location.pathname = "/";
-      }
-      if (token) {
-        throw new Error("something went wrong when calling API");
-      }
     }
   } catch (error) {
     console.log(error);
