@@ -1,19 +1,22 @@
-import { filtering, sortingByLikes, sortingByComments, sortingByThreads, sortingByPhotos, feedContainer, resizeAllMasonryItems } from "../events/index.js";
-import { masonryOnChange, openPostAsModal } from "./index.js";
+import { getAllPostsFromAPI } from "../../api/requests/index.js";
+import { sortingByLikes, sortingByComments, sortingByThreads, sortingByPhotos, feedContainer } from "../../constants.js";
+import { openPostAsModal } from "./index.js";
+import { filtering } from "../events/index.js";
 
-function sort(filter, postsFromAPI) {
-  filter.addEventListener("change", async () => {
-    feedContainer.innerHTML = "";
-    filtering(postsFromAPI);
-    await openPostAsModal();
-    resizeAllMasonryItems();
-    masonryOnChange()
-  });
+export function filter() {
+  sort(sortingByLikes);
+  sort(sortingByThreads);
+  sort(sortingByPhotos);
+  sort(sortingByComments);
 }
 
-export function filter(postsFromAPI) {
-  sort(sortingByLikes, postsFromAPI);
-  sort(sortingByThreads, postsFromAPI);
-  sort(sortingByPhotos, postsFromAPI);
-  sort(sortingByComments, postsFromAPI);
+function sort(filterType) {
+  filterType.addEventListener("change", async () => {
+    const allPosts = await getAllPostsFromAPI();
+    feedContainer.innerHTML = "";
+
+    filtering(allPosts);
+
+    await openPostAsModal();
+  });
 }
