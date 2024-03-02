@@ -4,23 +4,21 @@ import * as HTTPMethod from "../api/requests/index.js";
 import { makeModal } from "../templates/modals/index.js";
 import { load } from "../storage/index.js";
 import { masonry } from "../ux/layout/index.js";
+import { clickToLoadMore } from "../ui/listeners/index.js";
+import { loadMoreBtn, loader, feedContainer } from "../constants.js";
 
-const loadMoreBtn = document.querySelector(".load-more");
-loadMoreBtn.style.display = "none";
-
-const feedContainer = document.querySelector(".feed-container");
 let page = 1;
 
-export async function startFeed(allPosts) {
-  feedContainer.innerHTML = "";
-  templates.renderPostTemplates(allPosts, feedContainer);
+export async function startFeed(allPosts, container) {
+  container.innerHTML = "";
+  templates.renderPostTemplates(allPosts, container);
   listenFor.logOut();
   await listenFor.openPostAsModal();
 }
 
 //////// clean up this function if you want to
 export async function feedPage() {
-  const loader = document.querySelector(".spinner-grow");
+  loadMoreBtn.style.display = "none";
 
   try {
     const posts = await HTTPMethod.getPostsFromAPI(page);
@@ -43,12 +41,15 @@ export async function feedPage() {
       });
 
       //generate feed
-      await startFeed(posts);
+      await startFeed(posts, feedContainer);
+      clickToLoadMore(loadMoreBtn);
       listenFor.filter(posts);
       listenFor.search(posts);
       listenFor.publishNewPost();
       masonry();
       listenFor.openAccordion();
+      loadMoreBtn.style.display = "block";
+      
     } else if (!posts) {
       const token = load("token");
       if (!token) {
@@ -63,12 +64,3 @@ export async function feedPage() {
     console.log(error);
   }
 }
-
-loadMoreBtn.addEventListener("click", async (event) => {
-  loadMoreBtn.style.display = "none";
-  page++;
-  const posts = await HTTPMethod.getPostsFromAPI(page);
-  templates.renderPostTemplates(posts, feedContainer);
-  masonry();
-  await listenFor.openPostAsModal();
-});

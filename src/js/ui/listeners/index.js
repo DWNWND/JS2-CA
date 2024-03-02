@@ -7,3 +7,4 @@ export * from "./onFilter.js";
 export * from "./logOut.js";
 export * from "./repeatPassword.js";
 export * from "./accordion.js";
+export * from "./loadMore.js";
