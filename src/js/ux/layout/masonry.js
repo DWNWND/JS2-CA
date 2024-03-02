@@ -1,5 +1,3 @@
-const loadMoreBtn = document.querySelector(".load-more");
-
 export function masonry() {
   masonryOnChange();
   resizeAllMasonryItems();
@@ -78,5 +76,4 @@ export function waitForImages() {
       resizeMasonryItem(item);
     });
   }
-  loadMoreBtn.style.display = "block";
 }
