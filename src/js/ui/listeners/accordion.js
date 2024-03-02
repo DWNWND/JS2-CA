@@ -1,22 +1,12 @@
-// https://w3bits.com/css-grid-masonry/#google_vignette
-
-import { resizeAllMasonryItems } from "../events/index.js";
-
-/* Resize all the grid items on the load and resize events */
-export function masonryOnChange() {
-  var masonryEvents = ["load", "resize"];
-  masonryEvents.forEach(function (event) {
-    window.addEventListener(event, resizeAllMasonryItems);
-  });
-}
+import { masonry } from "../../ux/layout/index.js";
 
 function accordionResize(accordion) {
   accordion.forEach((accordionelement) => {
     accordionelement.addEventListener("hidden.bs.collapse", function () {
-      resizeAllMasonryItems();
+      masonry();
     });
     accordionelement.addEventListener("shown.bs.collapse", function () {
-      resizeAllMasonryItems();
+      masonry();
     });
   });
 }

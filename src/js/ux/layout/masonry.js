@@ -1,3 +1,17 @@
+export function masonry() {
+  masonryOnChange();
+  resizeAllMasonryItems();
+  waitForImages();
+}
+
+/* Resize all the grid items on the load and resize events */
+function masonryOnChange() {
+  var masonryEvents = ["load", "resize"];
+  masonryEvents.forEach(function (event) {
+    window.addEventListener(event, resizeAllMasonryItems);
+  });
+}
+
 // FUNCTIONS AND DOCUMENTATION FOR MASONRY FROM:
 // https://w3bits.com/css-grid-masonry/#google_vignette
 

@@ -1,5 +1,5 @@
 import { removeUrlParameter } from "../../ui/urlParams/index.js";
-import { API_BASE, API_POSTS } from "../constants.js";
+import { API_BASE, API_POSTS } from "../../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
 const method = "delete"; //or add it manually into the function..
