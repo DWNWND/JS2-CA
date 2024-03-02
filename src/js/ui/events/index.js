@@ -5,4 +5,5 @@ export * from "./filter.js";
 export * from "./updatePostContent.js";
 export * from "./populateUpdateForm.js";
 export * from "./resizeMasonry.js";
+export * from "./validation.js";
 
