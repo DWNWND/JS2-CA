@@ -4,7 +4,6 @@ import { fetchWithToken } from "../fetchWithToken.js";
 
 const method = "delete"; //or add it manually into the function..
 
-//FROM OLIS YT
 export async function removePostFromAPI(id) {
   if (!id) {
     throw new Error("Delete is missing a postID");
@@ -18,6 +17,10 @@ export async function removePostFromAPI(id) {
     if (response.ok) {
       removeUrlParameter("post-id");
       location.reload();
+    }
+
+    if (!response.ok) {
+      throw new Error("Something went wrong when contacting the API");
     }
   } catch {
     Error;
