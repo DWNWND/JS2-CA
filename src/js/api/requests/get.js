@@ -1,12 +1,6 @@
 import { fetchWithToken } from "../fetchWithToken.js";
-import { API_BASE, API_POSTS } from "../constants.js";
 import { displayErrorMessage } from "../../templates/errorMessage/errorMessage.js";
-
-const authorParam = "_author=true";
-const commentsParam = "_comments=true";
-const reactionsParam = "_reactions=true";
-const limitParam = "limit";
-const postLimit = 10;
+import { API_BASE, API_POSTS, authorParam, commentsParam, reactionsParam, limitParam, postLimit, loader, loadMoreBtn } from "../../constants.js";
 
 export async function getPostsFromAPI(page) {
   const getPostsURL = `${API_BASE}${API_POSTS}?${authorParam}&${commentsParam}&${reactionsParam}&${limitParam}=${postLimit}&page=${page}`;
@@ -17,10 +11,31 @@ export async function getPostsFromAPI(page) {
     const allPosts = posts.data;
     return allPosts;
   } else if (!response.ok) {
-    const errorMessage = "We are having some trouble with our servers, please wait and try again later";
-    const loader = document.querySelector(".spinner-grow");
     loader.style.display = "none";
+    loadMoreBtn.style.display = "none";
+
+    const errorMessage = "We are having some trouble with our servers, please wait and try again later";
     displayErrorMessage(errorMessage);
+
+    throw new Error("couldn't fetch posts from api");
+  }
+}
+
+export async function getAllPostsFromAPI() {
+  const getPostsURL = `${API_BASE}${API_POSTS}?${authorParam}&${commentsParam}&${reactionsParam}`;
+  const response = await fetchWithToken(getPostsURL);
+
+  if (response.ok) {
+    const posts = await response.json();
+    const allPosts = posts.data;
+    return allPosts;
+  } else if (!response.ok) {
+    loader.style.display = "none";
+    loadMoreBtn.style.display = "none";
+
+    const errorMessage = "We are having some trouble with our servers, please wait and try again later";
+    displayErrorMessage(errorMessage);
+
     throw new Error("couldn't fetch posts from api");
   }
 }
