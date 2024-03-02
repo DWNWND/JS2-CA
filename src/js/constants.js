@@ -14,4 +14,10 @@ export const postLimit = 10;
 
 export const loadMoreBtn = document.querySelector(".load-more");
 export const loader = document.querySelector(".spinner-grow");
+export const displayMessage = document.querySelector(".massage");
 export const feedContainer = document.querySelector(".feed-container");
+
+export const sortingByLikes = document.getElementById("sortbymostliked");
+export const sortingByComments = document.getElementById("sortbymostcommented");
+export const sortingByThreads = document.getElementById("sortbytypethreads");
+export const sortingByPhotos = document.getElementById("sortbytypephoto");
