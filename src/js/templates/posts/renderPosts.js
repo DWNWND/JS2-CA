@@ -68,7 +68,9 @@ export function renderPostTemplate(post, parent) {
  * @uses postTemplate To generate a HTML element for each social media post
  *
  */
+
 export function renderPostTemplates(postsList, parent) {
+
   const loader = document.querySelector(".spinner-grow");
 
   if (postsList.length === 0 || !postsList) {
@@ -82,9 +84,6 @@ export function renderPostTemplates(postsList, parent) {
 
     for (let i = 0; i < postsList.length; i++) {
       parent.append(postTemplate(postsList[i]));
-      if (i === 15) {
-        break;
-      }
     }
   }
 }
