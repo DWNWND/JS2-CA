@@ -15,10 +15,12 @@ export async function startFeed(allPosts) {
 
 //////// clean up this function if you want to
 export async function feedPage() {
+  const loader = document.querySelector(".spinner-grow");
   try {
     const posts = await HTTPMethod.getPostsFromAPI();
 
     if (posts) {
+      loader.style.display = "none";
       let params = new URLSearchParams(document.location.search);
       let postId = params.get("post-id");
       let id = parseInt(postId);
