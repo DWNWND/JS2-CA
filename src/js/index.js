@@ -17,3 +17,8 @@ if (window.location.pathname === "/feed/" || window.location.pathname === "/feed
 //   name: "testreg123"
 //   email: "testreg123@stud.noroff.no"
 //   password: "testreg123"
+
+//TEST V1
+// name: theatesterv1
+// email: v1testthea@noroff.no
+// password: test12345
