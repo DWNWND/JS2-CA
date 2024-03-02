@@ -1,3 +1,10 @@
+/**
+ * Generates an HTML element for the card/post BODY of each social media post passed in
+ * The function distinguishes posts with media attachements from the rest of the posts.
+ *
+ * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @returns {string} Returns a HTML elemement for the card/post body
+ */
 export function renderPostBody(postData) {
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "position-relative");
@@ -14,12 +21,6 @@ export function renderPostBody(postData) {
 
     cardBody.append(img, caption);
   } else {
-    const quoteMarkLeft = document.createElement("i");
-    quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
-
-    const quoteMarkright = document.createElement("i");
-    quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-10", "end-5");
-
     const quote = document.createElement("p");
     quote.classList.add("text-center");
     quote.innerText = postData.title;
@@ -28,7 +29,7 @@ export function renderPostBody(postData) {
     blockquote.classList.add("blockquote");
     blockquote.append(quote);
 
-    cardBody.append(quoteMarkLeft, blockquote, quoteMarkright);
+    cardBody.append(blockquote);
   }
   return cardBody;
 }

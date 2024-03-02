@@ -1,3 +1,8 @@
+/**
+ * Generates HTML for each reaction and appends it to a container
+ * @param {object} post An array of objects or a single object conatining of social media post(s)
+ * @param {string} container The HTML parent element that appends the reaction
+ */
 async function reactionsHTML(post, container) {
   const reactionsArray = post.reactions;
 
@@ -23,6 +28,15 @@ async function reactionsHTML(post, container) {
   }
 }
 
+/**
+ * Appends a posts rections to a bootstrap accordion element
+ *
+ * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @returns {string} A HTML element of the whole accordion containing the rections
+ *
+ * @uses reactionsHTML To generate the HTML for each rection
+ *
+ */
 export function displayReactionsAccordion(postData) {
   const accordionItem = document.createElement("div");
   accordionItem.classList.add("accordion-item");
@@ -30,14 +44,9 @@ export function displayReactionsAccordion(postData) {
   const accordionHeader = document.createElement("h4");
   accordionHeader.classList.add("accordion-header");
   accordionHeader.id = "headingLikes";
-  accordionHeader.innerHTML = `
-     <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
-       <i class="fa-regular fa-heart"></i>
-       <span class="number-of-likes">${postData._count.reactions}</span> likes
-     </button>`;
 
   const accordionCollapse = document.createElement("div");
-  accordionCollapse.classList.add("accordion-collapse", "collapse");
+  accordionCollapse.classList.add("accordion-collapse", "collapse", "detect-collapse");
   accordionCollapse.id = `likes-${postData.id}`;
   accordionCollapse.setAttribute("aria-labelledby", "headingLikes");
   accordionCollapse.setAttribute("data-bs-parent", "#view-likes-and-comments");
@@ -46,8 +55,18 @@ export function displayReactionsAccordion(postData) {
   accordionBody.classList.add("accordion-body", "d-flex", "flex-column", "gap-2");
 
   if (postData._count.reactions) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+      <i class="like full"></i>
+      <span class="number-of-likes">${postData._count.reactions}</span> likes
+    </button>`;
     reactionsHTML(postData, accordionBody);
   } else if (!postData._count.reactions) {
+    accordionHeader.innerHTML = `
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+      <i class="like empty"></i>
+      <span class="number-of-likes">${postData._count.reactions}</span> likes
+    </button>`;
     accordionBody.innerText = "this post has no reactions";
   }
 

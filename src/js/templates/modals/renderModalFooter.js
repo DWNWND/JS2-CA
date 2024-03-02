@@ -12,15 +12,6 @@ export function renderModalFooter(postData) {
   const modalFooter = document.createElement("div");
   modalFooter.classList.add("modal-footer", "text-muted", "flex-column");
 
-  // const closeBtn = document.createElement("div");
-  // closeBtn.classList.add("btn", "btn-secondary")
-  // closeBtn.setAttribute("data-bs-dismiss", "modal");
-  // closeBtn.innerText = "close modal"
-
-  // const saveBtn = document.createElement("div");
-  // saveBtn.classList.add("btn", "btn-primary")
-  // saveBtn.innerText = "save changes"
-
   const date = document.createElement("p");
   date.classList.add("mt-2", "date", "flex-grow-1", "w-100");
   date.innerText = `Last updated: ${postData.updated}`;

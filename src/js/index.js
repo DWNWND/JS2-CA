@@ -18,25 +18,7 @@ if (window.location.pathname === "/feed/" || window.location.pathname === "/feed
 //   email: "testreg123@stud.noroff.no"
 //   password: "testreg123"
 
-// TEST UPDATE POST // THIS WORKED:
-// EXAMPLE POST ID 2 = 55
-// import { updatePost } from "./api/posts/update.js";
-// updatePost({
-// id: 55,
-//   title: "My example title 2 - UPDATED",
-//   body: "My example body 2 - UPDATED",
-// });
-
-// TEST DELETE POST // THIS WORKED:
-// EXAMPLE POST ID 2 = 55 //now removed
-// import { removePost } from "./api/posts/delete.js";
-// removePost(55);
-
-// TESTS
-// post.createPost()
-// post.updatePost()
-// post.removePost()
-// post.getPost()
-// post.getPosts()
-// post.getPost(58)
-// post.removePost(58)
+//TEST V1
+// name: theatesterv1
+// email: v1testthea@noroff.no
+// password: test12345

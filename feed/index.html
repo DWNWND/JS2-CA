@@ -7,24 +7,22 @@
     <title>Document</title>
     <meta name="description" content="" />
     <link rel="icon" href="" />
-    <script src="https://kit.fontawesome.com/279950e6bf.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/279950e6bf.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="../dist/css/index.css" />
     <script defer type="module" src="/src/js/index.js"></script>
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   </head>
   <body>
     <div class="modal-container"></div>
     <header>
       <nav class="navbar navbar-light bg-light fixed-top">
         <div class="container-fluid">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-between justify-content-sm-start nav-width">
             <a class="navbar-brand" href="#">Navbar</a>
-            <a class="nav-link d-none d-sm-block pt-2 pb-2 pe-2 logout" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <button class="btn btn-secondary logout">Log out</button>
           </div>
-          <div class="d-sm-none d-flex align-items-center">
-            <a href="" class="nav-link pt-2 pb-2 ps-2"><i class="fa-solid fa-magnifying-glass"></i></a>
-          </div>
-          <div class="d-none d-sm-flex gap-2 justify-content-end align-items-center">
+          <div class="d-flex gap-2 justify-content-between justify-content-sm-end align-items-center nav-width">
             <form class="d-flex">
               <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -74,21 +72,29 @@
             </div>
           </div>
         </div>
-
         <div class="feed pt-2 h-100">
-          <div class="feed-container row" data-masonry='{"percentPosition": true }'></div>
+          <!-- <div class="feed-container row" data-masonry='{"percentPosition": true }'></div> -->
+          <div class="feed-container masonry"></div>
         </div>
       </div>
-    </main>
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom d-sm-none">
-      <nav class="navbar">
-        <div class="container-fluid d-flex align-items-center">
-          <a class="nav-link pt-2 pb-2 pe-2" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-          <a class="nav-link p-2" href="#"><i class="fa-solid fa-plus"></i></a>
-          <a class="nav-link" href="#"><img src="../img/undraw_Drink_coffee_v3au.png" class="img-fluid rounded-circle profile-img-nav" alt="..." /></a>
+      <!-- 
+      <div class="test">
+        <div class="masonry">
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 90px">1</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 200px">2</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 80px">3</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 120px">4</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 290px">5</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 200px">6</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 250px">7</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 70px">8</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 70px">9</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 50px">10</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 120px">11</div></div>
+          <div class="masonry-brick"><div class="item masonry-content" style="height: 260px">12</div></div>
         </div>
-      </nav>
-    </footer>
+      </div> -->
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async await></script>
   </body>
   <!-- <script src="masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script> -->

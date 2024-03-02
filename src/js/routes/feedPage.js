@@ -3,6 +3,7 @@ import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 import { makeModal } from "../templates/modals/index.js";
 import { load } from "../storage/index.js";
+import { resizeAllMasonryItems, waitForImages } from "../ui/events/index.js";
 
 export async function startFeed(allPosts) {
   const feedContainer = document.querySelector(".feed-container");
@@ -12,8 +13,7 @@ export async function startFeed(allPosts) {
   await listenFor.openPostAsModal();
 }
 
-//clean up the modal-thing
-
+//////// clean up this function if you want to
 export async function feedPage() {
   try {
     const posts = await HTTPMethod.getPostsFromAPI();
@@ -37,6 +37,12 @@ export async function feedPage() {
       listenFor.filter(posts);
       listenFor.search(posts);
       listenFor.publishNewPost();
+      resizeAllMasonryItems();
+      listenFor.masonryOnChange();
+      listenFor.openAccordion();
+
+      /* Do a resize once more when all the images finish loading */
+      waitForImages();
     } else if (!posts) {
       const token = load("token");
       if (!token) {

@@ -3,8 +3,6 @@ import { load } from "../../storage/index.js";
 import { populateUpdateForm } from "../../ui/events/index.js";
 import { updateForm } from "../forms/index.js";
 
-const author = load("profile");
-
 function makeDeleteBtn() {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100");
@@ -13,6 +11,8 @@ function makeDeleteBtn() {
 }
 
 export function renderModalBody(postData) {
+  const author = load("profile");
+
   const modalBody = document.createElement("div");
   modalBody.classList.add("modal-body", "position-relative");
 
@@ -46,12 +46,6 @@ export function renderModalBody(postData) {
 
       modalBody.append(img, caption);
     } else {
-      const quoteMarkLeft = document.createElement("i");
-      quoteMarkLeft.classList.add("fa-solid", "fa-quote-left");
-
-      const quoteMarkright = document.createElement("i");
-      quoteMarkright.classList.add("fa-solid", "fa-quote-right", "position-absolute", "bottom-25", "end-5");
-
       const quote = document.createElement("p");
       quote.classList.add("text-center");
       quote.innerText = postData.title;
@@ -60,7 +54,7 @@ export function renderModalBody(postData) {
       blockquote.classList.add("blockquote");
       blockquote.append(quote);
 
-      modalBody.append(quoteMarkLeft, blockquote, quoteMarkright);
+      modalBody.append(blockquote);
     }
   }
   return modalBody;
