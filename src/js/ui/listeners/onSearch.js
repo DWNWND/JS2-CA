@@ -16,6 +16,5 @@ export async function search() {
 
     getPostsFromSearch(allPosts, postsPerPage);
     await openPostAsModal();
-    masonry();
   });
 }
