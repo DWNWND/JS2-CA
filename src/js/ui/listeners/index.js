@@ -8,3 +8,4 @@ export * from "./logOut.js";
 export * from "./forValidation.js";
 export * from "./accordion.js";
 export * from "./loadMore.js";
+export * from "./clearErrorMsg.js";
