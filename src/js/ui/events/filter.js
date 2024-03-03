@@ -1,18 +1,20 @@
 import { renderPostTemplate, renderPostTemplates } from "../../templates/posts/index.js";
 import { sortingByLikes, sortingByComments, sortingByThreads, sortingByPhotos, feedContainer, loadMoreBtn, loader } from "../../constants.js";
 import { getPostsFromAPI } from "../../api/requests/get.js";
+import { openPostAsModal } from "../listeners/openModal.js";
 
 let page = 1;
 
 //could not get the filter method to work on multiple sorting options at the same time, therefore using a loop and if-statements
 export async function filtering(posts) {
   loader.style.display = "flex";
-  
+
   //UPDATE TO STARTFEED
   if (!sortingByComments.checked && !sortingByLikes.checked && !sortingByThreads.checked && !sortingByPhotos.checked) {
     const posts = await getPostsFromAPI(page);
     renderPostTemplates(posts, feedContainer);
     loadMoreBtn.style.display = "block";
+    await openPostAsModal()
   } else {
     loadMoreBtn.style.display = "none";
     loader.style.display = "none";

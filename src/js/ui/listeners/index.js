@@ -5,6 +5,6 @@ export * from "./publishPost.js";
 export * from "./onSearch.js";
 export * from "./onFilter.js";
 export * from "./logOut.js";
-export * from "./repeatPassword.js";
+export * from "./forValidation.js";
 export * from "./accordion.js";
 export * from "./loadMore.js";
