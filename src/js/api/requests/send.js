@@ -1,20 +1,27 @@
-import { API_BASE, API_POSTS } from "../../constants.js";
+import { API_BASE, API_POSTS, newPostErrorContainer } from "../../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
+import { displayErrorMessage } from "../../templates/errorMessage/index.js";
 
-const method = "post"; //or add it manually into the function..
+let errorMessage;
 
 //FROM OLIS YT
 export async function sendPostToAPI(postData) {
-  const sendPostURL = API_BASE + API_POSTS;
-  const response = await fetchWithToken(sendPostURL, {
-    method,
-    body: JSON.stringify(postData),
-  });
-  const post = await response.json();
-  // console.log("THE SENDING OF THIS POST TO THE API WAS SUCCESSFUL: ", post);
-
-  if (post) {
-    location.reload();
+  try {
+    const response = await fetchWithToken(API_BASE + API_POSTS, {
+      method: "POST",
+      body: JSON.stringify(postData),
+    });
+    if (response.status === 201) {
+      location.reload();
+    }
+    if (response.status === 400) {
+      errorMessage = "You are trying to post an empty post.";
+      displayErrorMessage(errorMessage, newPostErrorContainer);
+    } else if (response.status >= 401) {
+      errorMessage = "An unexpected error occured, please try again later";
+      throw new Error("Unknown error - investigate");
+    }
+  } catch (error) {
+    console.log(error);
   }
-  // return post;
 }

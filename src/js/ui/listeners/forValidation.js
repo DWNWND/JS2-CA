@@ -1,19 +1,27 @@
-import { validatePassword } from "../events/index.js";
+import { validateRepeatPassword, validateUsername, validatePassword, validateEmail } from "../events/index.js";
+import { email, username, password, repeatPassword, loginPassword, generalErrorContainer, loginEmail } from "../../constants.js";
 
 export function validation() {
-  const firstPasswordValue = document.querySelector("#registerPassword");
-  const repeatPassword = document.querySelector("#registerRepeatPassword");
+  email.addEventListener("input", validateEmail);
+  username.addEventListener("input", validateUsername);
 
-  firstPasswordValue.addEventListener("input", () => {
-    const firstPasswordValue = document.querySelector("#registerPassword").value;
-    const repeatPasswordValue = document.querySelector("#registerRepeatPassword").value;
-
-    validatePassword(firstPasswordValue, repeatPasswordValue);
+  password.addEventListener("input", () => {
+    validateRepeatPassword(password.value, repeatPassword.value);
+    validatePassword();
   });
   repeatPassword.addEventListener("input", () => {
-    const firstPasswordValue = document.querySelector("#registerPassword").value;
-    const repeatPasswordValue = document.querySelector("#registerRepeatPassword").value;
+    validateRepeatPassword(password.value, repeatPassword.value);
+    validatePassword();
+  });
 
-    validatePassword(firstPasswordValue, repeatPasswordValue);
+  loginPassword.addEventListener("input", () => {
+    if (loginPassword.value === "") {
+      generalErrorContainer.innerText = "";
+    }
+  });
+  loginEmail.addEventListener("input", () => {
+    if (loginPassword.value === "" && loginPassword.value === "") {
+      generalErrorContainer.innerText = "";
+    }
   });
 }

@@ -1,4 +1,3 @@
-export function displayErrorMessage(errorMessage) {
-  const errorContainer = document.querySelector(".error-message");
+export function displayErrorMessage(errorMessage, errorContainer) {
   errorContainer.innerText = errorMessage;
 }
