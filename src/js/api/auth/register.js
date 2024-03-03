@@ -1,5 +1,5 @@
 import { fetchWithToken } from "../fetchWithToken.js";
-import { API_AUTH, API_BASE, API_REGISTER } from "../../constants.js";
+import { API_AUTH, API_BASE, API_REGISTER, generalErrorContainer } from "../../constants.js";
 import { displayErrorMessage } from "../../templates/errorMessage/index.js";
 import { login } from "./index.js";
 
@@ -22,7 +22,7 @@ export async function register(name, email, password) {
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {
-    displayErrorMessage(errorMessage);
+    displayErrorMessage(errorMessage, generalErrorContainer);
     console.log(error);
   }
 }
