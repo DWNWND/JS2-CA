@@ -1,7 +1,6 @@
 import { register } from "../../api/auth/register.js";
 import { login } from "../../api/auth/login.js";
 import { validatePassword } from "./index.js";
-import { load } from "../../storage/index.js";
 
 export async function loginAuth(event) {
   event.preventDefault();
@@ -10,13 +9,6 @@ export async function loginAuth(event) {
   const password = event.target.loginPassword.value;
 
   await login(email, password);
-  const token = load("token");
-
-  if (token) {
-    location.pathname = "/feed";
-  } else if (!token) {
-    return;
-  }
 }
 
 export async function registerAuth(event) {
@@ -31,11 +23,5 @@ export async function registerAuth(event) {
 
   if (passwordRepeat === firstPassword) {
     await register(name, email, firstPassword);
-    await login(email, firstPassword);
-    if (login) {
-      location.pathname = "/feed";
-    }
-  } else {
-    console.log("wrong password");
   }
 }

@@ -14,17 +14,18 @@ export async function login(email, password) {
       const { accessToken, ...profile } = (await response.json()).data;
       save("token", accessToken);
       save("profile", profile);
-      return profile;
+      location.pathname = "/feed";
+      // return profile;
     }
     if (response.status === 401) {
       errorMessage = "The login credentials is not correct (or there is no user in the V2 with these credentials)";
       throw new Error("The login credentials is not correct (or there is no user in the V2 with these credentials) - the server will not send a token");
-    } else {
+    } else if (response.status === 400 || response.status >= 402) {
       errorMessage = "An unexpected error occured, please try again later";
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {
     displayErrorMessage(errorMessage);
-    console.log(error)
+    console.log(error);
   }
 }
