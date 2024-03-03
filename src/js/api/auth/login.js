@@ -1,5 +1,5 @@
 import { fetchWithToken } from "../fetchWithToken.js";
-import { API_AUTH, API_BASE, API_LOGIN } from "../../constants.js";
+import { API_AUTH, API_BASE, API_LOGIN, generalErrorContainer } from "../../constants.js";
 import { save } from "../../storage/index.js";
 import { displayErrorMessage } from "../../templates/errorMessage/index.js";
 
@@ -25,7 +25,7 @@ export async function login(email, password) {
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {
-    displayErrorMessage(errorMessage);
+    displayErrorMessage(errorMessage, generalErrorContainer);
     console.log(error);
   }
 }

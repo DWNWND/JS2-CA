@@ -2,10 +2,8 @@ import * as listenFor from "../ui/listeners/index.js";
 import * as templates from "../templates/posts/index.js";
 import * as HTTPMethod from "../api/requests/index.js";
 import { makeModal } from "../templates/modals/index.js";
-import { load } from "../storage/index.js";
-import { masonry } from "../ux/layout/index.js";
 import { clickToLoadMore } from "../ui/listeners/index.js";
-import { loadMoreBtn, loader, feedContainer } from "../constants.js";
+import { loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.js";
 
 let page = 1;
 
@@ -48,6 +46,7 @@ export async function feedPage() {
       listenFor.search();
       listenFor.publishNewPost();
       listenFor.openAccordion();
+      listenFor.clearErrorMessages(allErrorContaines);
 
       loadMoreBtn.style.display = "block";
     }

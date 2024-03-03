@@ -1,13 +1,16 @@
-import { validatePassword, validateRegistrating } from "../events/index.js";
-import { registerForm, password, repeatPassword } from "../../constants.js";
+import { validateRepeatPassword, validateUsername, validatePassword, validateEmail } from "../events/index.js";
+import { email, username, password, repeatPassword } from "../../constants.js";
 
 export function validation() {
-  registerForm.addEventListener("input", validateRegistrating);
+  email.addEventListener("input", validateEmail);
+  username.addEventListener("input", validateUsername);
 
   password.addEventListener("input", () => {
-    validatePassword(password.value, repeatPassword.value);
+    validateRepeatPassword(password.value, repeatPassword.value);
+    validatePassword();
   });
   repeatPassword.addEventListener("input", () => {
-    validatePassword(password.value, repeatPassword.value);
+    validateRepeatPassword(password.value, repeatPassword.value);
+    validatePassword();
   });
 }

@@ -11923,6 +11923,10 @@ textarea.form-control-lg {
   color: green;
 }
 
+.error {
+  color: red;
+}
+
 .masonry {
   display: grid;
   grid-gap: 1em;
