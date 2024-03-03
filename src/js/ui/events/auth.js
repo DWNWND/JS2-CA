@@ -27,10 +27,15 @@ export async function registerAuth(event) {
   const firstPassword = event.target.registerPassword.value;
   const passwordRepeat = event.target.registerRepeatPassword.value;
 
- validatePassword(firstPassword, passwordRepeat);
+  validatePassword(firstPassword, passwordRepeat);
 
   if (passwordRepeat === firstPassword) {
     await register(name, email, firstPassword);
     await login(email, firstPassword);
+    if (login) {
+      location.pathname = "/feed";
+    }
+  } else {
+    console.log("wrong password");
   }
 }

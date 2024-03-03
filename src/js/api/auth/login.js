@@ -1,6 +1,7 @@
 import { fetchWithToken } from "../fetchWithToken.js";
 import { API_AUTH, API_BASE, API_LOGIN } from "../../constants.js";
 import { save } from "../../storage/index.js";
+import { displayErrorMessage } from "../../templates/errorMessage/index.js";
 
 let errorMessage;
 export async function login(email, password) {

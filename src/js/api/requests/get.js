@@ -3,21 +3,23 @@ import { displayErrorMessage } from "../../templates/errorMessage/errorMessage.j
 import { API_BASE, API_POSTS, authorParam, commentsParam, reactionsParam, limitParam, postLimit, loader, loadMoreBtn } from "../../constants.js";
 
 export async function getPostsFromAPI(page) {
-  const getPostsURL = `${API_BASE}${API_POSTS}?${authorParam}&${commentsParam}&${reactionsParam}&${limitParam}=${postLimit}&page=${page}`;
-  const response = await fetchWithToken(getPostsURL);
+  try {
+    const getPostsURL = `${API_BASE}${API_POSTS}?${authorParam}&${commentsParam}&${reactionsParam}&${limitParam}=${postLimit}&page=${page}`;
+    const response = await fetchWithToken(getPostsURL);
 
-  if (response.ok) {
-    const posts = await response.json();
-    const allPosts = posts.data;
-    return allPosts;
-  } else if (!response.ok) {
-    loader.style.display = "none";
-    loadMoreBtn.style.display = "none";
+    if (response.ok) {
+      const posts = await response.json();
+      const allPosts = posts.data;
+      return allPosts;
+    } else if (!response.ok) {
+      loader.style.display = "none";
+      loadMoreBtn.style.display = "none";
 
+      throw new Error("couldn't fetch posts from api");
+    }
+  } catch (error) {
     const errorMessage = "We are having some trouble with our servers, please wait and try again later";
     displayErrorMessage(errorMessage);
-
-    throw new Error("couldn't fetch posts from api");
   }
 }
 
