@@ -21,3 +21,14 @@ export const sortingByLikes = document.getElementById("sortbymostliked");
 export const sortingByComments = document.getElementById("sortbymostcommented");
 export const sortingByThreads = document.getElementById("sortbytypethreads");
 export const sortingByPhotos = document.getElementById("sortbytypephoto");
+
+
+export const registerForm = document.querySelector("#register");
+export const email = document.querySelector("#registerEmail");
+export const emailError = document.querySelector("#emailHelpBlock");
+export const username = document.querySelector("#registerUsername");
+export const usernameError = document.querySelector("#usernameHelpBlock");
+export const password = document.querySelector("#registerPassword");
+export const passwordError = document.querySelector("#passwordHelpBlock");
+export const repeatPassword = document.querySelector("#registerRepeatPassword");
+export const repeatPasswordError = document.querySelector("#registerRepeatPasswordError");

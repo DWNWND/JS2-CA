@@ -1,19 +1,13 @@
-import { validatePassword } from "../events/index.js";
+import { validatePassword, validateRegistrating } from "../events/index.js";
+import { registerForm, password, repeatPassword } from "../../constants.js";
 
 export function validation() {
-  const firstPasswordValue = document.querySelector("#registerPassword");
-  const repeatPassword = document.querySelector("#registerRepeatPassword");
+  registerForm.addEventListener("input", validateRegistrating);
 
-  firstPasswordValue.addEventListener("input", () => {
-    const firstPasswordValue = document.querySelector("#registerPassword").value;
-    const repeatPasswordValue = document.querySelector("#registerRepeatPassword").value;
-
-    validatePassword(firstPasswordValue, repeatPasswordValue);
+  password.addEventListener("input", () => {
+    validatePassword(password.value, repeatPassword.value);
   });
   repeatPassword.addEventListener("input", () => {
-    const firstPasswordValue = document.querySelector("#registerPassword").value;
-    const repeatPasswordValue = document.querySelector("#registerRepeatPassword").value;
-
-    validatePassword(firstPasswordValue, repeatPasswordValue);
+    validatePassword(password.value, repeatPassword.value);
   });
 }
