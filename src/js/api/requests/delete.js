@@ -17,13 +17,12 @@ export async function removePostFromAPI(id) {
     if (response.ok) {
       removeUrlParameter("post-id");
       location.reload();
-    }
-
-    if (!response.ok) {
+    } else {
       throw new Error("Something went wrong when contacting the API");
     }
-  } catch {
-    Error;
-    console.log(Error);
+  } catch (error){
+
+    // Error;
+    console.log(error);
   }
 }
