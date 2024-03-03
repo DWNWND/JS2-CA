@@ -5,7 +5,7 @@ export function authentication() {
   document.forms.login.addEventListener("submit", loginAuth);
   document.forms.register.addEventListener("submit", registerAuth);
 
-  window.addEventListener("load", (event) => {
+  window.addEventListener("load", () => {
     const token = load("token");
     if (token) {
       location.pathname = "/feed";
