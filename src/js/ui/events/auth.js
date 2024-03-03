@@ -9,10 +9,6 @@ export async function loginAuth(event) {
   const password = event.target.loginPassword.value;
 
   await login(email, password);
-
-  if (login) {
-    location.pathname = "/feed";
-  }
 }
 
 export async function registerAuth(event) {
@@ -27,11 +23,5 @@ export async function registerAuth(event) {
 
   if (passwordRepeat === firstPassword) {
     await register(name, email, firstPassword);
-    await login(email, firstPassword);
-    if (login) {
-      location.pathname = "/feed";
-    }
-  } else {
-    console.log("wrong password");
   }
 }
