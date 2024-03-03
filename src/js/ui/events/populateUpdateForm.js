@@ -1,7 +1,7 @@
 import { getPostFromAPI } from "../../api/requests/index.js";
 
 export async function populateUpdateForm(updateForm) {
-  const id = updateForm.name
+  const id = updateForm.name;
 
   if (updateForm) {
     const button = updateForm.querySelector("button");
@@ -15,10 +15,6 @@ export async function populateUpdateForm(updateForm) {
     if (postPopulation.body) {
       updateForm.body.value = postPopulation.body;
     }
-    if (!postPopulation.body || !postPopulation.title) {
-      console.log("the post is lacking some content");
-    }
-
     button.disabled = false;
   }
 }

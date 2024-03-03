@@ -1,12 +1,18 @@
 # JS2-CA | JavaScript front-end client for social media platform
 
-![ca-screenshot](place img here)
+![img of the app running](https://github.com/DWNWND/JS2-CA/blob/js2/img/screenshot_app.png?raw=true)
 
-This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform". + some more info about your webapp/site.
+This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform".
+
+The task was strickly about JavaScript and was not graded based on appaerance, HTML or CSS. I chose because of this to only work with premade Bootstrap components.
 
 ## Live app
 
 This project is deployed on [Netlify](https://js2-ca-dwnwnd.netlify.app/) from the branch called `js2`.
+
+## API
+
+I've used the [Noroff V2](https://v2.api.noroff.dev/docs/static/index.html) API for this task.
 
 ## Course goal
 
@@ -57,11 +63,13 @@ The course assignment was restricted by:
 
 ## Figma Prototype
 
-[Figma](add link to Figma Prototype here)
+[Figma Desktop Prototype](https://www.figma.com/proto/HcphI8BSxqiHqXMZhjYEWm/js2-ca?page-id=1%3A168&node-id=11-1087&scaling=scale-down-width&mode=design&t=bxigyvFXaPKeUarX-1)
+
+[Figma App Prototype](https://www.figma.com/proto/HcphI8BSxqiHqXMZhjYEWm/js2-ca?page-id=0%3A1&node-id=11-1964&mode=design&t=2G9dNYNhzqLsh7eM-1)
 
 ## Trello Board
 
-[Trello board](add link to Trello board here)
+[Trello board](https://trello.com/b/ZDcxc5Ne/javascript-2-ca)
 
 ## Built with
 
@@ -87,7 +95,7 @@ git clone https://github.com/DWNWND/JS2-CA.git
    > `npm install`
 
 5. Run `watch` & `liveserver`
-   
+
    > `npm run dev`
 
 ## Validation
@@ -113,4 +121,6 @@ The web application code has been validated using the following tools:
 
 Noroff Online Studies
 
-The artists at (Link to artistpages)
+The artists at [Undraw](https://undraw.co/)
+
+More?

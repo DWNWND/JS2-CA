@@ -1,5 +1,7 @@
 import { load } from "../../storage/index.js";
 import { renderPostBody, renderPostFooter, renderPostHeader } from "./index.js";
+import { loadMoreBtn, loader, displayMessage } from "../../constants.js";
+import { masonry } from "../../ux/layout/index.js";
 
 /////////////////////FURTHER WORK
 //     GENERATE A LOAD MORE BTN
@@ -55,6 +57,7 @@ export function postTemplate(postData) {
  */
 export function renderPostTemplate(post, parent) {
   parent.append(postTemplate(post));
+  masonry();
 }
 
 /**
@@ -68,15 +71,19 @@ export function renderPostTemplate(post, parent) {
  * @uses postTemplate To generate a HTML element for each social media post
  *
  */
+
 export function renderPostTemplates(postsList, parent) {
   if (postsList.length === 0 || !postsList) {
-    console.log("no posts in this search or filter");
+    loader.style.display = "none";
+    loadMoreBtn.style.display = "none";
+    displayMessage.innerText = "there's no posts matching this search or filter";
   } else {
+    loader.style.display = "none";
+    displayMessage.innerText = "";
+
     for (let i = 0; i < postsList.length; i++) {
       parent.append(postTemplate(postsList[i]));
-      if (i === 15) {
-        break;
-      }
     }
+    masonry();
   }
 }

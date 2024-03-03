@@ -1,4 +1,4 @@
-import { API_BASE, API_POSTS } from "../constants.js";
+import { API_BASE, API_POSTS } from "../../constants.js";
 import { fetchWithToken } from "../fetchWithToken.js";
 
 const method = "post"; //or add it manually into the function..
