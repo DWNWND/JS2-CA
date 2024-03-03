@@ -1,15 +1,15 @@
 import { email, emailError, username, usernameError, password, passwordError, repeatPasswordError } from "../../constants.js";
 
 export async function validateRepeatPassword(firstPasswordValue, repeatPasswordValue) {
-  const firstPassword = firstPasswordValue;
-  const passwordRepeat = repeatPasswordValue;
-
-  if (passwordRepeat === firstPassword) {
+  if (repeatPasswordValue === firstPasswordValue && repeatPasswordValue !== "") {
     repeatPasswordError.innerText = "The passwords match";
     repeatPasswordError.classList.add("success");
     repeatPasswordError.classList.remove("error");
-    return firstPassword;
-  } else if (passwordRepeat !== firstPassword) {
+    return firstPasswordValue;
+  }
+  if (firstPasswordValue === "" || repeatPasswordValue === "") {
+    repeatPasswordError.classList.remove("error");
+  } else if (repeatPasswordValue !== firstPasswordValue) {
     repeatPasswordError.innerText = "The passwords do not match";
     repeatPasswordError.classList.remove("success");
     repeatPasswordError.classList.add("error");
@@ -17,8 +17,12 @@ export async function validateRepeatPassword(firstPasswordValue, repeatPasswordV
 }
 
 export function validatePassword() {
+  console.log(password.value);
   if (checkPassword(password.value, 8, 20) === true) {
     passwordError.style.display = "none";
+  }
+  if (password.value === "") {
+    passwordError.classList.remove("error");
   } else {
     passwordError.style.display = "block";
     passwordError.classList.add("error");
@@ -27,6 +31,9 @@ export function validatePassword() {
 export function validateUsername() {
   if (checkUsername(username.value, 2, 10) === true) {
     usernameError.style.display = "none";
+  }
+  if (username.value === "") {
+    usernameError.classList.remove("error");
   } else {
     usernameError.style.display = "block";
     usernameError.classList.add("error");
@@ -35,6 +42,9 @@ export function validateUsername() {
 export function validateEmail() {
   if (checkEmail(email.value) === true) {
     emailError.style.display = "none";
+  }
+  if (email.value === "") {
+    emailError.classList.remove("error");
   } else {
     emailError.style.display = "block";
     emailError.classList.add("error");
