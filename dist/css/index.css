@@ -11919,6 +11919,14 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
 .masonry {
   display: grid;
   grid-gap: 1em;

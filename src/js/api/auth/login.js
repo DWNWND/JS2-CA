@@ -1,5 +1,5 @@
 import { fetchWithToken } from "../fetchWithToken.js";
-import { API_AUTH, API_BASE, API_LOGIN } from "../../constants.js";
+import { API_AUTH, API_BASE, API_LOGIN, generalErrorContainer } from "../../constants.js";
 import { save } from "../../storage/index.js";
 import { displayErrorMessage } from "../../templates/errorMessage/index.js";
 
@@ -19,13 +19,13 @@ export async function login(email, password) {
     }
     if (response.status === 401) {
       errorMessage = "The login credentials is not correct (or there is no user in the V2 with these credentials)";
-      throw new Error("The login credentials is not correct (or there is no user in the V2 with these credentials) - the server will not send a token");
+      throw new Error("The server is not responding with a token");
     } else if (response.status === 400 || response.status >= 402) {
       errorMessage = "An unexpected error occured, please try again later";
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {
-    displayErrorMessage(errorMessage);
+    displayErrorMessage(errorMessage, generalErrorContainer);
     console.log(error);
   }
 }
