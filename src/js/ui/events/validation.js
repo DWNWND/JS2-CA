@@ -72,3 +72,4 @@ function checkEmail(email) {
   const patternMatches = regEx.test(email);
   return patternMatches;
 }
+

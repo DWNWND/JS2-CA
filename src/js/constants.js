@@ -34,3 +34,6 @@ export const password = document.querySelector("#registerPassword");
 export const passwordError = document.querySelector("#passwordHelpBlock");
 export const repeatPassword = document.querySelector("#registerRepeatPassword");
 export const repeatPasswordError = document.querySelector("#registerRepeatPasswordError");
+
+export const loginPassword = document.querySelector("#loginPassword")
+export const loginEmail = document.querySelector("#loginEmail")

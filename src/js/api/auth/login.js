@@ -19,7 +19,7 @@ export async function login(email, password) {
     }
     if (response.status === 401) {
       errorMessage = "The login credentials is not correct (or there is no user in the V2 with these credentials)";
-      throw new Error("The login credentials is not correct (or there is no user in the V2 with these credentials) - the server will not send a token");
+      throw new Error("The server is not responding with a token");
     } else if (response.status === 400 || response.status >= 402) {
       errorMessage = "An unexpected error occured, please try again later";
       throw new Error("Unknown error - investigate");
