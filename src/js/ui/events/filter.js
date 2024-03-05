@@ -1,14 +1,16 @@
 import { renderPostTemplates } from "../../templates/posts/index.js";
-import { postsByPage, allPosts, filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.js";
+import { getPostsByPage, getAllPosts, filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.js";
 import { openPostAsModal } from "../listeners/openModal.js";
 
 export async function filterPosts() {
   loader.style.display = "flex";
 
+  const postsByPage = await getPostsByPage;
+  const allPosts = await getAllPosts;
+
   if (!filterByComments.checked && !filterByLikes.checked && !filterByThreads.checked && !filterByPhotos.checked) {
     renderPostTemplates(postsByPage, feedContainer);
     loadMoreBtn.style.display = "block";
-    
   } else {
     loadMoreBtn.style.display = "none";
 

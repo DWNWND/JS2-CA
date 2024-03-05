@@ -15,8 +15,9 @@ export const limitParam = "limit";
 export const postLimit = 10;
 
 let page = 1;
-export const postsByPage = await getPostsFromAPI(page);
-export const allPosts = await getAllPostsFromAPI();
+
+export const getPostsByPage = getPostsFromAPI(page);
+export const getAllPosts = getAllPostsFromAPI();
 
 export const loadMoreBtn = document.querySelector(".load-more");
 export const loader = document.querySelector(".spinner-grow");
@@ -43,5 +44,5 @@ export const passwordError = document.querySelector("#passwordHelpBlock");
 export const repeatPassword = document.querySelector("#registerRepeatPassword");
 export const repeatPasswordError = document.querySelector("#registerRepeatPasswordError");
 
-export const loginPassword = document.querySelector("#loginPassword")
-export const loginEmail = document.querySelector("#loginEmail")
+export const loginPassword = document.querySelector("#loginPassword");
+export const loginEmail = document.querySelector("#loginEmail");

@@ -1,11 +1,22 @@
 import { loginPage, feedPage } from "./routes/index.js";
+import { load } from "./storage/index.js";
 
-if (window.location.pathname === "/") {
+if (window.location.pathname === "/" || window.location.pathname === "") {
   loginPage();
+
+  const token = load("token");
+  if (token) {
+    location.pathname = "/feed";
+  }
 }
 
 if (window.location.pathname === "/feed/" || window.location.pathname === "/feed/index" || window.location.pathname === "/feed/index.html" || window.location.pathname === "/feed/index.html?") {
   feedPage();
+
+  const token = load("token");
+  if (!token) {
+    location.pathname = "/";
+  }
 }
 
 // LOGIN DETAILS

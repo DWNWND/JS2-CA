@@ -2,7 +2,7 @@ import * as listenFor from "../ui/listeners/index.js";
 import * as templates from "../templates/posts/index.js";
 import { makeModal } from "../templates/modals/index.js";
 import { clickToLoadMore } from "../ui/listeners/index.js";
-import { postsByPage, loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.js";
+import { getPostsByPage, loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.js";
 
 export async function startFeed(allPosts, container) {
   container.innerHTML = "";
@@ -15,15 +15,18 @@ export async function startFeed(allPosts, container) {
 export async function feedPage() {
   loadMoreBtn.style.display = "none";
 
+  const postByPage = await getPostsByPage;
+
   try {
-    if (postsByPage) {
+    if (postByPage) {
       loader.style.display = "none";
 
       //open post as modal if you go directly to url with id
       let params = new URLSearchParams(document.location.search);
       let postId = params.get("post-id");
       let id = parseInt(postId);
-      postsByPage.filter(async (allPosts) => {
+
+      postByPage.filter(async (allPosts) => {
         if (allPosts.id === id) {
           await makeModal(id);
           let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
@@ -35,7 +38,7 @@ export async function feedPage() {
       });
 
       //generate feed
-      await startFeed(postsByPage, feedContainer);
+      await startFeed(postByPage, feedContainer);
       clickToLoadMore(loadMoreBtn);
 
       listenFor.filtering();
