@@ -14,56 +14,51 @@ export async function filterPosts() {
   } else {
     loadMoreBtn.style.display = "none";
 
-    if (filterByLikes.checked) {
-      const mostLiked = allPosts.filter(({ _count: { reactions, comments }, media, title }) => {
-        if (!filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions > 2) {
-          return allPosts;
-        }
-        if (!filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && reactions > 2 && comments > 2) {
-          return allPosts;
-        }
-        if (filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions > 2 && media) {
-          return allPosts;
-        }
-        if (!filterByPhotos.checked && filterByThreads.checked && !filterByComments.checked && reactions >= 2 && title && !media) {
-          return allPosts;
-        }
-      });
-      renderPostTemplates(mostLiked, feedContainer);
-    }
+    const fileredPosts = allPosts.filter(({ _count: { reactions, comments }, media, title }) => {
+      //BY LIKES
+      if (filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions >= 2) {
+        return allPosts;
+      }
+      if (filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions >= 2 && media) {
+        return allPosts;
+      }
+      if (filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && !filterByComments.checked && reactions >= 2 && title && !media) {
+        return allPosts;
+      }
+      if (filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && reactions >= 2 && comments >= 2) {
+        return allPosts;
+      }
 
-    if (filterByComments.checked) {
-      const mostCommented = allPosts.filter(({ _count: { comments }, media, title }) => {
-        if (!filterByLikes.checked && !filterByThreads.checked && !filterByPhotos.checked && comments > 2) {
-          return allPosts;
-        }
-        if (!filterByLikes.checked && filterByThreads.checked && !filterByPhotos.checked && comments > 2 && title && !media) {
-          return allPosts;
-        }
-        if (!filterByLikes.checked && !filterByThreads.checked && filterByPhotos.checked && comments > 2 && media) {
-          return allPosts;
-        }
-      });
-      renderPostTemplates(mostCommented, feedContainer);
-    }
+      //BY COMMENTS
+      if (!filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && comments >= 2) {
+        return allPosts;
+      }
+      if (!filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && filterByComments.checked && comments >= 2 && title && !media) {
+        return allPosts;
+      }
+      if (!filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && comments >= 2 && media) {
+        return allPosts;
+      }
 
-    if (filterByThreads.checked) {
-      const sortThreads = allPosts.filter(({ media, title }) => {
-        if (!filterByComments.checked && !filterByLikes.checked && !filterByPhotos.checked && title && !media) {
-          return allPosts;
-        }
-      });
-      renderPostTemplates(sortThreads, feedContainer);
-    }
+      //BY LIKES AND COMMENTS
+      if (filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && filterByComments.checked && title && !media && reactions >= 2 && comments >= 2) {
+        return allPosts; //threads
+      }
+      if (filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && media && reactions >= 2 && comments >= 2) {
+        return allPosts; //photos
+      }
 
-    if (filterByPhotos.checked) {
-      const sortPhotos = allPosts.filter(({ media }) => {
-        if (!filterByComments.checked && !filterByLikes.checked && !filterByThreads.checked && media) {
-          return allPosts;
-        }
-      });
-      renderPostTemplates(sortPhotos, feedContainer);
-    }
+      //BY THREADS
+      if (!filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && !filterByComments.checked && title && !media) {
+        return allPosts;
+      }
+
+      //BY PHOTOS
+      if (!filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && media) {
+        return allPosts;
+      }
+    });
+    renderPostTemplates(fileredPosts, feedContainer);
   }
   await openPostAsModal();
 }

@@ -9,6 +9,7 @@ export async function startFeed(allPosts, container) {
   templates.renderPostTemplates(allPosts, container);
   listenFor.logOut();
   await listenFor.openPostAsModal();
+  loader.style.display = "none";
 }
 
 //////// clean up this function if you want to
@@ -19,8 +20,6 @@ export async function feedPage() {
 
   try {
     if (postByPage) {
-      loader.style.display = "none";
-
       //open post as modal if you go directly to url with id
       let params = new URLSearchParams(document.location.search);
       let postId = params.get("post-id");

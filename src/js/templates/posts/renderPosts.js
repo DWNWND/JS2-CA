@@ -74,16 +74,17 @@ export function renderPostTemplate(post, parent) {
 
 export function renderPostTemplates(postsList, parent) {
   if (postsList.length === 0 || !postsList) {
+    console.log(postsList);
     loader.style.display = "none";
     loadMoreBtn.style.display = "none";
     displayMessage.innerText = "there's no posts matching this search or filter";
   } else {
-    loader.style.display = "none";
     displayMessage.innerText = "";
 
     for (let i = 0; i < postsList.length; i++) {
       parent.append(postTemplate(postsList[i]));
     }
+    loader.style.display = "none";
     masonry();
   }
 }
