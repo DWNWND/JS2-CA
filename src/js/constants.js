@@ -23,6 +23,7 @@ export const loadMoreBtn = document.querySelector(".load-more");
 export const loader = document.querySelector(".fullpage-loader");
 export const feedContainer = document.querySelector(".feed-container");
 export const displayMessage = document.querySelector(".massage");
+
 export const generalErrorContainer = document.querySelector(".error-message");
 export const newPostErrorContainer = document.querySelector(".post-error-message");
 export const allErrorContaines = document.querySelector(".all-errors");
@@ -33,6 +34,7 @@ export const filterByThreads = document.getElementById("sortbytypethreads");
 export const filterByPhotos = document.getElementById("sortbytypephoto");
 
 export const searchInput = document.querySelector("#searchbar");
+export const newPostInput = document.querySelector(".new-post-input");
 
 export const registerForm = document.querySelector("#register");
 export const email = document.querySelector("#registerEmail");
