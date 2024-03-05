@@ -78,12 +78,12 @@ export function renderPostTemplates(postsList, parent) {
     loadMoreBtn.style.display = "none";
     displayMessage.innerText = "there's no posts matching this search or filter";
   } else {
-    loader.style.display = "none";
     displayMessage.innerText = "";
 
     for (let i = 0; i < postsList.length; i++) {
       parent.append(postTemplate(postsList[i]));
     }
+    loader.style.display = "none";
     masonry();
   }
 }

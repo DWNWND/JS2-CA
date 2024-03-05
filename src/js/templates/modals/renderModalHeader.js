@@ -17,7 +17,7 @@ export async function modalHeader(postData) {
   user.append(userLink, userName);
 
   const closeBtn = document.createElement("button");
-  closeBtn.classList.add("btn-close");
+  closeBtn.classList.add("btn-close", "post-close-btn");
   closeBtn.type = "button";
   closeBtn.setAttribute("data-bs-dismiss", "modal");
   closeBtn.setAttribute("aria-label", "Close");

@@ -15,13 +15,15 @@ export const limitParam = "limit";
 export const postLimit = 10;
 
 let page = 1;
-export const postsByPage = await getPostsFromAPI(page);
-export const allPosts = await getAllPostsFromAPI();
+
+export const getPostsByPage = getPostsFromAPI(page);
+export const getAllPosts = getAllPostsFromAPI();
 
 export const loadMoreBtn = document.querySelector(".load-more");
-export const loader = document.querySelector(".spinner-grow");
+export const loader = document.querySelector(".fullpage-loader");
 export const feedContainer = document.querySelector(".feed-container");
 export const displayMessage = document.querySelector(".massage");
+
 export const generalErrorContainer = document.querySelector(".error-message");
 export const newPostErrorContainer = document.querySelector(".post-error-message");
 export const allErrorContaines = document.querySelector(".all-errors");
@@ -32,6 +34,7 @@ export const filterByThreads = document.getElementById("sortbytypethreads");
 export const filterByPhotos = document.getElementById("sortbytypephoto");
 
 export const searchInput = document.querySelector("#searchbar");
+export const newPostInput = document.querySelector(".new-post-input");
 
 export const registerForm = document.querySelector("#register");
 export const email = document.querySelector("#registerEmail");
@@ -43,5 +46,5 @@ export const passwordError = document.querySelector("#passwordHelpBlock");
 export const repeatPassword = document.querySelector("#registerRepeatPassword");
 export const repeatPasswordError = document.querySelector("#registerRepeatPasswordError");
 
-export const loginPassword = document.querySelector("#loginPassword")
-export const loginEmail = document.querySelector("#loginEmail")
+export const loginPassword = document.querySelector("#loginPassword");
+export const loginEmail = document.querySelector("#loginEmail");

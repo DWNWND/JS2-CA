@@ -1,13 +1,14 @@
 import { getPostsFromSearch } from "../events/index.js";
 import { openPostAsModal } from "./index.js";
-import { searchInput, postsByPage, allPosts, loadMoreBtn } from "../../constants.js";
+import { searchInput, getPostsByPage, getAllPosts, loadMoreBtn } from "../../constants.js";
 
 export async function search() {
+  const postByPage = await getPostsByPage;
+  const allPost = await getAllPosts;
 
   searchInput.addEventListener("input", async () => {
-
     loadMoreBtn.style.display = "none";
-    getPostsFromSearch(allPosts, postsByPage);
+    getPostsFromSearch(allPost, postByPage);
     await openPostAsModal();
   });
 }
