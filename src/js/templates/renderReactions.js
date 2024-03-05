@@ -37,7 +37,7 @@ async function reactionsHTML(post, container) {
  * @uses reactionsHTML To generate the HTML for each rection
  *
  */
-export function displayReactionsAccordion(postData) {
+export function displayReactionsAccordion(postData, modalOrPost) {
   const accordionItem = document.createElement("div");
   accordionItem.classList.add("accordion-item");
 
@@ -47,7 +47,7 @@ export function displayReactionsAccordion(postData) {
 
   const accordionCollapse = document.createElement("div");
   accordionCollapse.classList.add("accordion-collapse", "collapse", "detect-collapse");
-  accordionCollapse.id = `likes-${postData.id}`;
+  accordionCollapse.id = `likes-${postData.id}-${modalOrPost}`;
   accordionCollapse.setAttribute("aria-labelledby", "headingLikes");
   accordionCollapse.setAttribute("data-bs-parent", "#view-likes-and-comments");
 
@@ -56,14 +56,14 @@ export function displayReactionsAccordion(postData) {
 
   if (postData._count.reactions) {
     accordionHeader.innerHTML = `
-    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}-${modalOrPost}" aria-expanded="false" aria-controls="likes-${postData.id}-${modalOrPost}">
       <i class="like full"></i>
       <span class="number-of-likes">${postData._count.reactions}</span> likes
     </button>`;
     reactionsHTML(postData, accordionBody);
   } else if (!postData._count.reactions) {
     accordionHeader.innerHTML = `
-    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}" aria-expanded="false" aria-controls="likes-${postData.id}">
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#likes-${postData.id}-${modalOrPost}" aria-expanded="false" aria-controls="likes-${postData.id}-${modalOrPost}">
       <i class="like empty"></i>
       <span class="number-of-likes">${postData._count.reactions}</span> likes
     </button>`;

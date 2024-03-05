@@ -26,7 +26,7 @@ async function commentsHTML(post, container) {
  * @uses commentsHTML To generate the HTML for each comment
  *
  */
-export function displayCommentsAccordion(postData) {
+export function displayCommentsAccordion(postData, modalOrPost) {
   const accordionItem = document.createElement("div");
   accordionItem.classList.add("accordion-item");
 
@@ -36,7 +36,7 @@ export function displayCommentsAccordion(postData) {
 
   const accordionCollapse = document.createElement("div");
   accordionCollapse.classList.add("accordion-collapse", "collapse", "detect-collapse");
-  accordionCollapse.id = `comments-${postData.id}`;
+  accordionCollapse.id = `comments-${postData.id}-${modalOrPost}`;
   accordionCollapse.setAttribute("aria-labelledby", "headingComments");
   accordionCollapse.setAttribute("data-bs-parent", "#view-likes-and-comments");
 
@@ -45,14 +45,14 @@ export function displayCommentsAccordion(postData) {
 
   if (postData._count.comments) {
     accordionHeader.innerHTML = `
-    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}" aria-expanded="false" aria-controls="comments-${postData.id}">
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}-${modalOrPost}" aria-expanded="false" aria-controls="comments-${postData.id}-${modalOrPost}">
      <i class="comment full"></i>
       <span class="number-of-comments">${postData._count.comments}</span> comments
     </button>`;
     commentsHTML(postData, accordionBody);
   } else if (!postData._count.comments) {
     accordionHeader.innerHTML = `
-    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}" aria-expanded="false" aria-controls="comments-${postData.id}">
+    <button class="accordion-button collapsed d-flex gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${postData.id}-${modalOrPost}" aria-expanded="false" aria-controls="comments-${postData.id}-${modalOrPost}">
      <i class="comment empty"></i>
       <span class="number-of-comments">${postData._count.comments}</span> comments
     </button>`;
@@ -64,30 +64,3 @@ export function displayCommentsAccordion(postData) {
 
   return accordionItem;
 }
-
-//WAIT WITH THIS:
-
-// async function newComment(event) {
-//   event.preventDefault();
-
-//   const title = event.target.title.value;
-//   const body = event.target.body.value;
-
-//   await sendPostToAPI(title, body);
-
-//   if (sendPostToAPI) {
-//     console.log("sendt?")
-//     // location.reload()
-//   }
-//   //is this just for testing? right:
-//   // const posts = await getPostsFromAPI();
-//   // console.log(posts);
-// }
-
-//COMMENTS
-//   <label for="new-comment" class="d-none"></label>
-//     <strong><h5 class="username m-0">Username</h5></strong>
-//     <div class="input-group">
-//       <textarea class="form-control" aria-label="Add comment" id="new-comment" placeholder="Type your comment here"></textarea>
-//       <button class="btn btn-outline-secondary" type="submit" id="submit-new-comment">Share</button>
-//     </div>

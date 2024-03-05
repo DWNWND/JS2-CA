@@ -1,58 +1,64 @@
-import { renderPostTemplate, renderPostTemplates } from "../../templates/posts/index.js";
-import { sortingByLikes, sortingByComments, sortingByThreads, sortingByPhotos, feedContainer, loadMoreBtn, loader } from "../../constants.js";
-import { getPostsFromAPI } from "../../api/requests/get.js";
+import { renderPostTemplates } from "../../templates/posts/index.js";
+import { getPostsByPage, getAllPosts, filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.js";
 import { openPostAsModal } from "../listeners/openModal.js";
 
-let page = 1;
-
-//could not get the filter method to work on multiple sorting options at the same time, therefore using a loop and if-statements
-export async function filtering(posts) {
+export async function filterPosts() {
   loader.style.display = "flex";
 
-  //UPDATE TO STARTFEED
-  if (!sortingByComments.checked && !sortingByLikes.checked && !sortingByThreads.checked && !sortingByPhotos.checked) {
-    const posts = await getPostsFromAPI(page);
-    renderPostTemplates(posts, feedContainer);
+  const postsByPage = await getPostsByPage;
+  const allPosts = await getAllPosts;
+
+  if (!filterByComments.checked && !filterByLikes.checked && !filterByThreads.checked && !filterByPhotos.checked) {
+    renderPostTemplates(postsByPage, feedContainer);
     loadMoreBtn.style.display = "block";
-    await openPostAsModal()
   } else {
     loadMoreBtn.style.display = "none";
-    loader.style.display = "none";
-    for (let i = 0; i < posts.length; i++) {
-      //FILTERING ON LIKES
-      if (sortingByLikes.checked && !sortingByPhotos.checked && !sortingByThreads.checked && !sortingByComments.checked && posts[i]._count.reactions > 2) {
-        renderPostTemplate(posts[i], feedContainer);
+
+    const fileredPosts = allPosts.filter(({ _count: { reactions, comments }, media, title }) => {
+      //BY LIKES
+      if (filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions >= 2) {
+        return allPosts;
       }
-      if (sortingByLikes.checked && !sortingByPhotos.checked && !sortingByThreads.checked && sortingByComments.checked && posts[i]._count.reactions > 2 && posts[i]._count.comments > 2) {
-        renderPostTemplate(posts[i], feedContainer);
+      if (filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && reactions >= 2 && media) {
+        return allPosts;
       }
-      if (sortingByLikes.checked && sortingByPhotos.checked && !sortingByThreads.checked && !sortingByComments.checked && posts[i]._count.reactions > 2 && posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
+      if (filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && !filterByComments.checked && reactions >= 2 && title && !media) {
+        return allPosts;
       }
-      if (sortingByLikes.checked && !sortingByPhotos.checked && sortingByThreads.checked && !sortingByComments.checked && posts[i]._count.reactions > 2 && posts[i].title && !posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
+      if (filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && reactions >= 2 && comments >= 2) {
+        return allPosts;
       }
 
-      //FILTERING ON COMMENTS
-      if (sortingByComments.checked && !sortingByLikes.checked && !sortingByThreads.checked && !sortingByPhotos.checked && posts[i]._count.comments > 2) {
-        renderPostTemplate(posts[i], feedContainer);
+      //BY COMMENTS
+      if (!filterByLikes.checked && !filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && comments >= 2) {
+        return allPosts;
       }
-      if (sortingByComments.checked && !sortingByLikes.checked && sortingByThreads.checked && !sortingByPhotos.checked && posts[i]._count.comments > 2 && posts[i].title && !posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
+      if (!filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && filterByComments.checked && comments >= 2 && title && !media) {
+        return allPosts;
       }
-      if (sortingByComments.checked && !sortingByLikes.checked && !sortingByThreads.checked && sortingByPhotos.checked && posts[i]._count.comments > 2 && posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
-      }
-
-      //FILTERING ON THREADS
-      if (!sortingByComments.checked && !sortingByLikes.checked && sortingByThreads.checked && !sortingByPhotos.checked && posts[i].title && !posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
+      if (!filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && comments >= 2 && media) {
+        return allPosts;
       }
 
-      //FILTERING ON PHOTOS
-      if (!sortingByComments.checked && !sortingByLikes.checked && !sortingByThreads.checked && sortingByPhotos.checked && posts[i].media) {
-        renderPostTemplate(posts[i], feedContainer);
+      //BY LIKES AND COMMENTS
+      if (filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && filterByComments.checked && title && !media && reactions >= 2 && comments >= 2) {
+        return allPosts; //threads
       }
-    }
+      if (filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && filterByComments.checked && media && reactions >= 2 && comments >= 2) {
+        return allPosts; //photos
+      }
+
+      //BY THREADS
+      if (!filterByLikes.checked && !filterByPhotos.checked && filterByThreads.checked && !filterByComments.checked && title && !media) {
+        return allPosts;
+      }
+
+      //BY PHOTOS
+      if (!filterByLikes.checked && filterByPhotos.checked && !filterByThreads.checked && !filterByComments.checked && media) {
+        return allPosts;
+      }
+    });
+    renderPostTemplates(fileredPosts, feedContainer);
   }
+  await openPostAsModal();
 }

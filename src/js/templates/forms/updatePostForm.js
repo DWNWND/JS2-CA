@@ -17,7 +17,7 @@ export function updateForm(id) {
   </div>`;
 
   const updateBtn = document.createElement("button");
-  updateBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100");
+  updateBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100", "update-post-btn");
   updateBtn.innerText = "update post";
   updateBtn.type = "submit";
 

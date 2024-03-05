@@ -19,6 +19,7 @@ export async function sendPostToAPI(postData) {
       displayErrorMessage(errorMessage, newPostErrorContainer);
     } else if (response.status >= 401) {
       errorMessage = "An unexpected error occured, please try again later";
+      displayErrorMessage(errorMessage, newPostErrorContainer);
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {

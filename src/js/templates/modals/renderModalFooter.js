@@ -1,8 +1,8 @@
 import { displayReactionsAccordion, displayCommentsAccordion } from "../index.js";
 
 export function renderModalFooter(postData) {
-  const accordionItemReactions = displayReactionsAccordion(postData);
-  const accordionItemComments = displayCommentsAccordion(postData);
+  const accordionItemReactions = displayReactionsAccordion(postData, "modal");
+  const accordionItemComments = displayCommentsAccordion(postData, "modal");
 
   const accordion = document.createElement("div");
   accordion.classList.add("accordion", "flex-grow-1", "w-100");
