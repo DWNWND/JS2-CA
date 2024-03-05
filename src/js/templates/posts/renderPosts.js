@@ -74,7 +74,6 @@ export function renderPostTemplate(post, parent) {
 
 export function renderPostTemplates(postsList, parent) {
   if (postsList.length === 0 || !postsList) {
-    console.log(postsList);
     loader.style.display = "none";
     loadMoreBtn.style.display = "none";
     displayMessage.innerText = "there's no posts matching this search or filter";
