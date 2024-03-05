@@ -27,7 +27,11 @@ export function renderModalBody(postData) {
       const containerForBtn = document.createElement("div");
       containerForBtn.classList.add("container", "mt-2");
       containerForBtn.append(removePost);
-      modalBody.append(containerForBtn);
+
+      const error = document.createElement("div");
+      error.classList.add("update-post-error-message", "all-errors", "text-center");
+
+      modalBody.append(containerForBtn, error);
 
       removePost.addEventListener("click", async (event) => {
         await removePostFromAPI(postData.id);
