@@ -13,8 +13,8 @@ export function renderPostFooter(postData) {
   date.classList.add("mt-2", "date");
   date.innerText = `Last updated: ${postData.updated}`;
 
-  const accordionItemReactions = displayReactionsAccordion(postData);
-  const accordionItemComments = displayCommentsAccordion(postData);
+  const accordionItemReactions = displayReactionsAccordion(postData, "post");
+  const accordionItemComments = displayCommentsAccordion(postData, "post");
 
   const accordion = document.createElement("div");
   accordion.classList.add("accordion");
