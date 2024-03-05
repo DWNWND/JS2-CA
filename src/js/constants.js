@@ -20,7 +20,7 @@ export const getPostsByPage = getPostsFromAPI(page);
 export const getAllPosts = getAllPostsFromAPI();
 
 export const loadMoreBtn = document.querySelector(".load-more");
-export const loader = document.querySelector(".spinner-grow");
+export const loader = document.querySelector(".fullpage-loader");
 export const feedContainer = document.querySelector(".feed-container");
 export const displayMessage = document.querySelector(".massage");
 export const generalErrorContainer = document.querySelector(".error-message");

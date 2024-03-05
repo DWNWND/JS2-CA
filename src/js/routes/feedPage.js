@@ -10,12 +10,11 @@ export async function startFeed(allPosts, container) {
   listenFor.logOut();
   await listenFor.openPostAsModal();
   loader.style.display = "none";
+  loadMoreBtn.style.display = "block";
 }
 
 //////// clean up this function if you want to
 export async function feedPage() {
-  loadMoreBtn.style.display = "none";
-
   const postByPage = await getPostsByPage;
 
   try {
@@ -45,8 +44,6 @@ export async function feedPage() {
       listenFor.publishNewPost();
       listenFor.openAccordion();
       listenFor.clearErrorMessages(allErrorContaines);
-
-      loadMoreBtn.style.display = "block";
     }
   } catch (error) {
     console.log(error);
