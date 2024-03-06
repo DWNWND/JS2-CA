@@ -1,8 +1,8 @@
-export async function modalHeader(postData) {
+export async function renderModalHeader({ author: { name: postAuthor } }) {
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");
   profilePicture.src = "../img/undraw_Drink_coffee_v3au.png"; //adding just a standard img
-  profilePicture.alt = `The profile of: ${postData.author.name}`;
+  profilePicture.alt = `The profile of: ${postAuthor}`;
 
   const userLink = document.createElement("a");
   userLink.classList.add("nav-link"); //set href
@@ -10,7 +10,7 @@ export async function modalHeader(postData) {
 
   const userName = document.createElement("h3");
   userName.classList.add("username", "m-0");
-  userName.innerText = postData.author.name;
+  userName.innerText = postAuthor;
 
   const user = document.createElement("div");
   user.classList.add("user", "d-flex", "align-items-center", "gap-2");

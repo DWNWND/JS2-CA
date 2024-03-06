@@ -1,17 +1,13 @@
-import { getPostFromAPI } from "../../api/requests/index.mjs";
-import { modalHeader, renderModalBody, renderModalFooter } from "./index.mjs";
-
 export async function makeModal(id) {
-  const modalContainer = document.querySelector(".modal-container");
-  const modal = await makeModalByID(id);
-  modalContainer.append(modal);
-}
+  const modalContentModule = "./modalContent/index.mjs";
+  const { renderModalHeader, renderModalBody, renderModalFooter } = await import(modalContentModule);
 
-export async function makeModalByID(id) {
   const getParam = "_author=true&_comments=true&_reactions=true";
+  const requestModule = "../../api/httpRequests/index.mjs";
+  const { getPostFromAPI } = await import(requestModule);
   const post = await getPostFromAPI(id, getParam);
 
-  const header = await modalHeader(post);
+  const header = await renderModalHeader(post);
   const body = renderModalBody(post);
   const footer = renderModalFooter(post);
 
@@ -31,12 +27,12 @@ export async function makeModalByID(id) {
   modal.setAttribute("aria-labelledby", "post-preview-modal");
   modal.setAttribute("aria-hidden", "true");
 
-  //disable the click backdrop to exit (this does not work with the funciton to remove the modal)
+  //disabled the click backdrop to exit (this does not work with the funciton to remove the modal)
   //https://stackoverflow.com/questions/22207377/disable-click-outside-of-bootstrap-modal-area-to-close-modal
   modal.setAttribute("data-bs-keyboard", "false");
   modal.setAttribute("data-bs-backdrop", "static");
-
   modal.append(modalDialog);
 
-  return modal;
+  const modalContainer = document.querySelector(".modal-container");
+  modalContainer.append(modal);
 }

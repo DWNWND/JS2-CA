@@ -1,4 +1,4 @@
-import { masonry } from "../../ux/layout/index.mjs";
+import { masonry } from "./index.mjs";
 
 function accordionResize(accordion) {
   accordion.forEach((accordionelement) => {

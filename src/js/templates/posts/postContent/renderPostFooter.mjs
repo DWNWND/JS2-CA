@@ -1,4 +1,4 @@
-import { displayReactionsAccordion, displayCommentsAccordion } from "../index.mjs";
+import { displayReactionsAccordion, displayCommentsAccordion } from "../../accordion/index.mjs";
 
 /**
  * Generates an HTML element for the card/post FOOTER of each social media post passed in

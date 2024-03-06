@@ -1,4 +1,4 @@
-import { getAllPostsFromAPI, getPostsFromAPI } from "./api/requests/index.mjs";
+// import { getAllPostsFromAPI, getPostsByPageFromAPI } from "./api/httpRequests/index.mjs";
 
 export const API_KEY = "d2abe438-b85e-4837-bb83-2678d612f606";
 export const API_BASE = "https://v2.api.noroff.dev";
@@ -13,11 +13,6 @@ export const commentsParam = "_comments=true";
 export const reactionsParam = "_reactions=true";
 export const limitParam = "limit";
 export const postLimit = 10;
-
-let page = 1;
-
-export const getPostsByPage = getPostsFromAPI(page);
-export const getAllPosts = getAllPostsFromAPI();
 
 export const loadMoreBtn = document.querySelector(".load-more");
 export const loader = document.querySelector(".fullpage-loader");

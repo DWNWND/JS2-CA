@@ -1,4 +1,4 @@
-import { fetchWithToken } from "../fetchWithToken.mjs";
+import { fetchWithToken } from "../apiCall.mjs";
 import { API_AUTH, API_BASE, API_REGISTER, generalErrorContainer } from "../../constants.mjs";
 import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
 import { login } from "./index.mjs";

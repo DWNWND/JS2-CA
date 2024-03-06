@@ -1,4 +1,4 @@
-import { updatePostInAPI } from "../../api/requests/index.mjs";
+import { updatePostInAPI } from "../../api/httpRequests/index.mjs";
 
 export async function updatePostContent(event) {
   event.preventDefault();

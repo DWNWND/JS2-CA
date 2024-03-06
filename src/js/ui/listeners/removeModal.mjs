@@ -9,11 +9,20 @@ export function removeModals() {
     const modal = document.querySelector(".modal");
     const closeBtn = document.querySelector(".post-close-btn");
 
-    closeBtn.addEventListener("click", () => {
-      removeUrlParameter("post-id");
-      modal.remove();
-    });
+    if (document.body.contains(document.querySelector(".modal-backdrop"))) {
+      const modalBackdrop = document.querySelector(".modal");
+      closeBtn.addEventListener("click", () => {
+        removeUrlParameter("post-id");
+        modal.remove();
+        modalBackdrop.remove();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        removeUrlParameter("post-id");
+        modal.remove();
+      });
+    }
   } else {
-    console.log("there's no modals to remove"); //FIX THIS
+    console.log("there's no modals to remove");
   }
 }

@@ -1,6 +1,7 @@
 import { getPostsFromSearch } from "../events/index.mjs";
+import { getPostsByPage, getAllPosts } from "../../api/httpRequests/index.mjs";
 import { openPostAsModal } from "./index.mjs";
-import { searchInput, getPostsByPage, getAllPosts, loadMoreBtn } from "../../constants.mjs";
+import { searchInput, loadMoreBtn } from "../../constants.mjs";
 
 export async function search() {
   const postByPage = await getPostsByPage;
