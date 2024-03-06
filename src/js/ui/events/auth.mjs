@@ -1,5 +1,4 @@
-import { register } from "../../api/auth/register.mjs";
-import { login } from "../../api/auth/login.mjs";
+import { register, login } from "../../api/userAuthentication/index.mjs";
 import { validatePassword } from "./index.mjs";
 import { generalErrorContainer } from "../../constants.mjs";
 import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";

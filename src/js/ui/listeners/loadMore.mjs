@@ -1,4 +1,3 @@
-import { getPostsFromAPI } from "../../api/requests/index.mjs";
 import { renderPostTemplates } from "../../templates/posts/index.mjs";
 import { openPostAsModal } from "./index.mjs";
 import { feedContainer } from "../../constants.mjs";
@@ -9,7 +8,11 @@ export function clickToLoadMore(loadMoreBtn) {
   loadMoreBtn.addEventListener("click", async () => {
     loadMoreBtn.style.display = "none";
     page++;
-    const posts = await getPostsFromAPI(page);
+
+    const getRequest = "../../api/httpRequests/index.mjs";
+    const { getPostsByPageFromAPI } = await import(getRequest);
+    const posts = await getPostsByPageFromAPI(page);
+
     renderPostTemplates(posts, feedContainer);
     await openPostAsModal();
     loadMoreBtn.style.display = "block";

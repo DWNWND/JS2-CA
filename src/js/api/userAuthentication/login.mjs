@@ -1,4 +1,4 @@
-import { fetchWithToken } from "../fetchWithToken.mjs";
+import { fetchWithToken } from "../apiCall.mjs";
 import { API_AUTH, API_BASE, API_LOGIN, generalErrorContainer } from "../../constants.mjs";
 import { save } from "../../storage/index.mjs";
 import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
@@ -15,7 +15,6 @@ export async function login(email, password) {
       save("token", accessToken);
       save("profile", profile);
       location.pathname = "/feed";
-      // return profile;
     }
     if (response.status === 401) {
       errorMessage = "The login credentials is not correct (or there is no user in the V2 with these credentials)";

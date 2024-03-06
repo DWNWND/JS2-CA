@@ -1,4 +1,4 @@
-import { displayReactionsAccordion, displayCommentsAccordion } from "../index.mjs";
+import { displayReactionsAccordion, displayCommentsAccordion } from "../../accordion/index.mjs";
 
 export function renderModalFooter(postData) {
   const accordionItemReactions = displayReactionsAccordion(postData, "modal");

@@ -1,5 +1,5 @@
 import { API_BASE, API_POSTS, newPostErrorContainer } from "../../constants.mjs";
-import { fetchWithToken } from "../fetchWithToken.mjs";
+import { fetchWithToken } from "../apiCall.mjs";
 import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
 
 let errorMessage;

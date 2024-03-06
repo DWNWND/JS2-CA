@@ -1,5 +1,6 @@
 import { renderPostTemplates } from "../../templates/posts/index.mjs";
-import { getPostsByPage, getAllPosts, filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.mjs";
+import { getPostsByPage, getAllPosts } from "../../api/httpRequests/index.mjs";
+import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.mjs";
 import { openPostAsModal } from "../listeners/openModal.mjs";
 
 export async function filterPosts() {

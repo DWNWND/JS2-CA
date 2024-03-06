@@ -1,5 +1,5 @@
 import { load } from "../../storage/index.mjs";
-import { renderPostBody, renderPostFooter, renderPostHeader } from "./index.mjs";
+import { renderPostBody, renderPostFooter, renderPostHeader } from "./postContent/index.mjs";
 import { loadMoreBtn, loader, displayMessage } from "../../constants.mjs";
 import { masonry } from "../../ux/layout/index.mjs";
 

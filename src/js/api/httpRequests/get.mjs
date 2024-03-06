@@ -1,9 +1,14 @@
-import { fetchWithToken } from "../fetchWithToken.mjs";
-import { displayErrorMessage } from "../../templates/errorMessage/errorMessage.mjs";
+import { fetchWithToken } from "../apiCall.mjs";
+import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
 import { API_BASE, API_POSTS, authorParam, commentsParam, reactionsParam, limitParam, postLimit, loader, loadMoreBtn } from "../../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
-export async function getPostsFromAPI(page) {
+let page = 1;
+
+export const getPostsByPage = getPostsByPageFromAPI(page);
+export const getAllPosts = getAllPostsFromAPI();
+
+export async function getPostsByPageFromAPI(page) {
   try {
     const token = load("token");
     if (token) {

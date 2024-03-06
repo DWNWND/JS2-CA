@@ -2,7 +2,8 @@ import * as listenFor from "../ui/listeners/index.mjs";
 import * as templates from "../templates/posts/index.mjs";
 import { makeModal } from "../templates/modals/index.mjs";
 import { clickToLoadMore } from "../ui/listeners/index.mjs";
-import { getPostsByPage, loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.mjs";
+import { getPostsByPage } from "../api/httpRequests/index.mjs";
+import { loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.mjs";
 
 export async function startFeed(allPosts, container) {
   container.innerHTML = "";

@@ -1,8 +1,6 @@
-import { removeUrlParameter } from "../../ui/urlParams/index.mjs";
+import { removeUrlParameter } from "../../routes/urlParams/index.mjs";
 import { API_BASE, API_POSTS } from "../../constants.mjs";
-import { fetchWithToken } from "../fetchWithToken.mjs";
-
-const method = "delete"; //or add it manually into the function..
+import { fetchWithToken } from "../apiCall.mjs";
 
 export async function removePostFromAPI(id) {
   if (!id) {
@@ -11,7 +9,7 @@ export async function removePostFromAPI(id) {
   try {
     const removePostURL = `${API_BASE}${API_POSTS}/${id}`;
     const response = await fetchWithToken(removePostURL, {
-      method,
+      method: "DELETE",
     });
 
     if (response.ok) {
@@ -21,7 +19,6 @@ export async function removePostFromAPI(id) {
       throw new Error("Something went wrong when contacting the API");
     }
   } catch (error) {
-    // Error;
     console.log(error);
   }
 }

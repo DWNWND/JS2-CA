@@ -1,6 +1,6 @@
 import { API_BASE, API_POSTS } from "../../constants.mjs";
 import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
-import { fetchWithToken } from "../fetchWithToken.mjs";
+import { fetchWithToken } from "../apiCall.mjs";
 
 let errorMessage;
 

@@ -1,5 +1,3 @@
-import { getPostFromAPI } from "../../api/requests/index.mjs";
-
 export async function populateUpdateForm(updateForm) {
   const id = updateForm.name;
 
@@ -7,13 +5,15 @@ export async function populateUpdateForm(updateForm) {
     const button = updateForm.querySelector("button");
     button.disabled = true;
 
-    const postPopulation = await getPostFromAPI(id);
+    const requestModule = "../../api/httpRequests/index.mjs";
+    const { getPostFromAPI } = await import(requestModule);
+    const { title, body } = await getPostFromAPI(id);
 
-    if (postPopulation.title) {
-      updateForm.title.value = postPopulation.title;
+    if (title) {
+      updateForm.title.value = title;
     }
-    if (postPopulation.body) {
-      updateForm.body.value = postPopulation.body;
+    if (body) {
+      updateForm.body.value = body;
     }
     button.disabled = false;
   }

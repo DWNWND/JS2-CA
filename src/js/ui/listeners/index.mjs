@@ -6,6 +6,6 @@ export * from "./onSearch.mjs";
 export * from "./onFilter.mjs";
 export * from "./logOut.mjs";
 export * from "./forValidation.mjs";
-export * from "./accordion.mjs";
+export * from "../../ux/layout/masonryOnOpenAccordion.mjs";
 export * from "./loadMore.mjs";
 export * from "./clearErrorMsg.mjs";
