@@ -1,4 +1,4 @@
-import { removeUrlParameter } from "../../ui/urlParams/index.mjs";
+import { removeUrlParameter } from "../../routes/urlParams/index.mjs";
 import { API_BASE, API_POSTS } from "../../constants.mjs";
 import { fetchWithToken } from "../apiCall.mjs";
 

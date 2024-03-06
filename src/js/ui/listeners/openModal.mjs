@@ -1,7 +1,3 @@
-import { makeModal } from "../../templates/modals/index.mjs";
-import { insertUrlParam } from "../urlParams/index.mjs";
-import { removeModals } from "./index.mjs";
-
 /**
  * Selects all btns with the class ".modalBtn" (open modal btns) that have been generated.
  * Loops through them, and makes an id-spesific modal if the btn is clicked.
@@ -16,14 +12,23 @@ export async function openPostAsModal() {
   for (let i = 0; i < modalBtn.length; i++) {
     modalBtn[i].addEventListener("click", async (event) => {
       modalBtn[i].innerText = "loading";
-
       const id = event.target.id;
+
+      const modalModule = "../../templates/modals/index.mjs";
+      const urlParamModule = "../../routes/urlParams/index.mjs";
+      const listenerModule = "./index.mjs";
+
+      const { makeModal } = await import(modalModule);
+      const { insertUrlParam } = await import(urlParamModule);
+      const { removeModals } = await import(listenerModule);
+
       await makeModal(id);
+
       let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
       myModal.toggle();
 
       modalBtn[i].innerText = "open";
-
+      
       insertUrlParam(id);
       removeModals();
     });

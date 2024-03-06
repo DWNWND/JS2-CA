@@ -1,5 +1,3 @@
-import { updatePostInAPI } from "../../api/httpRequests/index.mjs";
-
 export async function updatePostContent(event) {
   event.preventDefault();
 
@@ -9,6 +7,9 @@ export async function updatePostContent(event) {
     const formData = new FormData(form);
     const post = Object.fromEntries(formData.entries());
     post.id = form.name;
+
+    const requestModule = "../../api/httpRequests/index.mjs";
+    const { updatePostInAPI } = await import(requestModule);
 
     updatePostInAPI(post);
   }
