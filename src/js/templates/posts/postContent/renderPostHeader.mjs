@@ -1,4 +1,5 @@
 import { load } from "../../../storage/index.mjs";
+import { openPostAsModal } from "../../../ui/listeners/index.mjs";
 
 /**
  * Generates an HTML element for the card/post HEADER of each social media post passed in
@@ -22,6 +23,7 @@ export function renderPostHeader(postData) {
     modalBtn.classList.add("btn-primary");
   }
   modalBtn.setAttribute("data-bs-target", `#modal-${postData.id}`);
+  openPostAsModal(modalBtn);
 
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");

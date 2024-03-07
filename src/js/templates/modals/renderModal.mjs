@@ -1,4 +1,4 @@
-export async function makeModal(id) {
+export async function renderModal(id) {
   const modalContentModule = "./modalContent/index.mjs";
   const { renderModalHeader, renderModalBody, renderModalFooter } = await import(modalContentModule);
 

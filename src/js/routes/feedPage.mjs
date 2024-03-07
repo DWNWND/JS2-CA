@@ -1,17 +1,17 @@
 import * as listenFor from "../ui/listeners/index.mjs";
 import * as templates from "../templates/posts/index.mjs";
-import { makeModal } from "../templates/modals/index.mjs";
+import { renderModal } from "../templates/modals/index.mjs";
 import { clickToLoadMore } from "../ui/listeners/index.mjs";
 import { getPostsByPage } from "../api/httpRequests/index.mjs";
 import { loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.mjs";
 
-export async function startFeed(allPosts, container) {
+export function startFeed(allPosts, container) {
   container.innerHTML = "";
   templates.renderPostTemplates(allPosts, container);
   listenFor.logOut();
-  await listenFor.openPostAsModal();
   loader.style.display = "none";
   loadMoreBtn.style.display = "block";
+  clickToLoadMore(loadMoreBtn);
 }
 
 //////// clean up this function if you want to
@@ -20,6 +20,7 @@ export async function feedPage() {
 
   try {
     if (postByPage) {
+      
       //open post as modal if you go directly to url with id
       let params = new URLSearchParams(document.location.search);
       let postId = params.get("post-id");
@@ -27,7 +28,7 @@ export async function feedPage() {
 
       postByPage.filter(async (allPosts) => {
         if (allPosts.id === id) {
-          await makeModal(id);
+          await renderModal(id);
           let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
           myModal.toggle();
           listenFor.removeModals();
@@ -37,8 +38,7 @@ export async function feedPage() {
       });
 
       //generate feed
-      await startFeed(postByPage, feedContainer);
-      clickToLoadMore(loadMoreBtn);
+      startFeed(postByPage, feedContainer);
 
       listenFor.filtering();
       listenFor.search();
