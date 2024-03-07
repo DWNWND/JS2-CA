@@ -11919,6 +11919,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.load-more {
+  display: none;
+}
+
 .success {
   color: green;
 }

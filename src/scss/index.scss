@@ -3,7 +3,9 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 //MASONRY TEST
-
+.load-more {
+  display: none;
+}
 .success {
   color: green;
 }
