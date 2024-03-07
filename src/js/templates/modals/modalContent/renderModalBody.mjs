@@ -28,7 +28,7 @@ export function renderModalBody({ id, author: { name: postAuthor }, title, body,
       modalBody.append(containerForBtn, error);
 
       deleteBtn.addEventListener("click", async () => {
-        const requestModule = "../../api/httpRequests/index.mjs";
+        const requestModule = "../../../api/httpRequests/index.mjs";
         const { removePostFromAPI } = await import(requestModule);
         await removePostFromAPI(id);
       });
