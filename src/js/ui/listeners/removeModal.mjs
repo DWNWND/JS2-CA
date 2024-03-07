@@ -6,23 +6,15 @@ import { removeUrlParameter } from "../../routes/urlParams/index.mjs";
  */
 export function removeModals() {
   if (document.body.contains(document.querySelector(".modal"))) {
-    const modal = document.querySelector(".modal");
     const closeBtn = document.querySelector(".post-close-btn");
+    const modal = document.querySelector(".modal");
+    const modalBackdrop = document.querySelector(".modal-backdrop");
 
-    if (document.body.contains(document.querySelector(".modal-backdrop"))) {
-      const modalBackdrop = document.querySelector(".modal");
-
-      closeBtn.addEventListener("click", () => {
-        removeUrlParameter("post-id");
-        modal.remove();
-        modalBackdrop.remove();
-      });
-
-      closeBtn.addEventListener("click", () => {
-        removeUrlParameter("post-id");
-        modal.remove();
-      });
-    }
+    closeBtn.addEventListener("click", () => {
+      removeUrlParameter("post-id");
+      modal.remove();
+      modalBackdrop.remove();
+    });
   } else {
     console.log("there's no modals to remove");
   }
