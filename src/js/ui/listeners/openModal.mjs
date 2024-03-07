@@ -6,31 +6,28 @@
  * @uses insertUrlParam To add the id of the post to the url param when modal is open
  * @uses removeModals To add a close btn that removes the generated modal from the DOM and the url param with the spesific post id from the url.
  */
-export async function openPostAsModal() {
-  const modalBtn = document.querySelectorAll(".modalBtn");
 
-  for (let i = 0; i < modalBtn.length; i++) {
-    modalBtn[i].addEventListener("click", async (event) => {
-      modalBtn[i].innerText = "loading";
-      const id = event.target.id;
+export async function openPostAsModal(openModalBtn) {
+  openModalBtn.addEventListener("click", async (event) => {
+    openModalBtn.innerText = "loading";
+    const id = event.target.id;
 
-      const modalModule = "../../templates/modals/index.mjs";
-      const urlParamModule = "../../routes/urlParams/index.mjs";
-      const listenerModule = "./index.mjs";
+    const modalModule = "../../templates/modals/index.mjs";
+    const urlParamModule = "../../routes/urlParams/index.mjs";
+    const listenerModule = "./index.mjs";
 
-      const { makeModal } = await import(modalModule);
-      const { insertUrlParam } = await import(urlParamModule);
-      const { removeModals } = await import(listenerModule);
+    const { renderModal } = await import(modalModule);
+    const { insertUrlParam } = await import(urlParamModule);
+    const { removeModals } = await import(listenerModule);
 
-      await makeModal(id);
+    await renderModal(id);
 
-      let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
-      myModal.toggle();
+    let myModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
+    myModal.toggle();
 
-      modalBtn[i].innerText = "open";
-      
-      insertUrlParam(id);
-      removeModals();
-    });
-  }
+    openModalBtn.innerText = "open";
+
+    insertUrlParam(id);
+    removeModals();
+  });
 }

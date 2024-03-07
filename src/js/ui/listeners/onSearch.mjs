@@ -1,6 +1,5 @@
 import { getPostsFromSearch } from "../events/index.mjs";
 import { getPostsByPage, getAllPosts } from "../../api/httpRequests/index.mjs";
-import { openPostAsModal } from "./index.mjs";
 import { searchInput, loadMoreBtn } from "../../constants.mjs";
 
 export async function search() {
@@ -10,6 +9,5 @@ export async function search() {
   searchInput.addEventListener("input", async () => {
     loadMoreBtn.style.display = "none";
     getPostsFromSearch(allPost, postByPage);
-    await openPostAsModal();
   });
 }
