@@ -1,15 +1,7 @@
 import { load } from "../../storage/index.mjs";
 import { renderPostBody, renderPostFooter, renderPostHeader } from "./postContent/index.mjs";
 import { loadMoreBtn, loader, displayMessage } from "../../constants.mjs";
-import { masonry } from "../../ux/layout/index.mjs";
-
-/////////////////////FURTHER WORK
-//     GENERATE A LOAD MORE BTN
-//     const loadMore = document.createElement("a");
-//     loadMore.classList.add("load-button", "black", "underline", "montserrat");
-//     loadMore.innerHTML += `Load more`;
-//     listSection.appendChild(loadMore);
-/////////////////////FURTHER WORK
+import { masonry, runMasonryOnAccordion } from "../../ux/layout/index.mjs";
 
 /**
  * Generates an HTML element for each social media post passed in.
@@ -58,6 +50,7 @@ export function postTemplate(postData) {
 export function renderPostTemplate(post, parent) {
   parent.append(postTemplate(post));
   masonry();
+  runMasonryOnAccordion();
 }
 
 /**
@@ -85,5 +78,6 @@ export function renderPostTemplates(postsList, parent) {
     }
     loader.style.display = "none";
     masonry();
+    runMasonryOnAccordion();
   }
 }

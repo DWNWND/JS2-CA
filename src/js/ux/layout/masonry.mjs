@@ -1,7 +1,7 @@
 export function masonry() {
+  waitForImages();
   masonryOnChange();
   resizeAllMasonryItems();
-  waitForImages();
 }
 
 /* Resize all the grid items on the load and resize events */

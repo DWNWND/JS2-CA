@@ -36,10 +36,10 @@ export async function feedPage() {
       });
 
       generateStartFeed(postByPage, feedContainer);
-      runMasonryOnAccordion();
 
       listenFor.filtering();
       listenFor.search();
+      runMasonryOnAccordion();
       listenFor.publishNewPost();
       listenFor.clearErrorMessages(allErrorContaines);
     }
