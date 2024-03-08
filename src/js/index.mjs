@@ -1,6 +1,5 @@
 import { loginPage, feedPage } from "./routes/index.mjs";
 import { load } from "./storage/index.mjs";
-import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, newPostInput } from "./constants.mjs";
 
 if (window.location.pathname === "/" || window.location.pathname === "") {
   loginPage();
@@ -18,14 +17,6 @@ if (window.location.pathname === "/feed/" || window.location.pathname === "/feed
   if (!token) {
     location.pathname = "/";
   }
-
-  window.addEventListener("load", () => {
-    filterByLikes.checked = false;
-    filterByThreads.checked = false;
-    filterByPhotos.checked = false;
-    filterByComments.checked = false;
-    newPostInput.value = "";
-  });
 }
 
 // LOGIN DETAILS
