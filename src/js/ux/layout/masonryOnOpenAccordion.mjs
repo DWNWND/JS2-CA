@@ -11,7 +11,7 @@ function accordionResize(accordion) {
   });
 }
 
-export function openAccordion() {
+export function runMasonryOnAccordion() {
   var accordions = document.getElementsByClassName("detect-collapse");
   let accordionsArray = [...accordions];
 
