@@ -11938,6 +11938,20 @@ textarea.form-control-lg {
   grid-auto-rows: 0;
 }
 
+.like-username {
+  font-size: 0.8rem;
+}
+
+.comment-username {
+  font-size: 0.8rem;
+  border-bottom: solid #b4b4b4 1px;
+}
+
+.each-comment {
+  font-size: 0.8rem;
+  color: #6b6a6a;
+}
+
 .your-post {
   background-color: bisque;
 }

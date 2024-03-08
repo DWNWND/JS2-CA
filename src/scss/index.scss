@@ -2,7 +2,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../node_modules/bootstrap/scss/variables";
 
-//MASONRY TEST
 .load-more {
   display: none;
 }
@@ -18,7 +17,17 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 0;
 }
-
+.like-username {
+  font-size: 0.8rem;
+}
+.comment-username {
+  font-size: 0.8rem;
+  border-bottom: solid #b4b4b4 1px;
+}
+.each-comment {
+  font-size: 0.8rem;
+  color: #6b6a6a;
+}
 .your-post {
   background-color: bisque;
 }
@@ -53,10 +62,6 @@ main > .container {
     padding-bottom: 0;
   }
 }
-
-// .post-max-width {
-//   max-width: 49%;
-// }
 
 h3 {
   font-size: 1.2rem;

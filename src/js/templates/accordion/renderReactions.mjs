@@ -9,19 +9,19 @@ async function reactionsHTML(post, container) {
   for (let i = 0; i < reactionsArray.length; i++) {
     const emoji = reactionsArray[i].symbol;
     const reaction = document.createElement("div");
-    reaction.classList.add("d-flex", "gap-2", "align-items-center");
+    reaction.classList.add("d-flex", "gap-3");
     reaction.innerHTML = `
       <span>${emoji}</span>`;
 
     const users = reactionsArray[i].reactors;
     const listOfUsers = document.createElement("div");
-    listOfUsers.classList.add("d-flex", "gap-2", "align-items-center");
+    listOfUsers.classList.add("d-flex", "flex-column");
     reaction.append(listOfUsers);
 
     for (let i = 0; i < users.length; i++) {
       const user = document.createElement("strong");
       user.innerHTML = `
-        <h5 class="username m-0">${users[i]}</h5>`;
+        <p class="like-username m-0">${users[i]}</p>`;
       listOfUsers.append(user);
     }
     container.append(reaction);
