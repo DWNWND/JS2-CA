@@ -1,3 +1,5 @@
+import { clearErrorMessages } from "../../ui/listeners/index.mjs";
+
 export async function renderModal(id) {
   const modalContentModule = "./modalContent/index.mjs";
   const { renderModalHeader, renderModalBody, renderModalFooter } = await import(modalContentModule);
@@ -35,4 +37,7 @@ export async function renderModal(id) {
 
   const modalContainer = document.querySelector(".modal-container");
   modalContainer.append(modal);
+  clearErrorMessages();
 }
+
+

@@ -1,11 +1,13 @@
+import { removeModalFromDOM } from "../../../ui/events/index.mjs";
+
 export async function renderModalHeader({ author: { name: postAuthor } }) {
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");
-  profilePicture.src = "../img/undraw_Drink_coffee_v3au.png"; //adding just a standard img
+  profilePicture.src = "../img/undraw_Drink_coffee_v3au.png";
   profilePicture.alt = `The profile of: ${postAuthor}`;
 
   const userLink = document.createElement("a");
-  userLink.classList.add("nav-link"); //set href
+  userLink.classList.add("nav-link");
   userLink.append(profilePicture);
 
   const userName = document.createElement("h3");
@@ -25,6 +27,10 @@ export async function renderModalHeader({ author: { name: postAuthor } }) {
   const modalHeader = document.createElement("div");
   modalHeader.classList.add("modal-header");
 
+  closeBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    removeModalFromDOM();
+  });
   modalHeader.append(user, closeBtn);
 
   return modalHeader;
