@@ -1,6 +1,6 @@
 import { API_BASE, API_POSTS, newPostErrorContainer } from "../../constants.mjs";
 import { fetchWithToken } from "../apiCall.mjs";
-import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/index.mjs";
 
 let errorMessage;
 
@@ -16,10 +16,10 @@ export async function sendPostToAPI(postData) {
     }
     if (response.status === 400) {
       errorMessage = "You are trying to post an empty post.";
-      displayErrorMessage(errorMessage, newPostErrorContainer);
+      displayMessage(errorMessage, newPostErrorContainer);
     } else if (response.status >= 401) {
       errorMessage = "An unexpected error occured, please try again later";
-      displayErrorMessage(errorMessage, newPostErrorContainer);
+      displayMessage(errorMessage, newPostErrorContainer);
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {

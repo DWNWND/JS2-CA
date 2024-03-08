@@ -1,7 +1,7 @@
 import { register, login } from "../../api/userAuthentication/index.mjs";
 import { validatePassword } from "./index.mjs";
 import { generalErrorContainer } from "../../constants.mjs";
-import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/index.mjs";
 
 let errorMessage;
 
@@ -24,7 +24,7 @@ export async function registerAuth(event) {
 
   if (!name || !email || !firstPassword || !passwordRepeat) {
     errorMessage = "Please fill in all the registration fields.";
-    displayErrorMessage(errorMessage, generalErrorContainer);
+    displayMessage(errorMessage, generalErrorContainer);
   } else {
     validatePassword(firstPassword, passwordRepeat);
     if (passwordRepeat === firstPassword) {
