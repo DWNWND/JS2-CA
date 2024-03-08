@@ -13,7 +13,6 @@ function generateStartFeed(allPosts, container) {
   listenFor.clickToLoadMore(loadMoreBtn);
 }
 
-//////// clean up this function if you want to
 export async function feedPage() {
   listenFor.clearFiltersAndInputs();
   const postByPage = await getPostsByPage;
@@ -24,7 +23,6 @@ export async function feedPage() {
       let params = new URLSearchParams(document.location.search);
       let postId = params.get("post-id");
       let id = parseInt(postId);
-
       postByPage.filter(async (allPosts) => {
         if (allPosts.id === id) {
           await content.renderModal(id);
@@ -36,7 +34,6 @@ export async function feedPage() {
       });
 
       generateStartFeed(postByPage, feedContainer);
-
       listenFor.filtering();
       listenFor.search();
       runMasonryOnAccordion();
