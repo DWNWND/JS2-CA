@@ -8,10 +8,10 @@ async function commentsHTML(post, container) {
 
   for (let i = 0; i < commentsArray.length; i++) {
     const comment = document.createElement("div");
-    comment.classList.add("d-flex", "gap-2", "align-items-center");
+    comment.classList.add("d-flex", "gap-1", "flex-column");
     comment.innerHTML = `
-    <strong><h5 class="username m-0">${commentsArray[i].owner}</h5></strong>
-    <p>${commentsArray[i].body}</p>`;
+    <strong><p class="comment-username d-block m-0">${commentsArray[i].owner}</p></strong>
+    <p class="each-comment m-0">${commentsArray[i].body}</p>`;
 
     container.append(comment);
   }

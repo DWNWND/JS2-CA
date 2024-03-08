@@ -1,5 +1,5 @@
 import { fetchWithToken } from "../apiCall.mjs";
-import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/index.mjs";
 import { API_BASE, API_POSTS, authorParam, commentsParam, reactionsParam, limitParam, postLimit, loader, loadMoreBtn } from "../../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
@@ -28,7 +28,7 @@ export async function getPostsByPageFromAPI(page) {
     }
   } catch (error) {
     const errorMessage = "We are having some trouble with our servers, please wait and try again later";
-    displayErrorMessage(errorMessage);
+    displayMessage(errorMessage);
   }
 }
 

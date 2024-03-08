@@ -15,7 +15,7 @@ export function renderModalBody({ id, author: { name: postAuthor }, title, body,
 
     if (form) {
       const deleteBtn = document.createElement("button");
-      deleteBtn.classList.add("btn", "btn-primary", "btn-lg", "w-100");
+      deleteBtn.classList.add("btn", "btn-outline-danger", "btn-lg", "w-100");
       deleteBtn.innerText = "delete post";
 
       const containerForBtn = document.createElement("div");

@@ -1,6 +1,6 @@
 import { fetchWithToken } from "../apiCall.mjs";
 import { API_AUTH, API_BASE, API_REGISTER, generalErrorContainer } from "../../constants.mjs";
-import { displayErrorMessage } from "../../templates/errorMessage/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/index.mjs";
 import { login } from "./index.mjs";
 
 let errorMessage;
@@ -22,7 +22,7 @@ export async function register(name, email, password) {
       throw new Error("Unknown error - investigate");
     }
   } catch (error) {
-    displayErrorMessage(errorMessage, generalErrorContainer);
+    displayMessage(errorMessage, generalErrorContainer);
     console.log(error);
   }
 }
