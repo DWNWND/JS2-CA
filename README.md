@@ -1,12 +1,18 @@
 # JS2-CA | JavaScript front-end client for social media platform
 
-![ca-screenshot](place img here)
+![img of the app running](https://github.com/DWNWND/JS2-CA/blob/js2/img/screenshot_app.png?raw=true)
 
-This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform". + some more info about your webapp/site.
+This is my course assignment for the course JavaScript 2 at Noroff. The course spanned over six weeks and we were tasked with producing "a new JavaScript front-end client for an existing social media platform".
+
+The task was strickly about JavaScript and was not graded based on appaerance, HTML or CSS. I chose because of this to only work with premade Bootstrap components.
 
 ## Live app
 
-This project is deployed on [Netlify](place link to netlify here).
+This project is deployed on [Netlify](https://js2-ca-dwnwnd.netlify.app/) from the branch called `js2`.
+
+## API
+
+I've used the [Noroff V2](https://v2.api.noroff.dev/docs/static/index.html) API for this task.
 
 ## Course goal
 
@@ -17,17 +23,11 @@ The goal of this course was to:
 - Being able to create a functioning `user interface` that allows for viewing, posting, editign and deleting social media content
 - Become confident in using Github `Pull Requests`, `Branches` and `Commits`
 
-## Course Assignment
-
-- [Brief](link to brief)
-
-- [Criteria](link to marking criterea)
-
 ### Required features
 
 The following user stories were required for a passing submission:
 
-- User with `@noroff.no` or `@stud.noroff.no` email can register profile
+- User with `@stud.noroff.no` email can register profile
 - Registered user can `login`
 - User can `view` a post content feed
 - User can `filter` the post content feed
@@ -57,11 +57,13 @@ The course assignment was restricted by:
 
 ## Figma Prototype
 
-[Figma](add link to Figma Prototype here)
+[Figma Desktop Prototype](https://www.figma.com/proto/HcphI8BSxqiHqXMZhjYEWm/js2-ca?page-id=1%3A168&node-id=11-1087&scaling=scale-down-width&mode=design&t=bxigyvFXaPKeUarX-1)
+
+[Figma App Prototype](https://www.figma.com/proto/HcphI8BSxqiHqXMZhjYEWm/js2-ca?page-id=0%3A1&node-id=11-1964&mode=design&t=2G9dNYNhzqLsh7eM-1)
 
 ## Trello Board
 
-[Trello board](add link to Trello board here)
+[Trello board](https://trello.com/b/ZDcxc5Ne/javascript-2-ca)
 
 ## Built with
 
@@ -86,24 +88,9 @@ git clone https://github.com/DWNWND/JS2-CA.git
 
    > `npm install`
 
-5. Run `watch` & `liveserver`
-   
-   > `npm run dev`
+5. Run `watch`
 
-## Validation
-
-The web application code has been validated using the following tools:
-(add validation tools)
-
-- HTML validity: <https://validator.w3.org/>
-
-- Accessibility: <https://wave.webaim.org/>
-
-- Testing UI/UX (interviews)
-
-- Linking: SEO Spider
-
-- Other?
+   > `npm run watch`
 
 ## Contact
 
@@ -111,6 +98,9 @@ The web application code has been validated using the following tools:
 
 ## Acknowledgments
 
-Noroff Online Studies
+- [Noroff Online Studies](https://www.noroff.no)
+- The artists at [Undraw](https://undraw.co/)
 
-The artists at (Link to artistpages)
+- To check and see if the images from the API are loaded: [Images Loaded](https://imagesloaded.desandro.com/)
+- To generate a dynamic masonry layout: [W3Bits](https://w3bits.com/css-grid-masonry/#google_vignette)
+- To add and remove URL params without refreshing the page: [Stack Overflow](https://stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page)

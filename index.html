@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SOME - Login</title>
+    <meta name="description" content="the loginpage" />
+    <link rel="icon" href="/img/comment_bubble_full.svg" />
+    <link rel="stylesheet" href="../dist/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="/src/js/index.mjs"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="#">SOME</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container d-flex flex-column gap-2">
+        <h1 class="lead mt-5 text-center">Log in or create a new user to continue.</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">Login</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#new-user-tab-pane" type="button" role="tab" aria-controls="new-user-tab-pane" aria-selected="false">New user</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
+            <form id="login" class="container-sm mt-2">
+              <div class="form-floating mb-3">
+                <input title="" type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required />
+                <label for="loginEmail" class="text-primary">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required />
+                <label for="loginPassword" class="text-primary">Password</label>
+              </div>
+              <div class="d-grid gap-2 mt-4">
+                <button for="login" type="submit" class="btn btn-primary btn-lg w-100">Log in</button>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="new-user-tab-pane" role="tabpanel" aria-labelledby="new-user-tab" tabindex="0">
+            <form id="register" action="" class="container-sm mt-2">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="registerEmail" placeholder="name@example.com" required />
+                <label for="registerEmail" class="text-primary">Email address</label>
+              </div>
+              <div id="emailHelpBlock" class="form-text mb-3">The email value must be a valid stud.noroff.no email address.</div>
+
+              <div class="form-floating mb-3">
+                <input type="username" class="form-control" id="registerUsername" placeholder="Username" required />
+                <label for="registerUsername" class="text-primary">Username</label>
+              </div>
+              <div id="usernameHelpBlock" class="form-text mb-3">The username must not contain punctuation symbols apart from underscore (_).</div>
+
+              <div class="form-floating">
+                <input type="password" class="form-control" id="registerPassword" placeholder="Password" required />
+                <label for="registerPassword" class="text-primary">Password</label>
+              </div>
+              <div id="passwordHelpBlock" class="form-text">Your password must be 8-20 characters long and contain letters, numbers and special characters.</div>
+              <div class="form-floating password-form mt-3">
+                <input type="password" class="form-control" id="registerRepeatPassword" placeholder="Repeat Password" required />
+                <label for="registerRepeatPassword" class="text-primary">Repeat password</label>
+                <div id="registerRepeatPasswordError" class="form-text mb-3"></div>
+              </div>
+              <div class="d-grid gap-2 mt-4">
+                <button for="register" class="btn btn-outline-primary btn-lg w-100">Create new user</button>
+              </div>
+            </form>
+          </div>
+          <div class="error-message error text-center mt-2 all-errors"></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom d-sm-none"></footer>
+  </body>
+</html>

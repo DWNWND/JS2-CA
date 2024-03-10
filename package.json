@@ -1,0 +1,39 @@
+{
+  "name": "javascripts-2-ca",
+  "version": "0.0.1",
+  "description": "My submission for the course assignment in the course JavaScript 2 at Noroff.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css",
+    "dev": "npm run watch & live-server",
+    "docs": "jsdoc -c ./conf.json -r"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DWNWND/JS2-CA.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "front-end client",
+    "social-media platform",
+    "bootstrap",
+    "HTTP method",
+    "Restful API"
+  ],
+  "author": "Thea Oland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DWNWND/JS2-CA/issues"
+  },
+  "homepage": "https://github.com/DWNWND/JS2-CA#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+    "live-server": "^1.2.2",
+    "sass": "^1.70.0"
+  }
+}
