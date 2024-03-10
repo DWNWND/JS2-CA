@@ -31,7 +31,7 @@ async function reactionsHTML(post, container) {
 /**
  * Appends a posts rections to a bootstrap accordion element
  *
- * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @param {(object|object[])} postData An array of objects or a single object conatining of social media post(s)
  * @returns {string} A HTML element of the whole accordion containing the rections
  *
  * @uses reactionsHTML To generate the HTML for each rection
