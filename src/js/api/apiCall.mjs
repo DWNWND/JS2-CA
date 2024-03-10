@@ -1,4 +1,4 @@
-import { load } from "../storage/index.mjs";
+import { load } from "../storage/load.mjs";
 import { API_KEY } from "../constants.mjs";
 
 export async function fetchWithToken(url, options = {}) {

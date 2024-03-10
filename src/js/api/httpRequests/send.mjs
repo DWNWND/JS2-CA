@@ -1,10 +1,9 @@
 import { API_BASE, API_POSTS, newPostErrorContainer } from "../../constants.mjs";
 import { fetchWithToken } from "../apiCall.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
 
 let errorMessage;
 
-//FROM OLIS YT
 export async function sendPostToAPI(postData) {
   try {
     const response = await fetchWithToken(API_BASE + API_POSTS, {

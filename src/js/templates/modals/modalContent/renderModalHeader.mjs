@@ -1,9 +1,14 @@
-import { removeModalFromDOM } from "../../../ui/events/index.mjs";
+import { removeModalFromDOM } from "../../../ui/events/feed/removeModalFromDOM.mjs";
 
-export async function renderModalHeader({ author: { name: postAuthor } }) {
+export async function renderModalHeader({
+  author: {
+    name: postAuthor,
+    avatar: { url: userAvatar },
+  },
+}) {
   const profilePicture = document.createElement("img");
   profilePicture.classList.add("img-fluid", "rounded-circle", "profile-img-nav");
-  profilePicture.src = "../img/undraw_Drink_coffee_v3au.png";
+  profilePicture.src = userAvatar;
   profilePicture.alt = `The profile of: ${postAuthor}`;
 
   const userLink = document.createElement("a");

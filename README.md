@@ -23,17 +23,11 @@ The goal of this course was to:
 - Being able to create a functioning `user interface` that allows for viewing, posting, editign and deleting social media content
 - Become confident in using Github `Pull Requests`, `Branches` and `Commits`
 
-## Course Assignment
-
-- [Brief](link to brief)
-
-- [Criteria](link to marking criterea)
-
 ### Required features
 
 The following user stories were required for a passing submission:
 
-- User with `@noroff.no` or `@stud.noroff.no` email can register profile
+- User with `@stud.noroff.no` email can register profile
 - Registered user can `login`
 - User can `view` a post content feed
 - User can `filter` the post content feed
@@ -98,29 +92,15 @@ git clone https://github.com/DWNWND/JS2-CA.git
 
    > `npm run dev`
 
-## Validation
-
-The web application code has been validated using the following tools:
-(add validation tools)
-
-- HTML validity: <https://validator.w3.org/>
-
-- Accessibility: <https://wave.webaim.org/>
-
-- Testing UI/UX (interviews)
-
-- Linking: SEO Spider
-
-- Other?
-
 ## Contact
 
 [My LinkedIn page](https://www.linkedin.com/in/thea-oland-b38175139/)
 
 ## Acknowledgments
 
-Noroff Online Studies
-
+[Noroff Online Studies](https://www.noroff.no)
 The artists at [Undraw](https://undraw.co/)
 
-More?
+To check and see if the images from the API are loaded: [Images Loaded](https://imagesloaded.desandro.com/)
+To generate a dynamic masonry layout: [W3Bits](https://w3bits.com/css-grid-masonry/#google_vignette)
+To add and remove URL params without refreshing the page: [Stack Overflow](https://stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page)

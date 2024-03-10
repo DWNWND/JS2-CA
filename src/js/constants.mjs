@@ -1,5 +1,3 @@
-// import { getAllPostsFromAPI, getPostsByPageFromAPI } from "./api/httpRequests/index.mjs";
-
 export const API_KEY = "d2abe438-b85e-4837-bb83-2678d612f606";
 export const API_BASE = "https://v2.api.noroff.dev";
 export const API_AUTH = "/auth";

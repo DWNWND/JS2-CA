@@ -1,4 +1,4 @@
-import { email, emailError, username, usernameError, password, passwordError, repeatPasswordError } from "../../constants.mjs";
+import { email, emailError, username, usernameError, password, passwordError, repeatPasswordError } from "../../../constants.mjs";
 
 export async function validateRepeatPassword(firstPasswordValue, repeatPasswordValue) {
   if (repeatPasswordValue === firstPasswordValue && repeatPasswordValue !== "") {

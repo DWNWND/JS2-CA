@@ -1,5 +1,5 @@
-import { renderPostTemplates } from "../../templates/posts/index.mjs";
-import { feedContainer } from "../../constants.mjs";
+import { renderPostTemplates } from "../../../templates/posts/renderPosts.mjs";
+import { feedContainer } from "../../../constants.mjs";
 
 let page = 1;
 
@@ -8,7 +8,7 @@ export function clickToLoadMore(loadMoreBtn) {
     loadMoreBtn.style.display = "none";
     page++;
 
-    const getRequest = "../../api/httpRequests/index.mjs";
+    const getRequest = "../../../api/httpRequests/get.mjs";
     const { getPostsByPageFromAPI } = await import(getRequest);
     const posts = await getPostsByPageFromAPI(page);
 

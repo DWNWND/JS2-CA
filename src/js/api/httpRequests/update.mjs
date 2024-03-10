@@ -1,5 +1,5 @@
 import { API_BASE, API_POSTS } from "../../constants.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
 import { fetchWithToken } from "../apiCall.mjs";
 
 let errorMessage;

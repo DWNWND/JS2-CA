@@ -2,7 +2,7 @@
   "name": "javascripts-2-ca",
   "version": "0.0.1",
   "description": "My submission for the course assignment in the course JavaScript 2 at Noroff.",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",

@@ -2,7 +2,7 @@
  * Generates an HTML element for the card/post BODY of each social media post passed in
  * The function distinguishes posts with media attachements from the rest of the posts.
  *
- * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @param {array, object} postData destructured to {title, body, media}. An array of objects or a single object conatining of social media post(s)
  * @returns {string} Returns a HTML elemement for the card/post body
  */
 export function renderPostBody({title, body, media}) { 
