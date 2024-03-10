@@ -98,9 +98,9 @@ git clone https://github.com/DWNWND/JS2-CA.git
 
 ## Acknowledgments
 
-[Noroff Online Studies](https://www.noroff.no)
-The artists at [Undraw](https://undraw.co/)
+- [Noroff Online Studies](https://www.noroff.no)
+- The artists at [Undraw](https://undraw.co/)
 
-To check and see if the images from the API are loaded: [Images Loaded](https://imagesloaded.desandro.com/)
-To generate a dynamic masonry layout: [W3Bits](https://w3bits.com/css-grid-masonry/#google_vignette)
-To add and remove URL params without refreshing the page: [Stack Overflow](https://stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page)
+- To check and see if the images from the API are loaded: [Images Loaded](https://imagesloaded.desandro.com/)
+- To generate a dynamic masonry layout: [W3Bits](https://w3bits.com/css-grid-masonry/#google_vignette)
+- To add and remove URL params without refreshing the page: [Stack Overflow](https://stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page)
