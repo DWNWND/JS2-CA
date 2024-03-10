@@ -1,5 +1,5 @@
 import { load } from "../../../storage/load.mjs";
-import { populateUpdateForm } from "../../../ui/events/populateUpdateForm.mjs";
+import { populateUpdateForm } from "../../../ui/events/feed/populateUpdateForm.mjs";
 import { updateForm } from "../../forms/index.mjs";
 
 export function renderModalBody({ id, author: { name: postAuthor }, title, body, media }) {

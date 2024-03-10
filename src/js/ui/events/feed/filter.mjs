@@ -1,6 +1,6 @@
-import { renderPostTemplates } from "../../templates/posts/renderPosts.mjs";
-import { getPostsByPage, getAllPosts } from "../../api/httpRequests/get.mjs";
-import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../constants.mjs";
+import { renderPostTemplates } from "../../../templates/posts/renderPosts.mjs";
+import { getPostsByPage, getAllPosts } from "../../../api/httpRequests/get.mjs";
+import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer, loadMoreBtn, loader } from "../../../constants.mjs";
 
 export async function filterPosts() {
   loader.style.display = "flex";

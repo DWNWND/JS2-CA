@@ -1,60 +1,71 @@
-/* Loads posts into a masonry grid */
+/**
+ * Loads posts into a masonry layout
+ * @uses waitForImages to wait until the images are loaded before completing the masonry layout
+ * @uses masonryOnChange to reload the masonry layout on load or resize events
+ * @uses resizeAllMasonryItems to build the masonry layout
+ */
 export function masonry() {
   waitForImages();
   masonryOnChange();
   resizeAllMasonryItems();
 }
 
-// FUNCTIONS AND DOCUMENTATION FOR MASONRY INSPIRED BY:
-// https://w3bits.com/css-grid-masonry/#google_vignette
-
-/* Resize all the grid items on the load and resize events */
+/**
+ * Reloads the masonry layout on load and resize events
+ * @uses resizeAllMasonryItems to make the masonry layout
+ */
 function masonryOnChange() {
-  var masonryEvents = ["load", "resize"];
-  masonryEvents.forEach(function (event) {
+  const masonryEvents = ["load", "resize"];
+  masonryEvents.forEach((event) => {
     window.addEventListener(event, resizeAllMasonryItems);
   });
 }
 
 /**
- * Resize the items when all the images inside the masonry grid finish loading.
- * USES: https://imagesloaded.desandro.com/ (CDN added to HTML)
+ * Waits for the images to load befor resizes the masonry-items
  *
- * @uses ImagesLoaded
- * @uses resizeMasonryItem
+ * @uses ImagesLoaded from https://imagesloaded.desandro.com/ (CDN added to HTML)
+ * @uses resizeMasonryItem To make the masonry layout
  */
 export function waitForImages() {
-  var allItems = document.getElementsByClassName("media-masonry-brick");
-
-  for (var i = 0; i < allItems.length; i++) {
-    imagesLoaded(allItems[i], function (instance) {
-      var item = instance.elements[0];
-      resizeMasonryItem(item);
+  const allDisplayedPosts = document.getElementsByClassName("media-masonry-brick");
+  for (var i = 0; i < allDisplayedPosts.length; i++) {
+    imagesLoaded(allDisplayedPosts[i], (posts) => {
+      const imagePosts = posts.elements[0];
+      resizeMasonryItem(imagePosts);
     });
   }
 }
 
-/* Resize the masonry layout when an accordion is opened and closed */
+/**
+ * Resizes the masonry layout when an accordion-element on open and close events
+ * @param {string} accordion An accordion-element
+ * @uses masonry To load the masonry layout
+ * */
 function accordionResize(accordion) {
   accordion.forEach((accordionelement) => {
-    accordionelement.addEventListener("hidden.bs.collapse", function () {
+    accordionelement.addEventListener("hidden.bs.collapse", () => {
       masonry();
     });
-    accordionelement.addEventListener("shown.bs.collapse", function () {
+    accordionelement.addEventListener("shown.bs.collapse", () => {
       masonry();
     });
   });
 }
 
-/* Runs the accordionResize on each of the accordions */
+/**
+ * Runs the accordionResize function on each of the accordions.
+ * @uses accordionResize Resizes the masonry layout when an accordion-element on open and close events
+ * */
 export function runMasonryOnAccordion() {
-  var accordions = document.getElementsByClassName("detect-collapse");
+  const accordions = document.getElementsByClassName("detect-collapse");
   let accordionsArray = [...accordions];
-
   accordionResize(accordionsArray);
 }
 
 /**
+ * Function and documentation for masonry layout lent from: https://w3bits.com/css-grid-masonry/#google_vignette
+ *
  * Set appropriate spanning to any masonry item
  *
  * Get different properties we already set for the masonry, calculate height or spanning for any cell of the masonry grid based on its
@@ -83,6 +94,8 @@ export function resizeMasonryItem(masonrycell) {
 }
 
 /**
+ * Function and documentation for masonry layout lent from: https://w3bits.com/css-grid-masonry/#google_vignette
+ *
  * Apply spanning to all the masonry items
  * Loop through all the items and apply the spanning to them using `resizeMasonryItem()` function.
  * @uses resizeMasonryItem

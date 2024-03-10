@@ -1,4 +1,4 @@
-import { clearErrorMessages } from "../../ui/listeners/clearErrorMsg.mjs";
+import { clearErrorMessages } from "../../ui/listeners/general/clearErrorMsg.mjs";
 
 export async function renderModal(id) {
   const modalContentModule = "./modalContent/index.mjs";
@@ -29,8 +29,6 @@ export async function renderModal(id) {
   modal.setAttribute("aria-labelledby", "post-preview-modal");
   modal.setAttribute("aria-hidden", "true");
 
-  //disabled the click backdrop to exit (this does not work with the funciton to remove the modal)
-  //https://stackoverflow.com/questions/22207377/disable-click-outside-of-bootstrap-modal-area-to-close-modal
   modal.setAttribute("data-bs-keyboard", "false");
   modal.setAttribute("data-bs-backdrop", "static");
   modal.append(modalDialog);
@@ -39,5 +37,3 @@ export async function renderModal(id) {
   modalContainer.append(modal);
   clearErrorMessages();
 }
-
-

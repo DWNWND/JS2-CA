@@ -1,4 +1,4 @@
-import { loginAuth, registerAuth } from "../events/auth.mjs";
+import { loginAuth, registerAuth } from "../../events/login/auth.mjs";
 
 export function authentication() {
   document.forms.login.addEventListener("submit", loginAuth);

@@ -1,11 +1,5 @@
-import { filtering } from "../ui/listeners/onFilter.mjs";
-import { search } from "../ui/listeners/onSearch.mjs";
-import { publishNewPost } from "../ui/listeners/publishPost.mjs";
-import { clearErrorMessages } from "../ui/listeners/clearErrorMsg.mjs";
-import { logOut } from "../ui/listeners/logOut.mjs";
-import { clickToLoadMore } from "../ui/listeners/loadMore.mjs";
-import { clearFiltersAndInputs } from "../ui/listeners/clearFiltersAndInputs.mjs";
-
+import * as listen from "../ui/listeners/feed/index.mjs";
+import { clearErrorMessages } from "../ui/listeners/general/clearErrorMsg.mjs";
 import { renderModal } from "../templates/modals/renderModal.mjs";
 import { renderPostTemplates } from "../templates/posts/renderPosts.mjs";
 import { getPostsByPage } from "../api/httpRequests/get.mjs";
@@ -15,14 +9,14 @@ import { loadMoreBtn, loader, feedContainer, allErrorContaines } from "../consta
 function generateStartFeed(allPosts, container) {
   container.innerHTML = "";
   renderPostTemplates(allPosts, container);
-  logOut();
+  listen.logOut();
   loader.style.display = "none";
   loadMoreBtn.style.display = "block";
-  clickToLoadMore(loadMoreBtn);
+  listen.clickToLoadMore(loadMoreBtn);
 }
 
 export async function feedPage() {
-  clearFiltersAndInputs();
+  listen.clearFiltersAndInputs();
   const postByPage = await getPostsByPage;
 
   try {
@@ -42,10 +36,10 @@ export async function feedPage() {
       });
 
       generateStartFeed(postByPage, feedContainer);
-      filtering();
-      search();
+      listen.filtering();
+      listen.search();
       runMasonryOnAccordion();
-      publishNewPost();
+      listen.publishNewPost();
       clearErrorMessages(allErrorContaines);
     }
   } catch (error) {

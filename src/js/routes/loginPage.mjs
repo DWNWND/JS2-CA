@@ -1,6 +1,6 @@
-import { authentication } from "../ui/listeners/onAuth.mjs";
-import { validation } from "../ui/listeners/formValidation.mjs";
-import { clearErrorMessages } from "../ui/listeners/clearErrorMsg.mjs";
+import { authentication } from "../ui/listeners/login/onAuth.mjs";
+import { validation } from "../ui/listeners/login/formValidation.mjs";
+import { clearErrorMessages } from "../ui/listeners/general/clearErrorMsg.mjs";
 import { generalErrorContainer } from "../constants.mjs";
 
 export function loginPage() {

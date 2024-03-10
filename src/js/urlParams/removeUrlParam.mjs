@@ -1,6 +1,6 @@
 /**
  * Takes the current url and deletes the searchParam from the url based on the passed in paramKey, then updates the url.
- *
+
  * Inspired by:
  * https://stackoverflow.com/questions/10970078/modifying-a-query-string-without-reloading-the-page
  *

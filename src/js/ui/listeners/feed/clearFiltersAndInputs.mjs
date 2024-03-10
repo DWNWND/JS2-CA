@@ -1,4 +1,4 @@
-import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, newPostInput, searchInput } from "../../constants.mjs";
+import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, newPostInput, searchInput } from "../../../constants.mjs";
 
 export function clearFiltersAndInputs() {
   window.addEventListener("load", () => {

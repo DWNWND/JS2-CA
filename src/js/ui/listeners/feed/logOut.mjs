@@ -1,4 +1,4 @@
-import { load } from "../../storage/load.mjs";
+import { load } from "../../../storage/load.mjs";
 
 export function logOut() {
   const logOutBtn = document.querySelector(".logout");

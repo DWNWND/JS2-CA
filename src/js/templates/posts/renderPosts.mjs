@@ -11,7 +11,7 @@ import { masonry, runMasonryOnAccordion } from "../../ux/layout/masonry.mjs";
  * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
  * @returns {string} Returns a HTML elemement for each social media post passed into the function, displaying the post
  *
- * @uses load To fetch the details of the logged in user form localstorage
+ * @uses load To fetch the details of the logged in user from localstorage
  * @uses renderPostHeader To generate the HTML element for the card/post HEADER
  * @uses renderPostBody To generate the HTML element for the card/post BODY
  * @uses renderPostFooter To generate the HTML element for the card/post FOOTER
