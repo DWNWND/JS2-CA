@@ -2,7 +2,7 @@ import { displayReactionsAccordion, displayCommentsAccordion } from "../../accor
 
 /**
  * Generates an HTML element for the card/post FOOTER of each social media post passed in
- * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
+ * @param {(object|object[])} postData An array of objects or a single object conatining of social media post(s)
  * @returns {string} Returns a HTML elemement for the card/post footer
  *
  * @uses displayReactionsAccordion To generate a bootstrap accordion element that displays the posts REACTIONS

@@ -3,7 +3,7 @@ import { openPostAsModal } from "../../../ui/listeners/feed/openModal.mjs";
 
 /**
  * Generates an HTML element for the card/post HEADER of each social media post passed in
- * @param {array, object} postData destructured to {id, author: { name, avatar: { url }}}. An array of objects or a single object conatining of social media post(s)
+ * @param {(object|object[])} postData destructured to {id, author: { name, avatar: { url }}}. An array of objects or a single object conatining of social media post(s)
  * @returns {string} Returns a HTML elemement for the card/post header
  * @uses load To fetch the userdetailes of the logged in user from localstorage
  * @uses openPostAsModal To add an eventlistener to the modalBtn that generates the post as a modal on click
