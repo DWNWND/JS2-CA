@@ -47,7 +47,7 @@ export async function getAllPostsFromAPI() {
       loadMoreBtn.style.display = "none";
 
       const errorMessage = "We are having some trouble with our servers, please wait and try again later";
-      displayErrorMessage(errorMessage);
+      displayMessage(errorMessage);
 
       throw new Error("couldn't fetch posts from api");
     }
