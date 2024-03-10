@@ -89,6 +89,7 @@ export function resizeMasonryItem(masonrycell) {
    * S = H1 / T
    */
   var rowSpan = Math.ceil((masonrycell.querySelector(".masonry-content").getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+  
   /* Set the spanning as calculated above (S) */
   masonrycell.style.gridRowEnd = "span " + rowSpan;
 }
