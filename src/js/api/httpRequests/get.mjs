@@ -1,7 +1,7 @@
 import { fetchWithToken } from "../apiCall.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
 import { API_BASE, API_POSTS, authorParam, commentsParam, reactionsParam, limitParam, postLimit, loader, loadMoreBtn } from "../../constants.mjs";
-import { load } from "../../storage/index.mjs";
+import { load } from "../../storage/load.mjs";
 
 let page = 1;
 

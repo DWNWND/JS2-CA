@@ -1,7 +1,7 @@
 import { fetchWithToken } from "../apiCall.mjs";
 import { API_AUTH, API_BASE, API_REGISTER, generalErrorContainer } from "../../constants.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
-import { login } from "./index.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
+import { login } from "./login.mjs";
 
 let errorMessage;
 

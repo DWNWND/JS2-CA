@@ -1,4 +1,4 @@
-import { removeModalFromDOM } from "../../../ui/events/index.mjs";
+import { removeModalFromDOM } from "../../../ui/events/removeModalFromDOM.mjs";
 
 export async function renderModalHeader({
   author: {

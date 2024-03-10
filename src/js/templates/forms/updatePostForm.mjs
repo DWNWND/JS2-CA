@@ -1,4 +1,4 @@
-import { updatePostContent } from "../../ui/events/index.mjs";
+import { updatePostContent } from "../../ui/events/updatePostContent.mjs";
 
 export function updateForm(id) {
   const form = document.createElement("form");

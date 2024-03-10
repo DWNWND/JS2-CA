@@ -1,4 +1,4 @@
-import { renderPostTemplates } from "../../templates/posts/index.mjs";
+import { renderPostTemplates } from "../../templates/posts/renderPosts.mjs";
 import { feedContainer } from "../../constants.mjs";
 
 let page = 1;

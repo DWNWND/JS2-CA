@@ -5,7 +5,7 @@ export async function populateUpdateForm(updateForm) {
     const button = updateForm.querySelector("button");
     button.disabled = true;
 
-    const requestModule = "../../api/httpRequests/index.mjs";
+    const requestModule = "../../api/httpRequests/get.mjs";
     const { getPostFromAPI } = await import(requestModule);
     const { title, body } = await getPostFromAPI(id);
 

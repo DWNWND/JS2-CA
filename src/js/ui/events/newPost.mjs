@@ -1,4 +1,4 @@
-import { sendPostToAPI } from "../../api/httpRequests/index.mjs";
+import { sendPostToAPI } from "../../api/httpRequests/send.mjs";
 
 export async function newPost(event) {
   event.preventDefault();

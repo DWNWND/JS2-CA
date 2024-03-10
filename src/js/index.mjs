@@ -1,7 +1,9 @@
-import { loginPage, feedPage } from "./routes/index.mjs";
-import { load } from "./storage/index.mjs";
+import { load } from "./storage/load.mjs";
+// import { loginPage } from "./routes/index.mjs";
 
 if (window.location.pathname === "/" || window.location.pathname === "") {
+  const routesModule = "./routes/loginPage.mjs";
+  const { loginPage } = await import(routesModule);
   loginPage();
 
   const token = load("token");
@@ -11,6 +13,8 @@ if (window.location.pathname === "/" || window.location.pathname === "") {
 }
 
 if (window.location.pathname === "/feed/" || window.location.pathname === "/feed/index" || window.location.pathname === "/feed/index.html" || window.location.pathname === "/feed/index.html?") {
+  const routesModule = "./routes/feedPage.mjs";
+  const { feedPage } = await import(routesModule);
   feedPage();
 
   const token = load("token");

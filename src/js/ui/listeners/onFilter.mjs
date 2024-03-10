@@ -1,5 +1,4 @@
 import { filterByLikes, filterByThreads, filterByPhotos, filterByComments, feedContainer } from "../../constants.mjs";
-import { filterPosts } from "../events/index.mjs";
 
 export function filtering() {
   checkFilter(filterByLikes);
@@ -11,6 +10,9 @@ export function filtering() {
 function checkFilter(filterType) {
   filterType.addEventListener("change", async () => {
     feedContainer.innerHTML = "";
+
+    const eventModule = "../events/filter.mjs";
+    const { filterPosts } = await import(eventModule);
     filterPosts();
   });
 }

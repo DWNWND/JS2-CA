@@ -1,5 +1,5 @@
-import { getPostsFromSearch } from "../events/index.mjs";
-import { getPostsByPage, getAllPosts } from "../../api/httpRequests/index.mjs";
+import { getPostsFromSearch } from "../events/search.mjs";
+import { getPostsByPage, getAllPosts } from "../../api/httpRequests/get.mjs";
 import { searchInput, loadMoreBtn } from "../../constants.mjs";
 
 export async function search() {

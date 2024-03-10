@@ -1,4 +1,4 @@
-import { renderPostTemplates } from "../../templates/posts/index.mjs";
+import { renderPostTemplates } from "../../templates/posts/renderPosts.mjs";
 import { searchInput, feedContainer, loadMoreBtn } from "../../constants.mjs";
 
 export async function getPostsFromSearch(allPostsFromAPI, postsPerPage) {

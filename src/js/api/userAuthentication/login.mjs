@@ -1,7 +1,7 @@
 import { fetchWithToken } from "../apiCall.mjs";
 import { API_AUTH, API_BASE, API_LOGIN, generalErrorContainer } from "../../constants.mjs";
-import { save } from "../../storage/index.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
+import { save } from "../../storage/save.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
 
 let errorMessage;
 export async function login(email, password) {

@@ -7,7 +7,7 @@ export async function updatePostContent(event) {
     const post = Object.fromEntries(formData.entries());
     post.id = form.name;
 
-    const requestModule = "../../api/httpRequests/index.mjs";
+    const requestModule = "../../api/httpRequests/update.mjs";
     const { updatePostInAPI } = await import(requestModule);
     updatePostInAPI(post);
   }

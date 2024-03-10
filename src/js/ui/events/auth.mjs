@@ -1,7 +1,8 @@
-import { register, login } from "../../api/userAuthentication/index.mjs";
-import { validatePassword } from "./index.mjs";
+import { login } from "../../api/userAuthentication/login.mjs";
+import { register } from "../../api/userAuthentication/register.mjs";
+import { validatePassword } from "./validation.mjs";
 import { generalErrorContainer } from "../../constants.mjs";
-import { displayMessage } from "../../templates/userFeedback/index.mjs";
+import { displayMessage } from "../../templates/userFeedback/displayMessage.mjs";
 
 let errorMessage;
 

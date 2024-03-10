@@ -1,7 +1,7 @@
-import { load } from "../../storage/index.mjs";
+import { load } from "../../storage/load.mjs";
 import { renderPostBody, renderPostFooter, renderPostHeader } from "./postContent/index.mjs";
 import { loadMoreBtn, loader, displayMessage } from "../../constants.mjs";
-import { masonry, runMasonryOnAccordion } from "../../ux/layout/index.mjs";
+import { masonry, runMasonryOnAccordion } from "../../ux/layout/masonry.mjs";
 
 /**
  * Generates an HTML element for each social media post passed in.
@@ -45,7 +45,8 @@ export function postTemplate(postData) {
  * @param {string} parent The HTML parent element that appends the social media post
  *
  * @uses postTemplate To generate an HTML element containing the post
- *
+ * @uses masonry To stack the posts in a masonry layout
+ * @uses runMasonryOnAccordion To listen for the opening and closing of the accordion elements, and restack the posts in masonry layout each time
  */
 export function renderPostTemplate(post, parent) {
   parent.append(postTemplate(post));
@@ -62,7 +63,8 @@ export function renderPostTemplate(post, parent) {
  * @param {string} parent The HTML parent element that appends the social media posts
  *
  * @uses postTemplate To generate a HTML element for each social media post
- *
+ * @uses masonry To stack the posts in a masonry layout
+ * @uses runMasonryOnAccordion To listen for the opening and closing of the accordion elements, and restack the posts in masonry layout each time
  */
 
 export function renderPostTemplates(postsList, parent) {

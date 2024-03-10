@@ -1,5 +1,5 @@
-import { load } from "../../../storage/index.mjs";
-import { populateUpdateForm } from "../../../ui/events/index.mjs";
+import { load } from "../../../storage/load.mjs";
+import { populateUpdateForm } from "../../../ui/events/populateUpdateForm.mjs";
 import { updateForm } from "../../forms/index.mjs";
 
 export function renderModalBody({ id, author: { name: postAuthor }, title, body, media }) {
@@ -28,7 +28,7 @@ export function renderModalBody({ id, author: { name: postAuthor }, title, body,
       modalBody.append(containerForBtn, error);
 
       deleteBtn.addEventListener("click", async () => {
-        const requestModule = "../../../api/httpRequests/index.mjs";
+        const requestModule = "../../../api/httpRequests/delete.mjs";
         const { removePostFromAPI } = await import(requestModule);
         await removePostFromAPI(id);
       });

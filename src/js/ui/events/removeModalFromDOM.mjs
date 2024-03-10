@@ -11,28 +11,3 @@ export function removeModalFromDOM() {
   modalBackdrop.remove();
   removeUrlParameter("post-id");
 }
-
-
-
-// export function closeModal(closeBtn, postIsUpdated) {
-//   if (document.body.contains(document.querySelector(".modal"))) {
-//     // const closeBtn = document.querySelector(".post-close-btn");
-
-//     if (postIsUpdated) {
-//       closeBtn.addEventListener("click", (event) => {
-//         event.preventDefault();
-//         removeModalFromDOM();
-//         console.log("something");
-//       });
-//     }
-//     if (!postIsUpdated) {
-//       closeBtn.addEventListener("click", (event) => {
-//         event.preventDefault();
-//         removeModalFromDOM();
-//         console.log("something else");
-//       });
-//     }
-//   } else {
-//     console.log("there's no modals to remove");
-//   }
-// }

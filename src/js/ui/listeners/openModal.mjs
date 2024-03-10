@@ -10,7 +10,7 @@ export async function openPostAsModal(openModalBtn) {
     openModalBtn.innerText = "loading";
     const id = event.target.id;
 
-    const modalModule = "../../templates/modals/index.mjs";
+    const modalModule = "../../templates/modals/renderModal.mjs";
     const urlParamModule = "../../routes/urlParams/index.mjs";
 
     const { renderModal } = await import(modalModule);

@@ -1,4 +1,4 @@
-import { validateRepeatPassword, validateUsername, validatePassword, validateEmail } from "../events/index.mjs";
+import { validateRepeatPassword, validateUsername, validatePassword, validateEmail } from "../events/validation.mjs";
 import { email, username, password, repeatPassword, loginPassword, generalErrorContainer, loginEmail } from "../../constants.mjs";
 
 export function validation() {

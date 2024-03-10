@@ -1,8 +1,10 @@
-import * as listenFor from "../ui/listeners/index.mjs";
+import { authentication } from "../ui/listeners/onAuth.mjs";
+import { validation } from "../ui/listeners/formValidation.mjs";
+import { clearErrorMessages } from "../ui/listeners/clearErrorMsg.mjs";
 import { generalErrorContainer } from "../constants.mjs";
 
 export function loginPage() {
-  listenFor.authentication();
-  listenFor.validation();
-  listenFor.clearErrorMessages(generalErrorContainer);
+  authentication();
+  validation();
+  clearErrorMessages(generalErrorContainer);
 }

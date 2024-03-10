@@ -1,8 +1,12 @@
+/* Loads posts into a masonry grid */
 export function masonry() {
   waitForImages();
   masonryOnChange();
   resizeAllMasonryItems();
 }
+
+// FUNCTIONS AND DOCUMENTATION FOR MASONRY INSPIRED BY:
+// https://w3bits.com/css-grid-masonry/#google_vignette
 
 /* Resize all the grid items on the load and resize events */
 function masonryOnChange() {
@@ -12,8 +16,43 @@ function masonryOnChange() {
   });
 }
 
-// FUNCTIONS AND DOCUMENTATION FOR MASONRY FROM:
-// https://w3bits.com/css-grid-masonry/#google_vignette
+/**
+ * Resize the items when all the images inside the masonry grid finish loading.
+ * USES: https://imagesloaded.desandro.com/ (CDN added to HTML)
+ *
+ * @uses ImagesLoaded
+ * @uses resizeMasonryItem
+ */
+export function waitForImages() {
+  var allItems = document.getElementsByClassName("media-masonry-brick");
+
+  for (var i = 0; i < allItems.length; i++) {
+    imagesLoaded(allItems[i], function (instance) {
+      var item = instance.elements[0];
+      resizeMasonryItem(item);
+    });
+  }
+}
+
+/* Resize the masonry layout when an accordion is opened and closed */
+function accordionResize(accordion) {
+  accordion.forEach((accordionelement) => {
+    accordionelement.addEventListener("hidden.bs.collapse", function () {
+      masonry();
+    });
+    accordionelement.addEventListener("shown.bs.collapse", function () {
+      masonry();
+    });
+  });
+}
+
+/* Runs the accordionResize on each of the accordions */
+export function runMasonryOnAccordion() {
+  var accordions = document.getElementsByClassName("detect-collapse");
+  let accordionsArray = [...accordions];
+
+  accordionResize(accordionsArray);
+}
 
 /**
  * Set appropriate spanning to any masonry item
@@ -55,25 +94,5 @@ export function resizeAllMasonryItems() {
   /* Loop through the above list and execute the spanning function to each list-item (i.e. each masonry item)*/
   for (var i = 0; i < allItems.length; i++) {
     resizeMasonryItem(allItems[i]);
-  }
-}
-
-/**
- * Resize the items when all the images inside the masonry grid finish loading.
- * This will ensure that all the content inside our masonry items is visible.
- *
- * USES: https://imagesloaded.desandro.com/ (CDN added to HTML)
- *
- * @uses ImagesLoaded
- * @uses resizeMasonryItem
- */
-export function waitForImages() {
-  var allItems = document.getElementsByClassName("media-masonry-brick");
-
-  for (var i = 0; i < allItems.length; i++) {
-    imagesLoaded(allItems[i], function (instance) {
-      var item = instance.elements[0];
-      resizeMasonryItem(item);
-    });
   }
 }

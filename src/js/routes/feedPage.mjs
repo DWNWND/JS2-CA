@@ -1,20 +1,28 @@
-import * as listenFor from "../ui/listeners/index.mjs";
-import * as content from "../templates/index.mjs";
-import { getPostsByPage } from "../api/httpRequests/index.mjs";
-import { runMasonryOnAccordion } from "../ux/layout/index.mjs";
+import { filtering } from "../ui/listeners/onFilter.mjs";
+import { search } from "../ui/listeners/onSearch.mjs";
+import { publishNewPost } from "../ui/listeners/publishPost.mjs";
+import { clearErrorMessages } from "../ui/listeners/clearErrorMsg.mjs";
+import { logOut } from "../ui/listeners/logOut.mjs";
+import { clickToLoadMore } from "../ui/listeners/loadMore.mjs";
+import { clearFiltersAndInputs } from "../ui/listeners/clearFiltersAndInputs.mjs";
+
+import { renderModal } from "../templates/modals/renderModal.mjs";
+import { renderPostTemplates } from "../templates/posts/renderPosts.mjs";
+import { getPostsByPage } from "../api/httpRequests/get.mjs";
+import { runMasonryOnAccordion } from "../ux/layout/masonry.mjs";
 import { loadMoreBtn, loader, feedContainer, allErrorContaines } from "../constants.mjs";
 
 function generateStartFeed(allPosts, container) {
   container.innerHTML = "";
-  content.renderPostTemplates(allPosts, container);
-  listenFor.logOut();
+  renderPostTemplates(allPosts, container);
+  logOut();
   loader.style.display = "none";
   loadMoreBtn.style.display = "block";
-  listenFor.clickToLoadMore(loadMoreBtn);
+  clickToLoadMore(loadMoreBtn);
 }
 
 export async function feedPage() {
-  listenFor.clearFiltersAndInputs();
+  clearFiltersAndInputs();
   const postByPage = await getPostsByPage;
 
   try {
@@ -25,7 +33,7 @@ export async function feedPage() {
       let id = parseInt(postId);
       postByPage.filter(async (allPosts) => {
         if (allPosts.id === id) {
-          await content.renderModal(id);
+          await renderModal(id);
           let newModal = new bootstrap.Modal(document.getElementById(`modal-${id}`), {});
           newModal.toggle();
         } else {
@@ -34,11 +42,11 @@ export async function feedPage() {
       });
 
       generateStartFeed(postByPage, feedContainer);
-      listenFor.filtering();
-      listenFor.search();
+      filtering();
+      search();
       runMasonryOnAccordion();
-      listenFor.publishNewPost();
-      listenFor.clearErrorMessages(allErrorContaines);
+      publishNewPost();
+      clearErrorMessages(allErrorContaines);
     }
   } catch (error) {
     console.log(error);

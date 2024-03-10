@@ -1,11 +1,11 @@
-import { clearErrorMessages } from "../../ui/listeners/index.mjs";
+import { clearErrorMessages } from "../../ui/listeners/clearErrorMsg.mjs";
 
 export async function renderModal(id) {
   const modalContentModule = "./modalContent/index.mjs";
   const { renderModalHeader, renderModalBody, renderModalFooter } = await import(modalContentModule);
 
   const getParam = "_author=true&_comments=true&_reactions=true";
-  const requestModule = "../../api/httpRequests/index.mjs";
+  const requestModule = "../../api/httpRequests/get.mjs";
   const { getPostFromAPI } = await import(requestModule);
   const post = await getPostFromAPI(id, getParam);
 

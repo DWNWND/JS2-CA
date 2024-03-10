@@ -1,12 +1,11 @@
-import { load } from "../../../storage/index.mjs";
-import { openPostAsModal } from "../../../ui/listeners/index.mjs";
+import { load } from "../../../storage/load.mjs";
+import { openPostAsModal } from "../../../ui/listeners/openModal.mjs";
 
 /**
  * Generates an HTML element for the card/post HEADER of each social media post passed in
  * @param {array, object} postData An array of objects or a single object conatining of social media post(s)
  * @returns {string} Returns a HTML elemement for the card/post header
- *
- * @uses modalOpenBtn To generate the btn to open post as a modal
+ * @uses openPostAsModal To add an eventlistener to the modalBtn that generates the post as a modal on click
  */
 export function renderPostHeader({
   id,
