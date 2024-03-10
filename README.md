@@ -88,9 +88,9 @@ git clone https://github.com/DWNWND/JS2-CA.git
 
    > `npm install`
 
-5. Run `watch` & `liveserver`
+5. Run `watch`
 
-   > `npm run dev`
+   > `npm run watch`
 
 ## Contact
 
